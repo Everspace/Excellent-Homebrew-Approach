@@ -9,8 +9,8 @@ This armour looks like a articulated plate made of glassy, yet flexible black st
 
 It was originally worn by the Elite troops of the Dragon Kings, but it is rare within the Age of Sorrows. Most surviving examples of the Obsidian Sheath have ended up in the arsonels of various powers, and not used often even then due to the unfortunate iconography.
 
-**Attunement:** 7m <br />
-**Type:** Medium (+10 soak, Hardness 5, Mobility Penalty 0) <br />
+**Attunement:** 5m <br />
+**Type:** Medium (+8 soak, Hardness 7, Mobility Penalty 0) <br />
 **Tags:** Silent, Concealable <br />
 **Era:** Time of the Dragon Kings <br />
 
