@@ -1,5 +1,6 @@
 ---
 title: Agony of the Discarded Toy
+category: Handwerksring
 essence: 2
 type: Supplimental
 required_charms:
