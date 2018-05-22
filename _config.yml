@@ -6,29 +6,29 @@ author: Everspace
 description: >-
   A bunch of misc bits for stuff
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://eha.ex3.everspace.ca" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  Everspace
-
+remove: '.html'
 collections_dir: content
 collections:
   evocations:
     output: true
-    permalink: /:categories/:collection/:title
+    permalink: /:categories/:collection/:title/
   charms:
     output: true
-    permalink: /:collection/:title
+    permalink: /:collection/:title/
   artifacts:
     output: true
-    permalink: /:collection/:title
+    permalink: /:collection/:title/
   monsters:
     output: true
-    permalink: /:collection/:title
+    permalink: /:collection/:title/
   npcs:
     output: true
-    permalink: /:collection/:title
+    permalink: /:collection/:title/
   characters:
     output: true
-    permalink: /:collection/:title
+    permalink: /:collection/:title/
 
 defaults:
   - scope:
