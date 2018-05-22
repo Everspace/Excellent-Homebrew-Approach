@@ -1,25 +1,21 @@
-{%- assign evocations = (
-    site.evocations
-    | where:"categories", page.title
-    | group_by: "essence"
-  )
-  | reverse
+{%- assign evocations = site.evocations
+  | where:"category", page.title
+  | group_by_exp: "item", "item.essence"
+  | sort: "name"
 -%}
 
-{{ evocations | inspect }}
-<ul>
 {%- for group in evocations -%}
-  <h3>Essence {{group.name}}</h1>
-  {%- for charm in group.items -%}
-    {{ charm | inspect }}
-    <li>
-      <h1>{{ charm.title }}</h1>
-
-      {%- include charms/data.html -%}
-      <div>
-        {{ charm.content }}
-      </div>
-    </li>
+  <hr />
+  <h2>Essence {{group.name}}</h2>
+  <hr />
+  {%- for evocation in group.items -%}
+    {%- unless forloop.first -%}
+      <hr style="width: 50%" />
+    {%- endunless -%}
+    <h3 id="{{ evocation.title | slugify }}">{{ evocation.title }}</h3>
+    {%- include evocations/data.html evocation=evocation -%}
+    <div>
+      {{ evocation.content }}
+    </div>
   {%- endfor -%}
 {%- endfor -%}
-</ul>

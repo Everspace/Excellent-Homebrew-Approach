@@ -35,9 +35,13 @@
       <strong>Prerequisites: </strong>
       {%- for title in charm.charms_needed -%}
         {%- unless forloop.first -%}, {% endunless -%}
-        {%- assign target = site.documents | where:"title", title | first -%}
+        {%- assign target = site.documents | where: "title", title | first -%}
         {%- if target -%}
-        <a href="{{target.url}}">{{target.title}}</a>
+          {%- if target.collection == "evocations" -%}
+            <a href="#{{target.title | slugify}}">{{target.title}}</a>
+          {%- else -%}
+            <a href="{{target.url}}">{{target.title}}</a>
+          {%- endif -%}
         {%- else -%}
           {{ title }}
         {%- endif -%}
