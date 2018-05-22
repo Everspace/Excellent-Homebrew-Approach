@@ -1,0 +1,21 @@
+{%- assign evocations = site.evocations
+  | where:"categories", page.title
+  | group_by_exp: "item", "item.essence"
+  | sort: "name"
+-%}
+
+{%- for group in evocations -%}
+  <hr />
+  <h2>Essence {{group.name}}</h2>
+  <hr />
+  {%- for evocation in group.items -%}
+    {%- unless forloop.first -%}
+      <hr style="width: 50%" />
+    {%- endunless -%}
+    <h3>{{ evocation.title }}</h3>
+    {%- include evocations/data.html -%}
+    <div>
+      {{ evocation.content }}
+    </div>
+  {%- endfor -%}
+{%- endfor -%}

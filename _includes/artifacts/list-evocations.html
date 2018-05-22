@@ -1,0 +1,25 @@
+{%- assign evocations = (
+    site.evocations
+    | where:"categories", page.title
+    | group_by: "essence"
+  )
+  | reverse
+-%}
+
+{{ evocations | inspect }}
+<ul>
+{%- for group in evocations -%}
+  <h3>Essence {{group.name}}</h1>
+  {%- for charm in group.items -%}
+    {{ charm | inspect }}
+    <li>
+      <h1>{{ charm.title }}</h1>
+
+      {%- include charms/data.html -%}
+      <div>
+        {{ charm.content }}
+      </div>
+    </li>
+  {%- endfor -%}
+{%- endfor -%}
+</ul>

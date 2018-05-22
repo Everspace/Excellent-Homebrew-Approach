@@ -1,0 +1,15 @@
+{%- if site.charms.size > 0 -%}
+  <h2 class="post-list-heading">Charms</h2>
+  <ul class="post-list">
+    {%- for charm in site.charms -%}
+      <li>
+        <div>
+          <a class="post-link" href="{{charm.url}}">
+            {{charm.title | escape}}
+          </a>
+        </div>
+        {% include charms/data.html %}
+      </li>
+    {%- endfor -%}
+  </ul>
+{%- endif -%}

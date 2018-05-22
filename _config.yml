@@ -1,0 +1,81 @@
+# Site settings
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: Exellent Homebrew Approach
+author: Everspace
+description: >-
+  A bunch of misc bits for stuff
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+github_username:  Everspace
+
+collections_dir: content
+collections:
+  evocations:
+    output: true
+    permalink: /:categories/:collection/:title
+  charms:
+    output: true
+    permalink: /:collection/:title
+  artifacts:
+    output: true
+    permalink: /:collection/:title
+  monsters:
+    output: true
+    permalink: /:collection/:title
+  npcs:
+    output: true
+    permalink: /:collection/:title
+  characters:
+    output: true
+    permalink: /:collection/:title
+
+defaults:
+  - scope:
+      type: evocations
+    values:
+      layout: evocations
+  - scope:
+      type: charms
+    values:
+      layout: charms
+  - scope:
+      type: artifacts
+    values:
+      layout: artifacts
+  - scope:
+      type: monsters
+    values:
+      layout: monsters
+  - scope:
+      type: npcs
+    values:
+      layout: npcs
+  - scope:
+      type: characters
+    values:
+      layout: characters
+
+# Build settings
+markdown: kramdown
+#theme: minima
+plugins:
+  - jekyll-feed
+
+markdown_ext: "markdown,mkdown,mkdn,mkd,md,jekyll"
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - docker-compose.yml
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - tmp/
+  - LICENSE
+  - README.md

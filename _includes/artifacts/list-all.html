@@ -1,0 +1,18 @@
+
+<h2 class="post-list-heading">Artifacts</h2>
+{%- assign categories = site.artifacts | group_by: "category" -%}
+{%- for category in categories -%}
+  <h3>{{category.name}}</h3>
+  {%- assign artifacts = category.items | sort_by: "rating" -%}
+  <ul>
+  {%- for artifact in artifacts -%}
+    <li>
+      <div>
+        <a href="{{artifact.url}}">{{artifact.title | escape}}</a>
+        {% include rating.html rating=artifact.rating %}
+        - {{artifact.discription}}
+      </div>
+    </li>
+  {%- endfor -%}
+  </ul>
+{%- endfor -%}

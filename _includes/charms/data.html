@@ -1,0 +1,47 @@
+{%- if include.charm -%}
+  {% assign charm = include.charm %}
+{%- endif -%}
+<div>
+  <p>
+    <strong>Cost: </strong>
+    <span>{{ charm.cost | default: "—" }};</span>
+    <strong>Mins: </strong>
+    <span>
+      Essence {{ charm.essence }}
+      {%- if charm.skill -%}
+      , {{charm.skill}} {{charm.minimum | default: 1}}
+      {%- endif -%}
+      {%- for min in charm.mins -%}
+        , {{ min }}
+      {%- endfor -%}
+    </span>
+    <br/>
+    <strong>Type: </strong>{{ charm.type | default: "Simple" }}
+    <br/>
+    <strong>Duration: </strong>{{ charm.duration | default: "Instant" }}
+    <br/>
+    <strong>Keywords: </strong>
+    {%- if charm.keywords -%}
+      {%- assign keywords = charm.keywords | sort -%}
+      {% for keyword in keywords -%}
+        {%- unless forloop.first -%}, {% endunless -%}
+        {{ keyword }}
+      {%- endfor -%}
+    {%- else -%}
+      None
+    {%- endif -%}
+    <br/>
+    {%- if charm.charms_needed -%}
+      <strong>Prerequisites: </strong>
+      {%- for title in charm.charms_needed -%}
+        {%- unless forloop.first -%}, {% endunless -%}
+        {%- assign target = site.documents | where:"title", title | first -%}
+        {%- if target -%}
+        <a href="{{target.url}}">{{target.title}}</a>
+        {%- else -%}
+          {{ title }}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+  </p>
+</div>

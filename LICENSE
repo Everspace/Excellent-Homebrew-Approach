@@ -1,0 +1,38 @@
+Definitions:
+
+Material means any literary work which is made for the explicit purpose of being additional, fan-made content for enjoyment with any gaming system digital or otherwise. This also includes images used for the project unless differently licenced, in which their orgional licences apply.
+
+Code means any technical work used to layout or display the Material. This includes the styles and layout that place images BUT NOT the images themselves. This is otherwise known as "Theme" within the Jekyll software community.
+
+Me means Aaron Haaf
+
+Conditions:
+
+This licence is valid until the Code and Material are sepereated in a logical manner, and each has a satifactory license to whims of the licence holder (me).
+
+License Jumble:
+
+Material is licenced under the Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0), which is listed here: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+
+Me should be attributed by linking to the code repoitory where the material resides.
+
+Code is licenced under the MIT licence which follows:
+
+Copyright (c) 2018 Aaron Haaf (Everspace)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
