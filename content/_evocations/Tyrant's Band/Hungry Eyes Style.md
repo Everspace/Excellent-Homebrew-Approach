@@ -18,4 +18,4 @@ The bearer selects a being that she is aware of as a target of their hunger and 
 
 Difficult terrain never impedes her from moving towards the offender, nor does anything less than full cover provide any benefit to them against her attacks.
 
-**Special Activation:** atunement blah blah blah
+**Special Activation:** This Evocation awakens at no cost when the wielder kills a powerful opponent.
