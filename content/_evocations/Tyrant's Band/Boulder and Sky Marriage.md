@@ -2,7 +2,7 @@
 title: Boulder and Sky Marriage
 category: Tyrant's Band
 essence: 1
-type: Supplimentary
+type: Supplementary
 cost: 4m
 keywords: ~
 duration: Instant

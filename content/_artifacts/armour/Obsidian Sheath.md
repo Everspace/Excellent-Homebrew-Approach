@@ -1,6 +1,6 @@
 ---
 title: Obsidian Sheath
-discription: Obsidian and Orichalcum Dragon King Armour
+description: Obsidian and Orichalcum Dragon King Armour
 category: Medium Armour
 rating: 4
 ---

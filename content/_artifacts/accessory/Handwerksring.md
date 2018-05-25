@@ -1,6 +1,6 @@
 ---
 title: Handwerksring
-discription: White Jade and Iron Ring
+description: White Jade and Iron Ring
 category: Accessory
 rating: 4
 ---
