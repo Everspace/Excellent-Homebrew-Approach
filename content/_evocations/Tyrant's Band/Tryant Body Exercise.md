@@ -2,11 +2,12 @@
 title: Tyrant Body Exercise
 category: Tyrant's Band
 essence: 1
-type: Permanent
+cost: 2m/dot
+type: Supplimentary
 keywords:
 - Apocryphal
-duration: Permanent
-required_charms:
+duration: Indefinite
+charms_needed:
 - Increasing Strength Excersise
 - Ten Ox Meditation
 ---
