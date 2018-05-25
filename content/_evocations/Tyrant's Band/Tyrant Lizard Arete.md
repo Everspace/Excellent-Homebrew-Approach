@@ -13,7 +13,7 @@ charms_needed:
 
 The exalt stands taller and taller, until they become the Tyrant Lizard.
 
-The barer of Tyrant's Band grows to roughly 40ft and takes on a terrifying appearance.
+The bearer of Tyrant's Band grows to roughly 40ft and takes on a terrifying appearance.
 She also gains the Legendary Size merit for the rest of the scene.
 
 Against smaller enemies:
