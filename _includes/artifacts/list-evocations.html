@@ -5,6 +5,10 @@
 -%}
 
 {%- for group in evocations -%}
+  {%- if forloop.first -%}
+  <hr/>
+  <h1>Evocations:</h1>
+  {%- endif -%}
   <h2>Essence {{group.name}}</h2>
   {%- for evocation in group.items -%}
     {%- unless forloop.first -%}
