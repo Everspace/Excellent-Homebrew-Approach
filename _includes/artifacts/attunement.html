@@ -1,0 +1,71 @@
+{%- if include.artifact -%}
+  {%- assign artifact = include.artifact -%}
+{%- else -%}
+<div class="error">
+    Artifact wasn't assigned when including attunement.html <br />
+</div>
+{%- endif -%}
+
+{%- if artifact.weight -%}
+  {%- case artifact.category -%}
+  {%- when "Weapon" -%}
+    {%- if artifact.type -%}
+      {%- assign base_values = site.data.weapon[artifact.type][artifact.weight] -%}
+    {%- else -%}
+      <div class="error">
+        {{ artifact.title }} is missing a a type like Melee or Thrown
+      </div>
+    {%- endif -%}
+  {%- when "Armour" -%}
+    {%- assign base_values = site.data.armour.artifact[artifact.weight] -%}
+  {%- else -%}
+    <div class="error">
+      {{ artifact.title }} is missing a category like "Armour" or "Weapon"
+    </div>
+  {%- endcase -%}
+{%- else -%}
+<div class="error">
+  Please specify weight for the artifact titled {{ artifact.title }}
+</div>
+{%- endif -%}
+
+<div class="card">
+  <div>
+      <strong>Attunement: </strong> {{ artifact.attunement | default: base_values.attunement }}m
+  </div>
+  <div>
+    <strong>Type: </strong>
+    <span>
+      {%- case artifact.category -%}
+      {%- when "Weapon" -%}
+        Whoops I haven't done that yet
+      {%- when "Armour" -%}
+        {{ artifact.weight }}
+        (+{{
+          artifact.soak | default: base_values.soak
+        }} Soak, Hardness {{
+          artifact.hardness | default: base_values.hardness
+        }}, Mobility Penalty {{
+          artifact.mobility | default: base_values.mobility
+        }})
+      {%- endcase -%}
+    </span>
+
+    <span></span>
+  </div>
+  <div>
+    <strong>Tags: </strong>
+    <span>
+    {%- for tag in artifact.tags -%}
+      {%- unless forloop.first -%}, {% endunless -%}
+      {{- tag -}}
+    {%- else -%}
+      None
+    {%- endfor -%}
+    </span>
+  </div>
+  <div>
+    <strong>Era: </strong>
+    <span>{{ artifact.era | default: "Age of Sorrows" }}</span>
+  </div>
+</div>
