@@ -7,7 +7,7 @@ cost: 5m 1wp
 duration: Instant
 ---
 
-The barer of the {{page.category}} sometimes finds themselves in the middle of nowhere and far from the reaches of civilization. However, there is no fear, since she had not exhausted her supplies just yet.
+The bearer of the {{page.category}} sometimes finds themselves in the middle of nowhere and far from the reaches of civilization. However, there is no fear, since she had not exhausted her supplies just yet.
 
 Whirling through almost every drawer they know, the user pulls enough leftover cakes, sandwiches, and other small morsels to constitute a meal for themselves or one other person.
 
