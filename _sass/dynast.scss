@@ -1,1 +1,8 @@
-// todo
+
+$spacing-unit: 1em !default;
+$text-color: #111;
+
+@import
+  "dynast/base",
+  "dynast/layout"
+;

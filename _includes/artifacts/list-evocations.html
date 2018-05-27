@@ -5,17 +5,17 @@
 -%}
 
 {%- for group in evocations -%}
-  <hr />
   <h2>Essence {{group.name}}</h2>
-  <hr />
   {%- for evocation in group.items -%}
     {%- unless forloop.first -%}
-      <hr style="width: 50%" />
     {%- endunless -%}
-    <h3 id="{{ evocation.title | slugify }}">{{ evocation.title }}</h3>
-    {%- include evocations/data.html evocation=evocation -%}
-    <div>
-      {{ evocation.content }}
+    <div class="card">
+      <h3 id="{{ evocation.title | slugify }}">{{ evocation.title }}</h3>
+      <hr />
+      {%- include evocations/data.html evocation=evocation -%}
+      <div>
+        {{ evocation.content }}
+      </div>
     </div>
   {%- endfor -%}
 {%- endfor -%}
