@@ -3,7 +3,7 @@
 {%- assign categories = site.artifacts | group_by: "category" -%}
 {%- for category in categories -%}
   <h3>{{category.name}}</h3>
-  {%- assign artifacts = category.items | sort_by: "rating" -%}
+  {%- assign artifacts = category.items | sort: "rating" -%}
   <ul>
   {%- for artifact in artifacts -%}
     <li>

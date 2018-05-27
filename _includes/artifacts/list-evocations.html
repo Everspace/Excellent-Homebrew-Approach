@@ -1,7 +1,7 @@
 {%- assign evocations = site.evocations
   | where:"category", page.title
   | group_by_exp: "item", "item.essence"
-  | sort: "name"
+  | sort: "charms_needed","first"
 -%}
 
 {%- for group in evocations -%}
@@ -11,8 +11,6 @@
   {%- endif -%}
   <h2>Essence {{group.name}}</h2>
   {%- for evocation in group.items -%}
-    {%- unless forloop.first -%}
-    {%- endunless -%}
     <div class="card">
       <h3 id="{{ evocation.title | slugify }}">{{ evocation.title }}</h3>
       <hr />
