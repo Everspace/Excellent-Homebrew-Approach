@@ -1,3 +1,48 @@
+$background-color: #d5d6ce;
+$font-color: #111;
+$title-color: #ffbd1b;
+$title-color: desaturate($title-color, 20%);
+$background-color: desaturate($background-color, 40%);
+
+
+$highlight-background-color: #9c0000;
+$highlight-font-color: #CCC;
+
+p {
+  font-family: 'Volkhov', serif;
+  font-weight: 400;
+  color: $font-color;
+}
+
+a {
+  color: $title-color;
+}
+
+a:hover, a:visited:hover {
+  color: $font-color;
+}
+
+a:visited {
+  color: darken($title-color, 20%);
+}
+
+
+h1, h2, h3, h4, h5, h6, a.site-title {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  color: $title-color;
+  background-color: saturate($highlight-background-color, 10%);
+}
+
+h1 {
+  font-weight: 900;
+}
+
 hr {
   margin: 1em;
+  border-color: $title-color;
+}
+
+body {
+  background: $background-color;
 }
