@@ -1,7 +1,7 @@
 {%- assign evocations = site.evocations
   | where:"category", page.title
   | group_by_exp: "item", "item.essence"
-  | sort: "charms_needed","first"
+  | sort: "name"
 -%}
 
 {%- for group in evocations -%}
