@@ -26,12 +26,10 @@ a:visited {
   color: darken($title-color, 20%);
 }
 
-
 h1, h2, h3, h4, h5, h6, a.site-title {
   font-family: 'Cinzel', serif;
   font-weight: 700;
   color: $title-color;
-  background-color: saturate($highlight-background-color, 10%);
 }
 
 h1 {
@@ -41,7 +39,6 @@ h1 {
 strong {
   font-family: 'Cinzel', serif;
   font-weight: 700;
-  color: #DDD;
 }
 
 hr {
@@ -52,5 +49,6 @@ hr {
 }
 
 body {
-  background: $background-color;
+  background-image: url('/assets/img/background.png');
+  background-color: $background-color;
 }
