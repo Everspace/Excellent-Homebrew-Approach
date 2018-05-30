@@ -1,12 +1,12 @@
-$background-color: #d5d6ce;
+$background-color: #CCC; //d5d6b0
 $font-color: #111;
-$title-color: #ffbd1b;
+$title-color: #ffcb2f;
 $title-color: desaturate($title-color, 20%);
 $background-color: desaturate($background-color, 40%);
 
 
-$highlight-background-color: #9c0000;
-$highlight-font-color: #CCC;
+$highlight-background-color: #811d1d;
+$highlight-font-color: $background-color;
 
 p {
   font-family: 'Volkhov', serif;
