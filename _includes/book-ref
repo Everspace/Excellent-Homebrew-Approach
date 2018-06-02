@@ -1,0 +1,1 @@
+<strong>{{include.name}} </strong> <em>({{include.book | default: "Ex3"}}: pg.{{ include.pg | default: "XXX" -}})</em>
