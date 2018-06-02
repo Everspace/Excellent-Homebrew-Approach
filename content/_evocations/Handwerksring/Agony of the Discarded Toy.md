@@ -2,11 +2,11 @@
 title: Agony of the Discarded Toy
 category: Handwerksring
 essence: 2
-type: Supplimental
+type: Supplemental
 required_charms:
 - Scorn of the Dancer
 ---
 
-Channelling the fury of a toy dropped by a careless child,  the callousness of the ten thousand legs of tables and chairs, and the deception of stairs slightly different in height, the solar engineers the ground around them to be hostile to feet.
+Channelling the fury of a toy dropped by a careless child, the callousness of the ten thousand legs of tables and chairs, and the deception of stairs slightly different in height, the solar engineers the ground around them to be hostile to feet.
 
-This charm improves Scorn of the Dancer with an increased difficulty of 6, and even those with proper footwear stumble and catch their feet on the eldritch angles etched into ground.
+This charm improves Scorn of the Dancer with a new increased difficulty of 6, and even those with proper footwear stumble and catch their feet on the eldritch angles etched into ground.

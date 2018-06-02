@@ -10,7 +10,7 @@ charms_needed:
 - Distance Shifting Arete
 ---
 
-With a flourish essence infused chains whirl themselves out from the solar’s surroundings. Shackles that bind even countless enemies to the exalt’s will.
+With a flourish, essence-infused chains whirl themselves out from the solar’s surroundings. Shackles that bind even countless enemies to the exalt’s will.
 
 You may begin a **basic project** (page 31689) to create bindings in order to establish a grapple on a battle group with a difficulty equal to its
 (Size * (Might + 1) ).
