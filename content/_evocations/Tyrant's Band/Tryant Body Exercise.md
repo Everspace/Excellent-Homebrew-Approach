@@ -9,7 +9,6 @@ keywords:
 duration: Indefinite
 charms_needed:
 - Increasing Strength Exercise
-- Ten Ox Meditation
 ---
 
 Meditating on the nature of the tyrant lizard, the Solar becomes able to exert themselves at all times with the body of a titan.
