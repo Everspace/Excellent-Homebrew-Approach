@@ -10,7 +10,7 @@
       <div>
         <a href="{{artifact.url}}">{{artifact.title | escape}}</a>
         {% include rating.html rating=artifact.rating %}
-        - {{artifact.description}}
+        - {{artifact.weight | default(none)}} {{artifact.description}}
       </div>
     </li>
   {%- endfor -%}
