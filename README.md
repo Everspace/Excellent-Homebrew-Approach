@@ -1,4 +1,4 @@
-# Exellent-Homebrew-Approach
+# Excellent-Homebrew-Approach
 
 A Jekyll blog that also functions as my current bundle of homebrew.
 

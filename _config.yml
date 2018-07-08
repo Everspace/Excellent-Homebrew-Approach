@@ -1,7 +1,7 @@
 # Site settings
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Exellent Homebrew Approach
+title: Excellent Homebrew Approach
 author: Everspace
 description: >-
   A bunch of misc bits for stuff
@@ -79,3 +79,6 @@ exclude:
   - tmp/
   - LICENSE
   - README.md
+  - .sass-cache/
+  - .vscode/
+  - source/
