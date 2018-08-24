@@ -1,12 +1,9 @@
 ---
-title: 10,000 Eternities Introduction
-splat: Solar
 essence: 2
-skill: Performance
-minimum: 3
+skill: 3
 mins:
 - Athletics 3
-charms_needed:
+charmsNeeded:
 - Recursive Horror Approach
 keywords:
 - Frog
