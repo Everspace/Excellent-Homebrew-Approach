@@ -1,3 +1,8 @@
-import React from 'react'
+import React from "react"
+import { css } from "emotion"
 
-export const book = ({name}) => <a>{name}</a>
+const underline = css({
+  borderBottom: "1px dotted gray",
+})
+
+export const book = ({ name }) => <a style={underline}>{name}</a>
