@@ -1,11 +1,8 @@
 ---
-title: Boulder and Sky Marriage
-category: Tyrant's Band
 essence: 1
 type: Supplementary
-cost: 2m
-keywords: ~
 duration: Instant
+cost: 2m
 ---
 
 With great strength the wearer makes the earth and heavens one again.

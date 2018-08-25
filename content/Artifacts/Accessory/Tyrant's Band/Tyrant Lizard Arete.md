@@ -1,12 +1,10 @@
 ---
-title: Tyrant Lizard Arete
-category: Tyrant's Band
 essence: 3
 type: Simple
 duration: 1 scene
-cost: 15m 2wp (5m, 1wp)
 keywords:
 - Resonant
+cost: 15m 2wp (5m, 1wp)
 charms_needed:
 - Apex Predator Attitude
 - Tyrant's Dread Symmetry
@@ -31,4 +29,4 @@ This Evocation can only be used once per story. The Exalt may reset it when she 
 
 **Special Activation:** attunement blah blah blah
 
-*Note: I don't have enough charms between the start and this one.*
+**Note:** I don't have enough charms between the start and this one. Also it needs something spicer perhaps

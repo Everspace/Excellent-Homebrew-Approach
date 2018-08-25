@@ -1,11 +1,8 @@
 ---
-title: Poised Tyrant's Attitude
-category: Tyrant's Band
 essence: 1
 type: Reflexive
-keywords: ~
-cost: 2m
 duration: Instant
+cost: 2m
 ---
 
 The Solar’s Strength is such that she casually tosses aside bolders with unnatural ease, even on the battlefeld.

@@ -1,11 +1,8 @@
 ---
-title: Furious Rampage Approach (Approach of the Crystal Jug)
-category: Tyrant's Band
 essence: 2
 type: Supplementary
-keywords: ~
-cost: 2m
 duration: Instant
+cost: 2m
 charms_needed:
 - Hungry Eyes Style
 ---

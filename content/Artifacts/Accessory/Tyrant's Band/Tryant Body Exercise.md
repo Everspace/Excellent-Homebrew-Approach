@@ -1,12 +1,11 @@
 ---
-title: Tyrant Body Exercise
-category: Tyrant's Band
 essence: 2
-cost: (2m or 1i)/dot
 type: Supplementary
+duration: Indefinite
+cost: (2m or 1i)/dot
 keywords:
 - Apocryphal
-duration: Indefinite
+- Stackable
 charms_needed:
 - Increasing Strength Exercise
 ---

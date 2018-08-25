@@ -1,10 +1,8 @@
 ---
-title: Prey Strangling Attitude
-category: Tyrant's Band
 essence: 1
 type: Supplementary
-cost: 3m
 duration: Instant
+cost: 3m
 charms_needed:
 - Devil Strangling Attitude
 ---

@@ -1,11 +1,8 @@
 ---
-title: Apex Predator Attitude
-category: Tyrant's Band
 essence: 2
 type: Permanent
-keywords: ~
-cost: — (1wp)
 duration: Permanent
+cost: — (1wp)
 charms_needed:
 - Hungry Eyes Style
 ---
