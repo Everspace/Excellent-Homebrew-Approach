@@ -7,9 +7,7 @@ export const query = graphql`
   allExaltedArtifact {
     edges {
       node {
-        sourceFile {
-          name
-        }
+        name
         parent {
           ... on MarkdownRemark {
           	htmlAst
@@ -30,9 +28,9 @@ export const query = graphql`
 export default ({data}) => {
   let result = data.allExaltedArtifact.edges
     .map(({node}) => node)
-    .map( ({sourceFile, parent}) =>
-    <div key={sourceFile.name}>
-      <h2>{sourceFile.name}</h2>
+    .map( ({name, parent}) =>
+    <div key={name}>
+      <h2>{name}</h2>
       <Ast ast={parent.htmlAst} />
     </div>
   )
