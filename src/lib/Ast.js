@@ -1,5 +1,5 @@
 import React from "react"
-import rehypeReact from "rehype-react"
+import rehypeReact from "vendor/rehype-react"
 import * as components from "components/markdownComponents"
 import GatsbyContext from "lib/GatsbyContext"
 
@@ -12,9 +12,12 @@ const Ast = ({ ast, node, ...props }) => {
   if (!node) {
     console.log("Node was missing when going to render Ast!", props)
   }
+
+  ast.properties = props || {}
+
   return (
     <GatsbyContext.Provider value={node}>
-      <div {...props}>{renderAst(ast)}</div>
+      {renderAst(ast)}
     </GatsbyContext.Provider>
   )
 }
