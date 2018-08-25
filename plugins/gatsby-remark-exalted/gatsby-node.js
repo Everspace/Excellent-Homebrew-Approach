@@ -1,17 +1,17 @@
-const crypto = require('crypto')
+const crypto = require("crypto")
 
-const baseNode = ({node, createNodeId}, type) => ({
-  id: createNodeId(`${node.id} >> ${type}`),
+const baseNode = ({ node, createNodeId }, type) => ({
   children: [],
+  id: createNodeId(`${node.id} >> ${type}`),
   parent: node.id,
   ...node.frontmatter,
   internal: {
+    description: `Exalted ${type}`,
     type: type,
-    description: `Exalted ${type}`
-  }
+  },
 })
 
-const digest = (node) => {
+const digest = node => {
   node.internal.contentDigest = crypto
     .createHash(`md5`)
     .update(JSON.stringify(node))
@@ -19,10 +19,10 @@ const digest = (node) => {
   return node
 }
 
-const makeArtifactNode = async (props) => {
-  let {node, getNode} = props
+const makeArtifactNode = async props => {
+  let { node, getNode } = props
 
-  if (node.fields.sourceName != "Artifacts") {
+  if (node.fields.sourceName !== "Artifacts") {
     return null
   }
 
@@ -31,13 +31,13 @@ const makeArtifactNode = async (props) => {
     return null
   }
 
-  let parts = fileNode.relativePath.split('/')
+  let parts = fileNode.relativePath.split("/")
   let result = baseNode(props, "ExaltedArtifact")
   parts.pop() // get rid of index.whatever
   result.name = parts.pop()
   result.title = result.name
   result.tags = ["Artifact"]
-  while(parts.length > 0) {
+  while (parts.length > 0) {
     result.tags.push(parts.pop())
   }
   result = digest(result)
@@ -48,7 +48,7 @@ const makeArtifactNode = async (props) => {
 const makeEvocationNode = null
 const makeSplatNode = null
 
-const onCreateNode = async function (props, pluginOptions) {
+const onCreateNode = async function(props, pluginOptions) {
   const { node, getNode, loadNodeContent, actions, createNodeId } = props
   const { createNode, createParentChildLink } = actions
 
@@ -70,7 +70,7 @@ const onCreateNode = async function (props, pluginOptions) {
   // 'createNodeId',
   // 'tracing'
   // We only care about Spiffy'ing up MarkdownRemark nodes.
-  if ( node.internal.type !== "MarkdownRemark") {
+  if (node.internal.type !== "MarkdownRemark") {
     return
   }
 
