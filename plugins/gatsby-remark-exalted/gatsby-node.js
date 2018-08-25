@@ -1,5 +1,4 @@
 const crypto = require('crypto')
-const { isIndexFile } = require('./src/lib')
 
 const baseNode = ({node, createNodeId}, type) => ({
   id: createNodeId(`${node.id} >> ${type}`),
