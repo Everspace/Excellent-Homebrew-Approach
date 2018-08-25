@@ -1,24 +1,41 @@
 import React from "react"
 import { graphql } from "gatsby";
-import Attunement from "../components/Attunement";
+import Ast from "lib/Ast";
 
 export const query = graphql`
 {
-  allMarkdownRemark {
+  allExaltedArtifact {
     edges {
       node {
-        fileAbsolutePath
+        sourceFile {
+          name
+        }
+        parent {
+          ... on MarkdownRemark {
+          	htmlAst
+          }
+        }
       }
     }
   }
 }
-
 `
 
+/*
+<Ast
+        key={n.sourceFile.name}
+        htmlAst={n.parent.htmlAst}
+      />
+      */
 export default ({data}) => {
-  console.log(data)
-
-  return (
-    <Attunement cost="3m" />
+  let result = data.allExaltedArtifact.edges
+    .map(({node}) => node)
+    .map( ({sourceFile, parent}) =>
+    <div key={sourceFile.name}>
+      <h2>{sourceFile.name}</h2>
+      <Ast ast={parent.htmlAst} />
+    </div>
   )
+
+  return result
 }

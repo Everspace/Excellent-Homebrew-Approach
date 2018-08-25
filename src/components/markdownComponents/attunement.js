@@ -12,7 +12,7 @@ let hearthstoneStyle = css`
   }
 `
 
-const Attunement = ({ cost, slots }) => {
+export const attunement = ({ cost, slots }) => {
   let toDisplay = []
   toDisplay.push(
     <div className={attuneStyle} key="attunement">
@@ -29,7 +29,4 @@ const Attunement = ({ cost, slots }) => {
   }
 
   return <div>{toDisplay}</div>
-
 }
-
-export default Attunement
