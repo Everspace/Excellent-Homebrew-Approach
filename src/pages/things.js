@@ -19,12 +19,6 @@ export const query = graphql`
 }
 `
 
-/*
-<Ast
-        key={n.sourceFile.name}
-        htmlAst={n.parent.htmlAst}
-      />
-      */
 export default ({data}) => {
   let result = data.allExaltedArtifact.edges
     .map(({node}) => node)
