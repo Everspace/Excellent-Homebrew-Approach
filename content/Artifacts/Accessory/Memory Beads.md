@@ -1,7 +1,5 @@
 ---
-title: Memory Beads
 description: Dreamstone and White Jade beads
-category: Misc
 rating: 2
 ---
 

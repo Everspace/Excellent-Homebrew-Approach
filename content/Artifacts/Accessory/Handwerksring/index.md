@@ -1,7 +1,6 @@
 ---
-title: Handwerksring
 description: White Jade and Iron Ring
-category: Accessory
+attunement: 3m
 rating: 4
 ---
 
@@ -11,7 +10,6 @@ After discovering that his teacher had been hiding money, and selling weapons to
 
 Etched into the interior of the ring is Still Star's maker's mark, which he presses into each of upon completion of each of his workings, as a signature.
 
-By attuning to the ring for **3m** you:
+<attunement></attunement>
 
-* Are able to reflexively use **Craftsman Need No Tools** with no cost on inorganic materials like iron and stone, and may pay 3m to override this restriction.
-* Develop a minor intimacy of "I give it my all", that strengthens at the end of each story.
+Additionally, you are able to reflexively use <book r="Craftsman Need No Tools"></book> with no cost on inorganic materials like iron and stone, and may pay 3m to override this restriction for anything else. You also develop a minor intimacy of "I give it my all", at the beginning of each story.

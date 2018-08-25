@@ -1,12 +1,10 @@
 ---
-title: Room For Dessert Approach
-category: Incomparable Lady's Arsenal
 essence: 2
 type: Reflexive
+duration: Instant
 keywords:
 - Mute
 cost: 5m 1wp
-duration: Instant
 ---
 
 Perhaps not budged by the tea, the lawgiver knows that perhaps another slice of cake will refresh the conversation.

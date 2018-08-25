@@ -1,5 +1,4 @@
 ---
-title: Incomparable Lady's Arsenal
 description: Jade and Wood Storage Box
 category: Misc
 rating: 3
@@ -9,6 +8,6 @@ This is an exquisite box made of stark white jade and deep ebony. Inlaid are pat
 
 Several drawers contain crystalline vials filled with resplendent inks, and little tins filled with various teas and spices. A larger drawer holds a spare ensemble in a motif in the style of the chest.
 
-The box functions as a combination **Stoneheart Coffer** *(Arms 117)* and **Winterbreath Jar** *(Arms 118)*. Things placed inside are kept fresh and still. Its exceptional quality and bounty removes almost any social penalty. People not accustomed to the elegance of high society suffer a -2 to their guile while being served.
+The box functions as a combination <book r="Stoneheart Coffer"></book> and <book r="Winterbreath Jar"></book>. Things placed inside are kept fresh and still. Its exceptional quality and bounty removes almost any social penalty. People not accustomed to the elegance of high society suffer a -2 to their guile while being served.
 
 Attuning to the box for 1m reveals to the bearer's eye a multitude of additional drawers that only her essence can open. This also allows her to subsume it into her anima until it is needed to be used, reappearing in a manner reminiscent to her anima banner.
