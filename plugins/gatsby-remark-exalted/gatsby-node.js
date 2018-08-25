@@ -1,17 +1,14 @@
 const crypto = require('crypto')
 const { isIndexFile } = require('./src/lib')
 
-const baseNode = ({node, createNodeId, loadNodeContent}, type) => ({
+const baseNode = ({node, createNodeId}, type) => ({
   id: createNodeId(`${node.id} >> ${type}`),
-  // html: loadNodeContent(node.html),
   children: [],
-  ast: node.htmlAST,
   parent: node.id,
-  excerpt: node.excerpt,
+  ...node.frontmatter,
   internal: {
     type: type,
-    description: `Exalted ${type}`,
-    content: node.internal.content,
+    description: `Exalted ${type}`
   }
 })
 
@@ -23,31 +20,26 @@ const digest = (node) => {
   return node
 }
 
-const makeArtifactNode = (props, basedir) => {
-  const {node, createNodeId, loadNodeContent} = props
-
-  /** @type {string} */
-  let path = node.fileAbsolutePath
+const makeArtifactNode = async (props) => {
+  let {node, getNode} = props
 
   if (node.fields.sourceName != "Artifacts") {
-    console.error(`${path} was not an artifact file\n`)
     return null
   }
 
-  let parts = path.split('/')
-  if (!parts[parts.length - 1].indexOf('index') === 0) {
-    console.error(`${path} was not an index path\n`)
+  fileNode = await getNode(node.parent)
+  if (!fileNode.name.match(/[iI]ndex/)) {
     return null
   }
 
-  let pathParts = parts.slice(parts.indexOf("Artifacts") + 1)
+  let parts = fileNode.relativePath.split('/')
   let result = baseNode(props, "ExaltedArtifact")
-  result.sourceFile = pathParts.pop()
-  console.log(result.sourceFile)
-  result.name = pathParts.pop()
-  result.tags = []
-  while(pathParts.length > 0) {
-    result.tags.push(pathParts.pop())
+  parts.pop() // get rid of index.whatever
+  result.name = parts.pop()
+  result.title = result.name
+  result.tags = ["Artifact"]
+  while(parts.length > 0) {
+    result.tags.push(parts.pop())
   }
   result = digest(result)
 
@@ -57,10 +49,7 @@ const makeArtifactNode = (props, basedir) => {
 const makeEvocationNode = null
 const makeSplatNode = null
 
-const onCreateNode = function (
-  props,
-  { basedir } //plugin options
-) {
+const onCreateNode = async function (props, pluginOptions) {
   const { node, getNode, loadNodeContent, actions, createNodeId } = props
   const { createNode, createParentChildLink } = actions
 
@@ -86,9 +75,8 @@ const onCreateNode = function (
     return
   }
 
-  toMake = makeArtifactNode(props, basedir)
+  toMake = await makeArtifactNode(props)
   if (toMake) {
-    node.html
     createNode(toMake)
     createParentChildLink({ parent: node, child: toMake })
   }

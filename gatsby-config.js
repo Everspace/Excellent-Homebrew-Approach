@@ -4,7 +4,7 @@ var makeFolder = (name) => ({
   resolve: "gatsby-source-filesystem",
   options: {
     name: name,
-    path: `${__dirname}/content/${name}/`
+    path: `${__dirname}/content/${name}`
   }
 })
 
