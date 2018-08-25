@@ -1,0 +1,28 @@
+{
+  "extends":  "tslint:latest",
+  "jsRules": {
+    "arrow-return-shorthand":true,
+    "semicolon":false,
+    "no-console": {
+      "severity": "warn",
+      "options": [
+        "trace",
+        "info",
+        "debug",
+        "time",
+        "timeEnd"
+      ]
+    },
+    "curly": true,
+    "encoding":true,
+    "eofline":true,
+    "import-spacing":true,
+    "indent": {
+      "options": "spaces"
+    },
+    "new-parens": true,
+    "whitespace": true,
+    "align": true,
+    "max-classes-per-file": true
+  }
+}
