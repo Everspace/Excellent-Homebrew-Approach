@@ -1,11 +1,9 @@
 ---
-title: Tyrant's Dread Symmetry
-artifact: Tyrant's Band
 essence: 2
 type: Permanent
+duration: Permanent
 keywords: ~
 cost: ~
-duration: Permanent
 charms_needed:
 - Furious Rampage Approach
 - Tiger's Dread Symmetry
