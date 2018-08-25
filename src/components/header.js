@@ -1,10 +1,7 @@
+// Default layout
+// tslint:disable
 import React from 'react'
 import { Link } from 'gatsby'
-import { css } from 'emotion';
-
-css`
-
-`
 
 const Header = ({ siteTitle }) => (
   <div
