@@ -1,8 +1,9 @@
 ---
 description: Obsidian and Orichalcum Dragon King Armour
 weight: Medium
+attunement: 5m #TODO: allow for default costs
 mobility: 0
-tags:
+equipmentTags:
 - Silent
 - Concealable
 era: The First Age
