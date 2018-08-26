@@ -1,15 +1,20 @@
 const crypto = require("crypto")
 
-const baseNode = ({ node, createNodeId }, type) => ({
-  children: [],
-  id: createNodeId(`${node.id} >> ${type}`),
-  parent: node.id,
-  ...node.frontmatter,
-  internal: {
-    description: `Exalted ${type}`,
-    type: type,
-  },
-})
+const baseNode = ({ node, createNodeId }, type) => {
+  // Unneeded data
+  delete node.frontmatter.__PARENT
+
+  return {
+    children: [],
+    id: createNodeId(`${node.id} >> ${type}`),
+    parent: node.id,
+    ...node.frontmatter,
+    internal: {
+      description: `Exalted ${type}`,
+      type: type,
+    },
+  }
+}
 
 const digest = node => {
   node.internal.contentDigest = crypto
@@ -26,17 +31,44 @@ const makeArtifactNode = async props => {
     return null
   }
 
-  fileNode = await getNode(node.parent)
-  if (!fileNode.name.match(/[iI]ndex/)) {
+  // All artifacts have a rating, if they don't they're probably
+  // an evocation.
+  if (!node.frontmatter.rating) {
     return null
   }
 
-  let parts = fileNode.relativePath.split("/")
   let result = baseNode(props, "ExaltedArtifact")
-  parts.pop() // get rid of index.whatever
-  result.name = parts.pop()
+  result.tags = ["Artifact", ...(result.tags || [])]
+
+  // Get filenode to operate on
+
+  fileNode = await getNode(node.parent)
+
+  /** @type {string[]} */
+  let parts = fileNode.relativePath.split("/")
+  let isIndexFile = fileNode.name.match(/[iI]ndex/)
+
+  // Construct name
+  if (isIndexFile) {
+    parts.pop() // get rid of filename index.whatever
+    result.name = parts.pop()
+  } else {
+    // It was just sitting there and still has the . in the name
+    let name = parts.pop()
+    name = name.substring(0, name.lastIndexOf("."))
+    result.name = name
+  }
+
+  // The title is the name of the artifact by default.
   result.title = result.name
-  result.tags = ["Artifact"]
+
+  // Flip so we can grab Base -> Category if it's there.
+  parts = parts.reverse()
+  // [Heavy, Weapon]
+  if (parts.length > 0) {
+    result.category = parts.pop()
+  }
+
   while (parts.length > 0) {
     result.tags.push(parts.pop())
   }
