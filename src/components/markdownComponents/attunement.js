@@ -50,7 +50,8 @@ let mapping = {
 }
 
 const Attunement = ({ node, category = "Armor", ...props }) => {
-  let { tags, hearthstoneSlots, attunementCost, era } = node
+  let { equipmentTags, hearthstoneSlots, era } = node
+  let attunementCost = node.attunement
   let Statline = mapping[category]
   let stats = {}
   switch (category) {
@@ -67,7 +68,7 @@ const Attunement = ({ node, category = "Armor", ...props }) => {
 
   return (
     <div {...props} className={`${card} ${props.className}`}>
-      <div key="attunement">
+      <div className={attuneStyle} key="attunement">
         <span>
           <strong>Attunement: </strong> {attunementCost}
         </span>
@@ -77,7 +78,7 @@ const Attunement = ({ node, category = "Armor", ...props }) => {
       <div key="tags">
         <span>
           <strong>Tags: </strong>
-          {tags ? tags.join(", ") : "None"}
+          {equipmentTags ? equipmentTags.join(", ") : "None"}
         </span>
       </div>
       <div key="era">
