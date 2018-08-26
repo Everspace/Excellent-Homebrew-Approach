@@ -1,11 +1,11 @@
 var slash = require("slash")
 
-var makeFolder = (name) => ({
+var makeFolder = name => ({
   resolve: "gatsby-source-filesystem",
   options: {
     name: name,
-    path: `${__dirname}/content/${name}`
-  }
+    path: `${__dirname}/content/${name}`,
+  },
 })
 
 module.exports = {
@@ -23,18 +23,15 @@ module.exports = {
     {
       resolve: "gatsby-transformer-remark",
       options: {
-        plugins: [
-          "gatsby-remark-component",
-          "gatsby-remark-source-name",
-        ]
-      }
+        plugins: ["gatsby-remark-component", "gatsby-remark-source-name"],
+      },
     },
     //Custom plugins
     {
       resolve: "gatsby-remark-exalted",
       options: {
-        basedir: slash(__dirname)
-      }
+        basedir: slash(__dirname),
+      },
     },
   ],
 }
