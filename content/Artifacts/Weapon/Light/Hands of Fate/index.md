@@ -1,14 +1,13 @@
 ---
 title: Hands of Fate
-description: Starmetal Gloves
+description: Starmetal Fingerless Gloves
+attunement: 5m #TODO: Default cost infrence
 era: '???'
-tags:
+equipmentTags:
 - Brawl
 - Grappling
 - Worn
 - Concealable
-category: Weapon
-weight: Light
 rating: 4
 ---
 
@@ -18,6 +17,6 @@ Extrodinarily and exceptionally ordinary, these fine gloves appear in all manner
 
 Legend says they dropped from the constillation of the gauntlet, but it is a mystery to their origins.
 
-{% include artifacts/attunement.html artifact=page %}
+<attunement></attunement>
 
 By attuning to the Hands of Fate, the wearer is blessed with with a gentile guidance to their endeavors. This reduces the difficulty of Investigation rolls by 1 if a Lawbringer finds themselves in a situation that could be reconciled by their hands navigating for them, or a lucky coincidence. This could be something like finding the correct book in a vast library, or a hand accidentally brushing across the lever to turn off a First Age deathtrap.

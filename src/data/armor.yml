@@ -1,0 +1,17 @@
+Light:
+  soak: 5
+  hardness: 6
+  mobility: 0
+  attunement: 4
+
+Medium:
+  soak: 8
+  hardness: 7
+  mobility: -1
+  attunement: 5
+
+Heavy:
+  soak: 11
+  hardness: 10
+  mobility: -2
+  attunement: 6
