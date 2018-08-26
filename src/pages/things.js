@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Ast from "lib/Ast"
 import { css } from "emotion"
+import Layout from "components/layout"
 
 export const query = graphql`
   {
@@ -46,5 +47,5 @@ export default ({ data }) => {
       </div>
     ))
 
-  return result
+  return <Layout>{result}</Layout>
 }
