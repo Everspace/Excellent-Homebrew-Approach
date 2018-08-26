@@ -9,7 +9,8 @@ export const query = graphql`
       edges {
         node {
           name
-          attunementCost
+          attunement
+          equipmentTags
           hearthstoneSlots
           parent {
             ... on MarkdownRemark {
