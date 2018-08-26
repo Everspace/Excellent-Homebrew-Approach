@@ -16,7 +16,6 @@ module.exports = {
     makeFolder("Artifacts"),
     makeFolder("Splats"),
     "gatsby-plugin-emotion",
-    "gatsby-plugin-react-next",
     "gatsby-plugin-resolve-src",
     "gatsby-plugin-react-helmet",
     {

@@ -19,5 +19,12 @@
     "align": true,
     "max-classes-per-file": true,
     "object-literal-sort-keys": false
+  },
+  "linterOptions": {
+    "exlude": [
+      "public",
+      "node_modules",
+      "plugins/gatsby-*/*.js"
+    ]
   }
 }
