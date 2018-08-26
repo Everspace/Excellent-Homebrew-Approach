@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Craft Redux
-permalink: /craft-redux/
 ---
 
 Rejigger the tree to be more acceptable to dips and the Craft Supernal. If you can Nine-Aeons Whew for 6 charms, you should be able to Dual Magnus Prana.
