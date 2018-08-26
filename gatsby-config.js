@@ -10,8 +10,7 @@ var makeFolder = name => ({
 
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Default Starter",
-    rootDir: slash(__dirname),
+    title: "Exellent Homebrew Approach",
   },
   plugins: [
     makeFolder("Artifacts"),
