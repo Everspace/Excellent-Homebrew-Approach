@@ -18,6 +18,7 @@ exports.createPages = ({ graphql, actions }) => {
           edges {
             node {
               name
+              path
             }
           }
         }
@@ -29,7 +30,7 @@ exports.createPages = ({ graphql, actions }) => {
 
       result.data.allExaltedArtifact.edges.forEach(({ node }) => {
         createPage({
-          path: "/" + node.name.toLocaleLowerCase(), // Netlify thing
+          path: node.path,
           component: artifactTemplate,
           context: {
             name: node.name,
