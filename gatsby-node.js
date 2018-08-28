@@ -12,7 +12,7 @@ exports.createPages = ({ graphql, actions }) => {
   const artifactTemplate = path.resolve("./src/templates/artifact.js")
 
   return new Promise((resolve, reject) => {
-    let query = graphql`
+    graphql(`
       {
         allExaltedArtifact {
           edges {
@@ -22,8 +22,7 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
-    `
-    resolve(query).then(result => {
+    `).then(result => {
       if (result.errors) {
         reject(result.errors)
       }
@@ -37,6 +36,7 @@ exports.createPages = ({ graphql, actions }) => {
           },
         })
       })
+      resolve()
     })
   })
 }
