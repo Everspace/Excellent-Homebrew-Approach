@@ -1,6 +1,6 @@
-var slash = require("slash")
+const slash = require("slash")
 
-var makeFolder = name => ({
+const makeFolder = name => ({
   resolve: "gatsby-source-filesystem",
   options: {
     name: name,
