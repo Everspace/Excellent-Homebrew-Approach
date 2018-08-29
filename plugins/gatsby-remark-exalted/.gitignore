@@ -1,0 +1,11 @@
+# Whitelisting
+*
+
+# Source files
+!src/
+!src/**
+
+# Config files
+!/*.json
+!/.gitignore
+!/.babelrc
