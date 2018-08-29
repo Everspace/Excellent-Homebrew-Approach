@@ -1,6 +1,4 @@
 ---
-title: Scorn of the Dancer
-category: Handwerksring
 essence: 1
 ---
 

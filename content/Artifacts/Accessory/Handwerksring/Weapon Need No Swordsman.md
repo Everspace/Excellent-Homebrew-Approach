@@ -1,6 +1,4 @@
 ---
-title: Weapons Need No Swordsman
-category: Handwerksring
 essence: 1
 type: Permanent
 duration: Permanent

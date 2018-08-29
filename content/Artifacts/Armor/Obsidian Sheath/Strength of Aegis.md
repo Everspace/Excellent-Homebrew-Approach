@@ -1,13 +1,11 @@
 ---
-title: Strength of Aegis
-category: Obsidian Sheath
 cost: 3m
 essence: 1
 type: Uniform
 keywords:
-- Uniform
+  - Uniform
 charms_needed:
-- Obsidian Arete
+  - Obsidian Arete
 ---
 
 With the strength of thousand dragon kings, the lawgiver brings their weapon down with a resounding crash.

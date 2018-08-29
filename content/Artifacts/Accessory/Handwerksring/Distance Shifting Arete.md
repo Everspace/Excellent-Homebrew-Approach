@@ -1,13 +1,10 @@
 ---
-title: Distance Shifting Arete
-category: Handwerksring
 essence: 1
 cost: 2m
-type: Simple
 keywords:
-- Resonant
+  - Resonant
 charms_needed:
-- Craftsman Need no Tools
+  - Craftsman Need no Tools
 ---
 
 The solar forms chains out of material at hand, flinging them towards a hapless foe who thought that they were beyond the reach of the exalted.
