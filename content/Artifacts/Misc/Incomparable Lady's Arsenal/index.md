@@ -1,6 +1,5 @@
 ---
 description: Jade and Wood Storage Box
-category: Misc
 rating: 3
 ---
 
