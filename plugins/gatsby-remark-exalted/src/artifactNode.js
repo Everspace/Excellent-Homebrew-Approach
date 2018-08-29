@@ -1,5 +1,6 @@
 import { baseNode } from "./common"
 import dashify from "dashify"
+import { createEvocationNode } from "./evocationNode"
 
 export const createArtifactNode = async props => {
   let { node, getNode } = props
@@ -11,7 +12,7 @@ export const createArtifactNode = async props => {
   // All artifacts have a rating, if they don't they're probably
   // an evocation.
   if (!node.frontmatter.rating) {
-    return null
+    return createEvocationNode(props)
   }
 
   let result = baseNode(props, "ExaltedArtifact")
