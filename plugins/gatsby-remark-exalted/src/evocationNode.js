@@ -1,5 +1,4 @@
-import { baseNode } from "./common"
-import dashify from "dashify"
+import { baseNode, anchorate, pathify } from "./common"
 
 export const createEvocationNode = async props => {
   let { node, getNode } = props
@@ -26,7 +25,7 @@ export const createEvocationNode = async props => {
     result.artifact = parts.pop()
   }
 
-  result.anchor = dashify(name)
+  result.path = pathify("artifacts", result.artifact) + anchorate(result.name)
 
   return result
 }

@@ -1,5 +1,4 @@
-import { baseNode } from "./common"
-import dashify from "dashify"
+import { baseNode, pathify } from "./common"
 import { createEvocationNode } from "./evocationNode"
 
 export const createArtifactNode = async props => {
@@ -37,10 +36,6 @@ export const createArtifactNode = async props => {
     result.name = name
   }
 
-  // Set path that this will be.
-  // .toLocaleLowercase() // Netlify thing about the lowercasing
-  result.path = ["Artifacts"]
-
   // Flip so we can grab Base -> Category if it's there or it matters.
   // [Weapon, Heavy] => [Heavy, Weapon]
   parts = parts.reverse()
@@ -56,9 +51,6 @@ export const createArtifactNode = async props => {
     }
   }
 
-  // Either way gets the artifact type in it's path.
-  result.path.push(result.artifactType)
-
   let weight = parts.pop()
 
   // Handle fatness if present for armour and weapons
@@ -70,19 +62,13 @@ export const createArtifactNode = async props => {
     }
   }
 
-  result.path.push(result.weight)
-
   // The rest are weird user tags
   while (parts.length > 0) {
     result.tags.push(parts.pop())
   }
 
-  result.path.push(result.title)
   // formulate the path
-  result.path = result.path
-    .filter(item => item)
-    .map(dashify)
-    .join("/")
+  result.path = pathify("artifacts", result.name)
 
   return result
 }
