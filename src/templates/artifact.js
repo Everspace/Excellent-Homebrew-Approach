@@ -3,23 +3,16 @@ import { graphql, Link } from "gatsby"
 import Ast from "lib/Ast"
 import React from "react"
 import { cardClass, pageContentClass } from "style/common"
+import CharmCard from "components/CharmCard"
 
 export default ({ data }) => {
   const { exaltedArtifact } = data
   const children = exaltedArtifact.children
   let childResults
   if (children) {
-    childResults = children.map(node => (
-      <div id={node.name} className={cardClass}>
-        <h2>{node.name}</h2>
-        <hr />
-        <Ast
-          className={pageContentClass}
-          ast={node.parent.htmlAst}
-          node={exaltedArtifact}
-        />
-      </div>
-    ))
+    childResults = children
+      .sort((a, b) => a.essence - b.essence)
+      .map(node => <CharmCard node={node} />)
   }
 
   return (
