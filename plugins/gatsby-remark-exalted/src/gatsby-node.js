@@ -1,4 +1,5 @@
-import { makeArtifactNode } from "./artifact"
+import { createArtifactNode } from "./artifactNode"
+import { createArtifactPages } from "./artifactPages"
 import { digest } from "./common"
 
 export const onCreateNode = async function(props, pluginOptions) {
@@ -19,5 +20,9 @@ export const onCreateNode = async function(props, pluginOptions) {
     createParentChildLink({ parent: node, child: newNode })
   }
 
-  return makeArtifactNode(props).then(makeNode)
+  return createArtifactNode(props).then(makeNode)
+}
+
+export const createPages = props => {
+  createArtifactPages(props)
 }

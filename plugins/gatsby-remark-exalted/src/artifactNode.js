@@ -1,6 +1,7 @@
 import { baseNode } from "./common"
+import dashify from "dashify"
 
-export const makeArtifactNode = async props => {
+export const createArtifactNode = async props => {
   let { node, getNode } = props
 
   if (node.fields.sourceName !== "Artifacts") {
@@ -35,29 +36,55 @@ export const makeArtifactNode = async props => {
     result.name = name
   }
 
+  // Set path that this will be.
+  // .toLocaleLowercase() // Netlify thing about the lowercasing
+  result.path = ["Artifacts"]
+
   // The title is the name of the artifact by default.
   result.title = result.name
 
-  // Set path that this will be.
-  // .toLocaleLowercase() // Netlify thing about the lowercasing
-  result.path = "/" + result.title
-
-  // Flip so we can grab Base -> Category if it's there.
+  // Flip so we can grab Base -> Category if it's there or it matters.
   // [Weapon, Heavy] => [Heavy, Weapon]
   parts = parts.reverse()
-  if (parts.length > 0) {
-    result.artifactType = parts.pop()
+
+  let artifactType = parts.pop()
+
+  if (node.frontmatter.artifactType) {
+    result.artifactType = node.frontmatter.artifactType
+  } else {
+    // Handle artifact type if unspecified
+    if (artifactType) {
+      result.artifactType = artifactType
+    }
   }
 
-  // Deal with equipment weight
-  if (parts.length > 0) {
-    result.artifactCategory = parts.pop()
+  // Either way gets the artifact type in it's path.
+  result.path.push(result.artifactType)
+
+  let weight = parts.pop()
+
+  // Handle fatness if present for armour and weapons
+  if (node.frontmatter.weight) {
+    result.weight = node.frontmatter.weight
+  } else {
+    if (weight) {
+      result.weight = weight
+    }
   }
+
+  result.path.push(result.weight)
 
   // The rest are weird user tags
   while (parts.length > 0) {
     result.tags.push(parts.pop())
   }
+
+  result.path.push(result.title)
+  // formulate the path
+  result.path = result.path
+    .filter(item => item)
+    .map(dashify)
+    .join("/")
 
   return result
 }
