@@ -1,9 +1,9 @@
+import CharmCard from "components/CharmCard"
 import Layout from "components/layout"
 import { graphql, Link } from "gatsby"
 import Ast from "lib/Ast"
 import React from "react"
-import { cardClass, pageContentClass } from "style/common"
-import CharmCard from "components/CharmCard"
+import { pageContentClass } from "style/common"
 
 export default ({ data }) => {
   const { exaltedArtifact } = data
