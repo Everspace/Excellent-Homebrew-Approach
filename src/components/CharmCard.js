@@ -1,6 +1,7 @@
 import React from "react"
 import { pageContentClass, cardClass } from "style/common"
 import Ast from "lib/Ast"
+import dashify from "dashify"
 
 const MinimumsLine = ({ node }) => {
   const { essence, skill, minimum } = node
@@ -33,7 +34,7 @@ const CharmCard = ({ node }) => {
   } = node
 
   return (
-    <div style={{ paddingTop: "1em" }} id={node.name} className={cardClass}>
+    <div style={{ paddingTop: "1em" }} id={dashify(node.name)} className={cardClass}>
       <h2>{node.name}</h2>
       <hr />
       <div>
