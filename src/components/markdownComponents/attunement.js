@@ -1,6 +1,7 @@
 import React from "react"
 import { css } from "emotion"
 import { wrapContext } from "lib/GatsbyContext"
+import { cardClass } from "style/common"
 
 let attuneStyle = css`
   & > strong {
@@ -13,21 +14,14 @@ let hearthstoneStyle = css`
   }
 `
 
-let spacingUnit = 1
-let card = css`
-  margin: ${spacingUnit / 2}em;
-  padding: ${spacingUnit / 2}em;
-  box-shadow: 0px 4px 15px rgba(10, 10, 10, 0.15),
-    0px 4px 5px rgba(10, 10, 10, 0.25);
-`
-
 const Armor = ({ weight, soak, hardness, mobilityPenalty, ...props }) => (
   <div {...props}>
     <span key="type">
       <strong>Type: </strong> {weight} Armor
     </span>
     <span key="stats">
-      (+{soak} Soak, Hardness {hardness}, Mobility Penalty {mobilityPenalty})
+      (+
+      {soak} Soak, Hardness {hardness}, Mobility Penalty {mobilityPenalty})
     </span>
   </div>
 )
@@ -67,7 +61,7 @@ const Attunement = ({ node, category = "Armor", ...props }) => {
   }
 
   return (
-    <div {...props} className={`${card} ${props.className}`}>
+    <div {...props} className={`${cardClass} ${props.className}`}>
       <div className={attuneStyle} key="attunement">
         <span>
           <strong>Attunement: </strong> {attunementCost}
