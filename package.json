@@ -7,9 +7,10 @@
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+    "dashify": "^1.0.0",
     "emotion": "^9.2.5",
     "emotion-server": "^9.2.5",
-    "gatsby": "^2.0.0-rc.0",
+    "gatsby": "next",
     "gatsby-plugin-emotion": "next",
     "gatsby-plugin-react-helmet": "next",
     "gatsby-plugin-resolve-src": "next",
