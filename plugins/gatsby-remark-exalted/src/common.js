@@ -1,5 +1,24 @@
 import crypto from "crypto"
 import path from "path"
+import dashify from "dashify"
+
+/**
+ * Turn a series of things into a path
+ * @param  {...string} args ["a", "Bee Sea"]
+ * @returns {string} "/a/bee-sea"
+ */
+export const pathify = (...args) => {
+  return "/" + args.map(dashify).join("/")
+}
+
+/**
+ * Turn a thing into an anchor to slap on a path  =>
+ * @param {string} anchor "Thing Ding Ding"
+ * @returns {string} "#thing-ding-ding"
+ */
+export const anchorate = (anchor) => {
+  return "#" + dashify(anchor)
+}
 
 export const digest = node => {
   node.internal.contentDigest = crypto
