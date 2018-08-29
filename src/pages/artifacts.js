@@ -5,7 +5,7 @@ import { Link, graphql } from "gatsby";
 const ArtifactPage = ({data}) => {
   let artifacts = data.allExaltedArtifact.edges.map(({node}) => node)
     .map(node => <li>
-        <Link key={node.title} to={node.path}>{node.title}</Link>
+        <Link key={node.name} to={node.path}>{node.name}</Link>
       </li>)
 
   return (
@@ -27,7 +27,7 @@ export const query = graphql`
       node {
         id
         path
-        title
+        name
         description
       }
     }

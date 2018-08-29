@@ -41,9 +41,6 @@ export const createArtifactNode = async props => {
   // .toLocaleLowercase() // Netlify thing about the lowercasing
   result.path = ["Artifacts"]
 
-  // The title is the name of the artifact by default.
-  result.title = result.name
-
   // Flip so we can grab Base -> Category if it's there or it matters.
   // [Weapon, Heavy] => [Heavy, Weapon]
   parts = parts.reverse()
