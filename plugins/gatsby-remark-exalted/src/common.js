@@ -28,22 +28,22 @@ export const baseNode = ({ node, createNodeId }, type) => {
 // query is of fn(graphql)
 // Creation page function is of signature (actions, edge)
 export const createPageFactory = (
-  query,
   nodeName,
   template,
   createPageFunction,
+  query = defaultQuery,
 ) => {
   return createPageProps => {
     let { graphql, actions } = createPageProps
     let component = path.resolve(template)
 
     return new Promise((resolve, reject) => {
-      query(graphql).then(result => {
+      query(graphql, nodeName).then(result => {
         if (result.errors) {
           reject(result.errors)
         }
 
-        result.data[nodeName].edges.forEach(edge =>
+        result.data[`all${nodeName}`].edges.forEach(edge =>
           createPageFunction(actions, edge, component),
         )
         resolve()
@@ -51,3 +51,17 @@ export const createPageFactory = (
     })
   }
 }
+
+export const defaultQuery = (graphql, nodeName) =>
+  graphql(`
+    {
+      all${nodeName} {
+        edges {
+          node {
+            name
+            path
+          }
+        }
+      }
+    }
+  `)

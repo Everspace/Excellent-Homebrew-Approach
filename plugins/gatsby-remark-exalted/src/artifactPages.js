@@ -1,19 +1,5 @@
 import { createPageFactory } from "./common"
 
-let query = graphql =>
-  graphql(`
-    {
-      allExaltedArtifact {
-        edges {
-          node {
-            name
-            path
-          }
-        }
-      }
-    }
-  `)
-
 let createPageFunction = ({ createPage }, { node }, component) => {
   createPage({
     path: node.path,
@@ -25,7 +11,6 @@ let createPageFunction = ({ createPage }, { node }, component) => {
 }
 
 export const createArtifactPages = createPageFactory(
-  query,
   "Artifact",
   "./src/templates/artifact.js",
   createPageFunction,
