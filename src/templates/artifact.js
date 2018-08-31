@@ -31,11 +31,7 @@ export const query = graphql`
       attunement
       equipmentTags
       hearthstoneSlots
-      parent {
-        ... on MarkdownRemark {
-          htmlAst
-        }
-      }
+      ...Ast
       evocations: children {
         ... on Evocation {
           name
@@ -46,11 +42,7 @@ export const query = graphql`
           type
           essence
           duration
-          parent {
-            ... on MarkdownRemark {
-              htmlAst
-            }
-          }
+          ...Ast
         }
       }
     }
