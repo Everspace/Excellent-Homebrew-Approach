@@ -1,8 +1,7 @@
 import Layout from "components/layout"
 import { graphql, Link } from "gatsby"
-import Ast from "lib/Ast"
+import RenderAst from "lib/RenderAst"
 import React from "react"
-import { pageContentClass } from "style/common"
 import CharmCard from "components/CharmCard"
 
 export default ({ data }) => {
@@ -19,11 +18,7 @@ export default ({ data }) => {
     <Layout>
       <Link to="/artifacts">back</Link>
       <h1>{artifact.name}</h1>
-      <Ast
-        className={pageContentClass}
-        ast={artifact.parent.htmlAst}
-        node={artifact}
-      />
+      <RenderAst node={artifact} />
       <div>{evocationCards}</div>
     </Layout>
   )

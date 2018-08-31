@@ -1,6 +1,6 @@
 import React from "react"
 import { pageContentClass, cardClass } from "style/common"
-import Ast from "lib/Ast"
+import RenderAst from "lib/RenderAst"
 
 const MinimumsLine = ({ node }) => {
   const { essence, skill, minimum } = node
@@ -61,11 +61,7 @@ const CharmCard = ({ node }) => {
           </div>
         ) : null}
         <br />
-        <Ast
-          className={pageContentClass}
-          ast={node.parent.htmlAst}
-          node={node}
-        />
+        <RenderAst node={node} />
       </div>
     </div>
   )
