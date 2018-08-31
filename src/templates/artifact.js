@@ -2,15 +2,15 @@ import Layout from "components/layout"
 import { graphql, Link } from "gatsby"
 import Ast from "lib/Ast"
 import React from "react"
-import { cardClass, pageContentClass } from "style/common"
+import { pageContentClass } from "style/common"
 import CharmCard from "components/CharmCard"
 
 export default ({ data }) => {
-  const { exaltedArtifact } = data
-  const children = exaltedArtifact.children
-  let childResults
-  if (children) {
-    childResults = children
+  const { artifact } = data
+  const { evocations } = artifact
+  let evocationCards
+  if (evocations) {
+    evocationCards = evocations
       .sort((a, b) => a.essence - b.essence)
       .map(node => <CharmCard node={node} />)
   }
@@ -18,20 +18,20 @@ export default ({ data }) => {
   return (
     <Layout>
       <Link to="/artifacts">back</Link>
-      <h1>{exaltedArtifact.name}</h1>
+      <h1>{artifact.name}</h1>
       <Ast
         className={pageContentClass}
-        ast={exaltedArtifact.parent.htmlAst}
-        node={exaltedArtifact}
+        ast={artifact.parent.htmlAst}
+        node={artifact}
       />
-      <div>{childResults}</div>
+      <div>{evocationCards}</div>
     </Layout>
   )
 }
 
 export const query = graphql`
-  query exaltedArtifactQuery($name: String!) {
-    exaltedArtifact(name: { eq: $name }) {
+  query artifactQuery($name: String!) {
+    artifact(name: { eq: $name }) {
       name
       attunement
       equipmentTags
@@ -41,8 +41,8 @@ export const query = graphql`
           htmlAst
         }
       }
-      children {
-        ... on ExaltedArtifactEvocation {
+      evocations: children {
+        ... on Evocation {
           name
           essence
           keywords

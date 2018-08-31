@@ -4,7 +4,7 @@ import dashify from "dashify"
 export const createEvocationNode = async props => {
   let { node, getNode } = props
 
-  let result = baseNode(props, "ExaltedArtifactEvocation")
+  let result = baseNode(props, "Evocation")
   result.tags = ["Evocation", ...(result.tags || [])]
 
   // Get filenode to operate on

@@ -26,7 +26,7 @@ let createPageFunction = ({ createPage }, { node }, component) => {
 
 export const createArtifactPages = createPageFactory(
   query,
-  "allExaltedArtifact",
+  "Artifact",
   "./src/templates/artifact.js",
   createPageFunction,
 )

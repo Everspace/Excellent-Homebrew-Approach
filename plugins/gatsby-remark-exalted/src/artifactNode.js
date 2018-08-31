@@ -15,7 +15,7 @@ export const createArtifactNode = async props => {
     return createEvocationNode(props)
   }
 
-  let result = baseNode(props, "ExaltedArtifact")
+  let result = baseNode(props, "Artifact")
   result.tags = ["Artifact", ...(result.tags || [])]
 
   // Get filenode to operate on
