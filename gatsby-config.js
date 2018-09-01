@@ -25,11 +25,6 @@ module.exports = {
       },
     },
     //Custom plugins
-    {
-      resolve: "gatsby-remark-exalted",
-      options: {
-        basedir: slash(__dirname),
-      },
-    },
+    "gatsby-remark-exalted",
   ],
 }
