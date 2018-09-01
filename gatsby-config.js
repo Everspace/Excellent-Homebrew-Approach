@@ -11,6 +11,8 @@ const makeFolder = name => ({
 module.exports = {
   siteMetadata: {
     title: "Excellent Homebrew Approach",
+    shortTitle: "EHA",
+    description: "An excellent approach to homebrew",
   },
   plugins: [
     makeFolder("Artifacts"),
