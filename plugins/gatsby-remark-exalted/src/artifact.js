@@ -12,7 +12,7 @@ export const createArtifactNode = async props => {
 
   // All artifacts have a rating, if they don't they're probably
   // an evocation.
-  if (!node.frontmatter.rating) {
+  if (typeof node.frontmatter.rating !== "number") {
     return createEvocationNode(props)
   }
 
