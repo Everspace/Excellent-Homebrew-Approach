@@ -1,18 +1,24 @@
 import Layout from "components/Layout"
 import React from "react"
 import { Link, graphql } from "gatsby"
+import Rating, { artifactRatingSort } from "components/Rating"
 
 const ArtifactPage = ({ data }) => {
-  let artifacts = data.allArtifact.edges.map(({ node }) => node).map(node => (
-    <li>
-      <Link key={node.title} to={node.path}>
-        {node.title}
-      </Link>
-    </li>
-  ))
+  let artifacts = data.allArtifact.edges
+    .map(({ node }) => node)
+    .sort(artifactRatingSort)
+    .map(node => (
+      <li key={node.id}>
+        <Rating r={node.rating} />
+        <Link key={node.id} to={node.path}>
+          {node.name}
+        </Link>{" "}
+        - {node.description}
+      </li>
+    ))
 
   return (
-    <Layout>
+    <Layout title={"Artifacts"}>
       <Link to="/">back</Link>
       <h1>Artifacts</h1>
       <ul>{artifacts}</ul>
@@ -29,8 +35,9 @@ export const query = graphql`
         node {
           id
           path
-          title
+          name
           description
+          rating
         }
       }
     }
