@@ -18,7 +18,6 @@ export const createEvocationNode = async props => {
   let name = parts.pop()
   name = name.substring(0, name.lastIndexOf("."))
   result.name = name
-  result.title = name
 
   // Should be in a folder beside the artifact somehow.
   if (node.frontmatter.artifact) {
