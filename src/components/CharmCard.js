@@ -12,7 +12,7 @@ const MinimumsLine = ({ node }) => {
   }
 
   return (
-    <div>
+    <div key="minimums">
       <strong>Mins: </strong>
       {minimums.join(", ")}
     </div>
@@ -20,28 +20,28 @@ const MinimumsLine = ({ node }) => {
 }
 
 const CostLine = ({ node: { cost } }) => (
-  <div>
+  <div key="cost">
     <strong>Cost: </strong>
     {cost || "—"}
   </div>
 )
 
 const TypeLine = ({ node: { type } }) => (
-  <div>
+  <div key="type">
     <strong>Type: </strong>
     {type || "Simple"}
   </div>
 )
 
 const DurationLine = ({ node: { duration } }) => (
-  <div>
+  <div key="duration">
     <strong>Duration: </strong>
     {duration || "Instant"}
   </div>
 )
 
 const KeywordLine = ({ node: { keywords } }) => (
-  <div>
+  <div key="keywords">
     <strong>Keywords: </strong>
     {keywords ? keywords.sort().join(", ") : "None"}
   </div>
@@ -49,7 +49,7 @@ const KeywordLine = ({ node: { keywords } }) => (
 
 const PrerequisitesLine = ({ node: { charms_needed } }) =>
   charms_needed ? (
-    <div>
+    <div key="prereqs">
       <strong>Prerequisites: </strong>
       {charms_needed.sort().join(", ")}
     </div>
@@ -69,6 +69,8 @@ const CharmCard = ({ node }) => {
           <KeywordLine node={node} />
           <PrerequisitesLine node={node} />
         </div>
+        <br />
+        <hr />
         <RenderAst node={node} />
       </div>
     </div>
