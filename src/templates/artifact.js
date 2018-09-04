@@ -28,6 +28,7 @@ export const query = graphql`
       attunement
       description
       equipmentTags
+      era
       hearthstoneSlots
       ...Ast
     }
