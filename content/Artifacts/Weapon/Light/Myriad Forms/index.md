@@ -18,7 +18,7 @@ This simple looking pan is ingraved with the sign of The Quiver.
 
 It was created under the auspices of the Trickster's Comet, as the sidereal Melene Urstemi toiled away at a weapon for one of the true masters of martial arts, Edrat Menos.
 
-"If he's so great, he could make anything work!" she said as she hammered the pan into shape.
+"If he's so great, he could make anything work!" she said as she hammered the pan into shape, unaware that the Trickster's Comet was playing tricks on her.
 
 She soon found out Edrat could make anything work, and he promptly demonstrated his prowess upon her in retribution with the pan she gave him.
 
@@ -26,7 +26,7 @@ Edrat did grow fond of the pan over time, and named it Myriad Forms. He slew man
 
 <attunement></attunement>
 
-By attuning to Myriad Form, the exalt gains 3 charm dice towards crafting involving cooking. The Myriad Form also counts as an approprate weapon for any style.
+By attuning to Myriad Forms, the exalt gains 3 charm dice towards crafting involving cooking. The Myriad Form also counts as an approprate weapon for any style.
 
 ## An Artifact Improvised weapon?
 
