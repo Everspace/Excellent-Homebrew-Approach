@@ -6,10 +6,13 @@ import CharmCard from "components/CharmCard"
 
 export default ({ data }) => {
   const { artifact, allEvocation } = data
-  let evocationCards = allEvocation.edges
-    .map(({ node }) => node)
-    .sort((a, b) => a.essence - b.essence)
-    .map(node => <CharmCard key={node.id} node={node} />)
+  let evocationCards
+  if (allEvocation) {
+    evocationCards = allEvocation.edges
+      .map(({ node }) => node)
+      .sort((a, b) => a.essence - b.essence)
+      .map(node => <CharmCard key={node.id} node={node} />)
+  }
 
   return (
     <Layout title={artifact.name} description={artifact.description}>
