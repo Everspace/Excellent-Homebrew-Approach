@@ -1,5 +1,5 @@
-import { baseNode, pathify } from "./common"
-import { createEvocationNode } from "./evocationNode"
+import { baseNode, pathify, digest, createPageFactory } from "./common"
+import { createEvocationNode } from "./evocation"
 
 export const createArtifactNode = async props => {
   let { node, getNode } = props
@@ -10,11 +10,11 @@ export const createArtifactNode = async props => {
 
   // All artifacts have a rating, if they don't they're probably
   // an evocation.
-  if (!node.frontmatter.rating) {
-    return createEvocationNode(props)
+  if (typeof node.frontmatter.rating !== "number") {
+    return await createEvocationNode(props)
   }
 
-  let result = baseNode(props, "ExaltedArtifact")
+  let result = baseNode(props, "Artifact")
   result.tags = ["Artifact", ...(result.tags || [])]
 
   // Get filenode to operate on
@@ -72,3 +72,45 @@ export const createArtifactNode = async props => {
 
   return result
 }
+
+/**
+ * The Gatsby API
+ * @param {*} props
+ * @param {*} pluginOptions
+ */
+export const onCreateNode = async function(props, pluginOptions) {
+  const { node, getNode, loadNodeContent, actions, createNodeId } = props
+  const { createNode, createParentChildLink } = actions
+
+  // We only care about Spiffy'ing up MarkdownRemark nodes.
+  if (node.internal.type !== "MarkdownRemark") {
+    return
+  }
+
+  const makeNode = async newNode => {
+    if (!newNode) {
+      return
+    }
+    newNode = digest(newNode)
+    createNode(newNode)
+    createParentChildLink({ parent: node, child: newNode })
+  }
+
+  return createArtifactNode(props).then(makeNode)
+}
+
+const createPageFunction = ({ createPage }, { node }, component) => {
+  createPage({
+    path: node.path,
+    component,
+    context: {
+      name: node.name,
+    },
+  })
+}
+
+export const createPages = createPageFactory(
+  "Artifact",
+  "./src/templates/artifact.js",
+  createPageFunction,
+)

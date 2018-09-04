@@ -1,8 +1,8 @@
-import React from 'react'
-import Layout from '../components/layout'
+import React from "react"
+import Layout from "components/Layout"
 
 const NotFoundPage = () => (
-  <Layout>
+  <Layout description="404 not found">
     <h1>404 - Page outside of fate</h1>
     <p>Getimians at it again!</p>
   </Layout>

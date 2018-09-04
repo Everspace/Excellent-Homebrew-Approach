@@ -11,6 +11,8 @@ const makeFolder = name => ({
 module.exports = {
   siteMetadata: {
     title: "Excellent Homebrew Approach",
+    shortTitle: "EHA",
+    description: "An excellent approach to homebrew",
   },
   plugins: [
     makeFolder("Artifacts"),
@@ -25,11 +27,6 @@ module.exports = {
       },
     },
     //Custom plugins
-    {
-      resolve: "gatsby-remark-exalted",
-      options: {
-        basedir: slash(__dirname),
-      },
-    },
+    "gatsby-remark-exalted",
   ],
 }

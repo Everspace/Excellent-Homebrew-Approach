@@ -1,5 +1,17 @@
 import { css } from "emotion"
 
+/**
+ * @param {*} props incoming react props
+ * @param  {...string} newClasses a series of classes
+ */
+export const classNames = ({ className }, ...newClasses) => {
+  if (className) {
+    newClasses.unshift(className)
+  }
+
+  return newClasses.join(" ")
+}
+
 export const spacingUnit = 1
 export const cardClass = css`
   margin: ${spacingUnit / 2}em;

@@ -1,48 +1,45 @@
-import CharmCard from "components/CharmCard"
-import Layout from "components/layout"
+import Layout from "components/Layout"
 import { graphql, Link } from "gatsby"
-import Ast from "lib/Ast"
+import RenderAst from "lib/RenderAst"
 import React from "react"
-import { pageContentClass } from "style/common"
+import CharmCard from "components/CharmCard"
 
 export default ({ data }) => {
-  const { exaltedArtifact } = data
-  const children = exaltedArtifact.children
-  let childResults
-  if (children) {
-    childResults = children
+  const { artifact, allEvocation } = data
+  let evocationCards
+  if (allEvocation) {
+    evocationCards = allEvocation.edges
+      .map(({ node }) => node)
       .sort((a, b) => a.essence - b.essence)
-      .map(node => <CharmCard node={node} />)
+      .map(node => <CharmCard key={node.id} node={node} />)
   }
 
   return (
-    <Layout>
-      <Link to="/artifacts">back</Link>
-      <h1>{exaltedArtifact.name}</h1>
-      <Ast
-        className={pageContentClass}
-        ast={exaltedArtifact.parent.htmlAst}
-        node={exaltedArtifact}
-      />
-      <div>{childResults}</div>
+    <Layout title={artifact.name} description={artifact.description}>
+      <Link to="/artifacts">&lt; Artifacts</Link>
+      <h1>{artifact.name}</h1>
+      <RenderAst node={artifact} />
+      <div>{evocationCards}</div>
     </Layout>
   )
 }
 
 export const query = graphql`
-  query exaltedArtifactQuery($name: String!) {
-    exaltedArtifact(name: { eq: $name }) {
+  query artifactQuery($name: String!) {
+    artifact(name: { eq: $name }) {
       name
       attunement
+      description
       equipmentTags
+      era
       hearthstoneSlots
-      parent {
-        ... on MarkdownRemark {
-          htmlAst
-        }
-      }
-      children {
-        ... on ExaltedArtifactEvocation {
+      ...Ast
+    }
+
+    allEvocation(filter: { artifact: { eq: $name } }) {
+      edges {
+        node {
+          id
           name
           essence
           keywords
@@ -51,11 +48,7 @@ export const query = graphql`
           type
           essence
           duration
-          parent {
-            ... on MarkdownRemark {
-              htmlAst
-            }
-          }
+          ...Ast
         }
       }
     }

@@ -1,6 +1,6 @@
 import React from "react"
-import { pageContentClass, cardClass } from "style/common"
-import Ast from "lib/Ast"
+import { cardClass } from "style/common"
+import RenderAst from "lib/RenderAst"
 import dashify from "dashify"
 
 const MinimumsLine = ({ node }) => {
@@ -13,60 +13,66 @@ const MinimumsLine = ({ node }) => {
   }
 
   return (
-    <div>
+    <div key="minimums">
       <strong>Mins: </strong>
       {minimums.join(", ")}
     </div>
   )
 }
 
-const CharmCard = ({ node }) => {
-  let {
-    // Artifacts
-    essence,
-    type,
-    duration,
-    cost,
-    charms_needed,
-    keywords,
-    // Splat only
-    skill,
-  } = node
+const CostLine = ({ node: { cost } }) => (
+  <div key="cost">
+    <strong>Cost: </strong>
+    {cost || "—"}
+  </div>
+)
 
+const TypeLine = ({ node: { type } }) => (
+  <div key="type">
+    <strong>Type: </strong>
+    {type || "Simple"}
+  </div>
+)
+
+const DurationLine = ({ node: { duration } }) => (
+  <div key="duration">
+    <strong>Duration: </strong>
+    {duration || "Instant"}
+  </div>
+)
+
+const KeywordLine = ({ node: { keywords } }) => (
+  <div key="keywords">
+    <strong>Keywords: </strong>
+    {keywords ? keywords.sort().join(", ") : "None"}
+  </div>
+)
+
+const PrerequisitesLine = ({ node: { charms_needed } }) =>
+  charms_needed ? (
+    <div key="prereqs">
+      <strong>Prerequisites: </strong>
+      {charms_needed.sort().join(", ")}
+    </div>
+  ) : null
+
+const CharmCard = ({ node }) => {
   return (
     <div style={{ paddingTop: "1em" }} id={dashify(node.name)} className={cardClass}>
       <h2>{node.name}</h2>
       <hr />
       <div>
-        <MinimumsLine node={node} />
         <div>
-          <strong>Cost: </strong>
-          {node.cost || "—"}
+          <MinimumsLine node={node} />
+          <CostLine node={node} />
+          <TypeLine node={node} />
+          <DurationLine node={node} />
+          <KeywordLine node={node} />
+          <PrerequisitesLine node={node} />
         </div>
-        <div>
-          <strong>Type: </strong>
-          {type || "Simple"}
-        </div>
-        <div>
-          <strong>Duration: </strong>
-          {duration || "Instant"}
-        </div>
-        <div>
-          <strong>Keywords: </strong>
-          {keywords ? keywords.sort().join(", ") : "None"}
-        </div>
-        {charms_needed ? (
-          <div>
-            <strong>Prerequisites: </strong>
-            {charms_needed.sort().join(", ")}
-          </div>
-        ) : null}
         <br />
-        <Ast
-          className={pageContentClass}
-          ast={node.parent.htmlAst}
-          node={node}
-        />
+        <hr />
+        <RenderAst node={node} />
       </div>
     </div>
   )
