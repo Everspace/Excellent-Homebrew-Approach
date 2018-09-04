@@ -5,14 +5,11 @@ import React from "react"
 import CharmCard from "components/CharmCard"
 
 export default ({ data }) => {
-  const { artifact } = data
-  const { evocations } = artifact
-  let evocationCards
-  if (evocations) {
-    evocationCards = evocations
-      .sort((a, b) => a.essence - b.essence)
-      .map(node => <CharmCard node={node} />)
-  }
+  const { artifact, allEvocation } = data
+  let evocationCards = allEvocation.edges
+    .map(({ node }) => node)
+    .sort((a, b) => a.essence - b.essence)
+    .map(node => <CharmCard key={node.id} node={node} />)
 
   return (
     <Layout title={artifact.name} description={artifact.description}>
@@ -33,8 +30,12 @@ export const query = graphql`
       equipmentTags
       hearthstoneSlots
       ...Ast
-      evocations: children {
-        ... on Evocation {
+    }
+
+    allEvocation(filter: { artifact: { eq: $name } }) {
+      edges {
+        node {
+          id
           name
           essence
           keywords
