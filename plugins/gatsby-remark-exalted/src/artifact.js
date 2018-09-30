@@ -1,8 +1,52 @@
-import { baseNode, pathify, digest, createPageFactory } from "./common"
+import {
+  baseNode,
+  pathify,
+  digest,
+  createPageFactory,
+  getPathParts,
+} from "./common"
 import { createEvocationNode } from "./evocation"
+import { MissingDataError } from "errors"
+
+const getArtifactType = async props => {
+  let { node } = props
+  let parts = await getPathParts(props)
+  parts = parts.reverse()
+  parts.pop() // name.md
+
+  let artifactType = parts.pop()
+
+  if (node.frontmatter.artifactType) {
+    return node.frontmatter.artifactType
+  }
+
+  if (artifactType) {
+    return artifactType
+  }
+
+  throw new MissingDataError("artifactType", parts.join("/"))
+}
+
+const makeName = async props => {
+  let fileNode = await getFileNode(props)
+
+  /** @type {string[]} */
+  let parts = getPathParts(props)
+  let isIndexFile = fileNode.name.match(/[iI]ndex/)
+
+  // Construct name
+  if (isIndexFile) {
+    parts.pop() // get rid of filename index.whatever
+    return parts.pop()
+  } else {
+    // It was just sitting there and still has the . in the name
+    let name = parts.pop()
+    return name.substring(0, name.lastIndexOf("."))
+  }
+}
 
 export const createArtifactNode = async props => {
-  let { node, getNode } = props
+  let { node } = props
 
   if (node.fields.sourceName !== "Artifacts") {
     return null
@@ -17,39 +61,17 @@ export const createArtifactNode = async props => {
   let result = baseNode(props, "Artifact")
   result.tags = ["Artifact", ...(result.tags || [])]
 
-  // Get filenode to operate on
+  result.name = await makeName(props)
+  result.title = result.name
 
-  let fileNode = await getNode(node.parent)
+  // Set path that this will be.
+  // .toLocaleLowercase() // Netlify thing about the lowercasing
+  result.path = ["Artifacts"]
 
-  /** @type {string[]} */
-  let parts = fileNode.relativePath.split("/")
-  let isIndexFile = fileNode.name.match(/[iI]ndex/)
-
-  // Construct name
-  if (isIndexFile) {
-    parts.pop() // get rid of filename index.whatever
-    result.name = parts.pop()
-  } else {
-    // It was just sitting there and still has the . in the name
-    let name = parts.pop()
-    name = name.substring(0, name.lastIndexOf("."))
-    result.name = name
-  }
+  result.artifactType = await getArtifactType(props)
 
   // Flip so we can grab Base -> Category if it's there or it matters.
   // [Weapon, Heavy] => [Heavy, Weapon]
-  parts = parts.reverse()
-
-  let artifactType = parts.pop()
-
-  if (node.frontmatter.artifactType) {
-    result.artifactType = node.frontmatter.artifactType
-  } else {
-    // Handle artifact type if unspecified
-    if (artifactType) {
-      result.artifactType = artifactType
-    }
-  }
 
   let weight = parts.pop()
 
