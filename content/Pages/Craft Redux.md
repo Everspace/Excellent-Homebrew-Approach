@@ -24,10 +24,10 @@ Do the dice better.
 
 - <book r="Flawless Handiwork Method"></book> Explode 10s, repurchase for exploding 6s.
 - <book r="Supreme Masterwork Focus"></book> Double 6s, and repurchase and pay differently for 8s or 7s.
-- **First Word of the Demiurge**: Remove 3-of-a-kind from the dice rolled to make a non-charm 10
-- **Second Word of the Demiurge**: Remove a run of 4 (like 2, 3, 4, 5) to make a non-charm 10
+- **First Word of the Demiurge**: 6m - Remove 3-of-a-kind from the dice rolled to make a non-charm 10
+- **Second Word of the Demiurge**: 6m - Remove a run of 4 (like 2, 3, 4, 5) to make a non-charm 10
 - **Final Word of the Demiurge**: Upgrade _Second Word of the Demiurge_ to allow a run of 3 (2, 3, 4) to make a non-charm 10.
-- **Oricalcum Fervor**: Use 3 un-used successes made so far to add a non-charm die.
+- **Oricalcum Fervor**: 1wp - Use 3 un-used successes made so far to add a non-charm die.
 - **Sacrosanct Delirium**: Upgrade to _Oricalcum Fervor_ to make it add 3 non-charm dice instead of 1.
 
 ### Cascade
