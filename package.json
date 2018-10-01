@@ -5,8 +5,13 @@
   "author": "Aaron Haaf <aabonh@gmail.com>",
   "private": true,
   "dependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "babel-core": "^7.0.0-bridge.0",
     "dashify": "^1.0.0",
     "emotion": "^9.2.5",
     "emotion-server": "^9.2.5",
@@ -30,11 +35,11 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build-plugin": "babel -d ./plugins/gatsby-remark-exalted ./plugins/gatsby-remark-exalted/src",
+    "build-plugin": "babel -d ./plugins/gatsby-remark-exalted/dist ./plugins/gatsby-remark-exalted/src",
     "build": "yarn build-plugin && gatsby build",
     "develop": "yarn build-plugin && gatsby develop",
-    "format": "prettier-tslint fix 'src/**/*.js'",
-    "lint": "prettier-tslint check 'src/**/*'",
+    "format": "prettier-tslint fix 'src/**/*.js' 'plugins/gatsby-*/src/**/*'",
+    "lint": "prettier-tslint check 'src/**/*' 'plugins/gatsby-*/src/**/*'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
