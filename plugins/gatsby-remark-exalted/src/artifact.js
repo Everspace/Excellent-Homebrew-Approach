@@ -7,25 +7,22 @@ import {
   getFileNode,
 } from "./common"
 import { createEvocationNode } from "./evocation"
-import { MissingDataError } from "./errors"
+import { missingDataError } from "./errors"
 
-const getArtifactType = async props => {
-  let { node } = props
+/**
+ *
+ * @param {string} item
+ * @param {*} props
+ * @returns {string} the attribute
+ */
+const getManditoryFrontmatter = async (item, props) => {
+  const { node } = props
   let parts = await getPathParts(props)
-  parts = parts.reverse()
-  parts.pop() // name.md
-
-  let artifactType = parts.pop()
-
-  if (node.frontmatter.artifactType) {
-    return node.frontmatter.artifactType
+  if (node.frontmatter[item]) {
+    return node.frontmatter[item]
   }
 
-  if (artifactType) {
-    return artifactType
-  }
-
-  throw new MissingDataError("artifactType", parts.join("/"))
+  missingDataError(item, parts.join("/"))
 }
 
 const makeName = async props => {
@@ -69,27 +66,21 @@ export const createArtifactNode = async props => {
   // .toLocaleLowercase() // Netlify thing about the lowercasing
   result.path = ["Artifacts"]
 
-  result.artifactType = await getArtifactType(props)
+  /** @type {string} */
+  result.artifactType = await getManditoryFrontmatter("artifactType", props)
 
-  // TODO: Fix all this mess
-  // // Flip so we can grab Base -> Category if it's there or it matters.
-  // // [Weapon, Heavy] => [Heavy, Weapon]
+  let mantditoryAttributes = []
+  const isAWeightyThing = result.artifactType.match(
+    /(([Aa]rmou?rs?)|([Ww]eapons?))/,
+  )
 
-  // let weight = parts.pop()
+  if (isAWeightyThing) {
+    mantditoryAttributes.push("weight")
+  }
 
-  // // Handle fatness if present for armour and weapons
-  // if (node.frontmatter.weight) {
-  //   result.weight = node.frontmatter.weight
-  // } else {
-  //   if (weight) {
-  //     result.weight = weight
-  //   }
-  // }
-
-  // // The rest are weird user tags
-  // while (parts.length > 0) {
-  //   result.tags.push(parts.pop())
-  // }
+  await mantditoryAttributes.forEach(async attribute => {
+    result[attribute] = await getManditoryFrontmatter(attribute, props)
+  })
 
   // formulate the path
   result.path = pathify("artifacts", result.name)
