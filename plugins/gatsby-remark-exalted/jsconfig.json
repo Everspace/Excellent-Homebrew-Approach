@@ -1,8 +1,9 @@
 {
-  "include": [
-    "src"
-  ],
+  "include": ["src"],
+  "exclude": ["dist"],
   "compilerOptions": {
-    "baseUrl": "src"
+    "target": "es2016",
+    "baseUrl": "src",
+    "moduleResolution": "node"
   }
 }
