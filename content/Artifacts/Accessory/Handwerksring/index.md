@@ -1,5 +1,6 @@
 ---
 description: White Jade and Iron Ring
+artifactType: Accessory
 attunement: 3m
 rating: 4
 ---

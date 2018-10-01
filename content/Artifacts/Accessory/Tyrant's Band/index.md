@@ -1,5 +1,6 @@
 ---
 description: Tyrant Lizard Leather and Oricalcum Belt
+artifactType: Accessory
 rating: 5
 attunement: 3m
 hearthstoneSlots: 3

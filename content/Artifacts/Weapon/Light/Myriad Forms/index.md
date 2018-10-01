@@ -1,5 +1,6 @@
 ---
 description: Starmetal Filagree Frying Pan
+artifactType: Weapon
 attunement: 5m #TODO: Default cost infrence
 era: Time of the Trickster's Comet
 equipmentTags:

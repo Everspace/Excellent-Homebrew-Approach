@@ -1,5 +1,6 @@
 ---
 description: Wood and Crystal Bracelet, Anklets, and Necklace
+artifactType: Accessory
 rating: 2
 ---
 

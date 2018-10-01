@@ -1,5 +1,6 @@
 ---
 description: Jade and Wood Storage Box
+artifactType: Misc
 rating: 3
 ---
 

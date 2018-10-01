@@ -1,11 +1,12 @@
 ---
 description: Obsidian and Orichalcum Dragon King Armour
+artifactType: Armour
 weight: Medium
 attunement: 5m #TODO: allow for default costs
 mobility: 0
 equipmentTags:
-- Silent
-- Concealable
+  - Silent
+  - Concealable
 era: The First Age
 rating: 4
 ---

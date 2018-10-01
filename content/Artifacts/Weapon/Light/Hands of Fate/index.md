@@ -1,13 +1,14 @@
 ---
 title: Hands of Fate
 description: Starmetal Fingerless Gloves
+artifactType: Weapon
 attunement: 5m #TODO: Default cost infrence
-era: '???'
+era: "???"
 equipmentTags:
-- Brawl
-- Grappling
-- Worn
-- Concealable
+  - Brawl
+  - Grappling
+  - Worn
+  - Concealable
 rating: 4
 ---
 

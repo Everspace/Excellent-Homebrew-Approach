@@ -1,5 +1,6 @@
 ---
 description: Dreamstone and White Jade beads
+artifactType: Accessory
 rating: 2
 ---
 
