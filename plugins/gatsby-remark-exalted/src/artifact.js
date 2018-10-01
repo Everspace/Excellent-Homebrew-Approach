@@ -4,9 +4,10 @@ import {
   digest,
   createPageFactory,
   getPathParts,
+  getFileNode,
 } from "./common"
 import { createEvocationNode } from "./evocation"
-import { MissingDataError } from "errors"
+import { MissingDataError } from "./errors"
 
 const getArtifactType = async props => {
   let { node } = props
@@ -31,7 +32,7 @@ const makeName = async props => {
   let fileNode = await getFileNode(props)
 
   /** @type {string[]} */
-  let parts = getPathParts(props)
+  const parts = await getPathParts(props)
   let isIndexFile = fileNode.name.match(/[iI]ndex/)
 
   // Construct name
@@ -70,24 +71,25 @@ export const createArtifactNode = async props => {
 
   result.artifactType = await getArtifactType(props)
 
-  // Flip so we can grab Base -> Category if it's there or it matters.
-  // [Weapon, Heavy] => [Heavy, Weapon]
+  // TODO: Fix all this mess
+  // // Flip so we can grab Base -> Category if it's there or it matters.
+  // // [Weapon, Heavy] => [Heavy, Weapon]
 
-  let weight = parts.pop()
+  // let weight = parts.pop()
 
-  // Handle fatness if present for armour and weapons
-  if (node.frontmatter.weight) {
-    result.weight = node.frontmatter.weight
-  } else {
-    if (weight) {
-      result.weight = weight
-    }
-  }
+  // // Handle fatness if present for armour and weapons
+  // if (node.frontmatter.weight) {
+  //   result.weight = node.frontmatter.weight
+  // } else {
+  //   if (weight) {
+  //     result.weight = weight
+  //   }
+  // }
 
-  // The rest are weird user tags
-  while (parts.length > 0) {
-    result.tags.push(parts.pop())
-  }
+  // // The rest are weird user tags
+  // while (parts.length > 0) {
+  //   result.tags.push(parts.pop())
+  // }
 
   // formulate the path
   result.path = pathify("artifacts", result.name)
