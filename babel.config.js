@@ -1,15 +1,16 @@
 module.exports = {
   presets: [
+    "@babel/preset-react",
     [
       "@babel/preset-env",
       {
         shippedProposals: true,
       },
     ],
-    "@babel/preset-react",
   ],
   plugins: [
     "@babel/plugin-transform-runtime",
     "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-optional-chaining",
   ],
 }

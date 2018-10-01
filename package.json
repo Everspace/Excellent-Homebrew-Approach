@@ -9,8 +9,10 @@
     "@babel/core": "^7.0.0",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
-    "@babel/preset-env": "^7.1.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
     "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
     "babel-core": "^7.0.0-bridge.0",
     "dashify": "^1.0.0",
     "emotion": "^9.2.5",
@@ -43,13 +45,44 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "babel-jest": "^23.6.0",
+    "jest": "^23.6.0",
     "prettier": "^1.12.0",
     "prettier-tslint": "^0.4.0",
+    "react-test-renderer": "^16.5.2",
     "tslint": "^5.11.0",
     "typescript": "^3.0.1"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/Everspace/Exellent-Homebrew-Approach"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "<rootDir>/jest-preprocess.js"
+    },
+    "testRegex": "/.*\\.test\\.js?$",
+    "moduleDirectories": [
+      "node_modules",
+      "bower_components",
+      "src"
+    ],
+    "moduleNameMapper": {
+      ".+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js"
+    },
+    "testPathIgnorePatterns": [
+      "node_modules",
+      ".cache",
+      "dist"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!(gatsby)/)"
+    ],
+    "globals": {
+      "__PATH_PREFIX__": ""
+    },
+    "setupFiles": [
+      "<rootDir>/loadershim.js"
+    ]
   }
 }
