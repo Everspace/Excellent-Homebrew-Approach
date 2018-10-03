@@ -21,10 +21,6 @@
     "object-literal-sort-keys": false
   },
   "linterOptions": {
-    "exlude": [
-      "public",
-      "node_modules",
-      "plugins/gatsby-*/*.js"
-    ]
+    "exlude": ["public", "node_modules"]
   }
 }
