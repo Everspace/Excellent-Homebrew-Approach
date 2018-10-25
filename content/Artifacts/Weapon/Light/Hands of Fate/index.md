@@ -4,6 +4,7 @@ description: Starmetal Fingerless Gloves
 artifactType: Weapon
 attunement: 5m #TODO: Default cost infrence
 era: "???"
+weight: light
 equipmentTags:
   - Brawl
   - Grappling
