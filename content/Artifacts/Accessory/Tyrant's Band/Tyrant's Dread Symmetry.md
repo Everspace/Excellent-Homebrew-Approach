@@ -3,8 +3,7 @@ essence: 2
 type: Permanent
 duration: Permanent
 charms_needed:
-- Furious Rampage Approach
-- Tiger's Dread Symmetry
+  - Tiger's Dread Symmetry
 ---
 
 None can look upon a Tyrant Lizard and not feel terror.
