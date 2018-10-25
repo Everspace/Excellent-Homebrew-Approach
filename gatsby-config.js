@@ -26,6 +26,7 @@ module.exports = {
         plugins: ["gatsby-remark-component", "gatsby-remark-source-name"],
       },
     },
+    "gatsby-plugin-typescript",
     //Custom plugins
     "gatsby-remark-exalted",
   ],
