@@ -1,5 +1,4 @@
 import crypto from "crypto"
-import path from "path"
 import dashify from "dashify"
 
 /**

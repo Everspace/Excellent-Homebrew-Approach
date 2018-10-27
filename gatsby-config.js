@@ -28,6 +28,6 @@ module.exports = {
     },
     "gatsby-plugin-typescript",
     //Custom plugins
-    "gatsby-remark-exalted",
+    // "gatsby-remark-exalted",
   ],
 }

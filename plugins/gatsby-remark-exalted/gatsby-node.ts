@@ -1,11 +1,9 @@
 const myModules = ["artifact"]
 
-/**
- * Get all api from available modules
- * @param {string} api Api name
- * @returns {function[]} valid functions
- */
-const harvestApis = api => {
+type NodeApiFunction = (props: any, puginOptions?: any) => void
+type NodeApiFunctionGenerator = (string) => NodeApiFunction[]
+
+const harvestApis: NodeApiFunctionGenerator = (api: string) => {
   return myModules
     .map(name => {
       try {

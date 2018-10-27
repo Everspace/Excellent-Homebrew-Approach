@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2017",
+    "baseUrl": "src",
+    "jsx": "react",
+    "lib": ["es2017"],
+    "typeRoots": ["./types"],
+    "moduleResolution": "node"
+  },
+  "exclude": ["**/node_modules/**", "__mocks__"],
+  "typeAcquisition": {
+    "enable": true
+  }
+}
