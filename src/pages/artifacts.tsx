@@ -1,27 +1,44 @@
 import Layout from "components/Layout"
 import Rating, { artifactRatingSort } from "components/Rating"
 import { graphql, Link } from "gatsby"
-import GatsbyLink from "gatsby-link"
-import React = require("react")
+import { node } from "prop-types"
+import React from "react"
+import { gatsby } from "../../types/gatsby"
 import { gatsbyGraphQL } from "../../types/GatsbyGraphQL"
 
-type GatsbyQLConnectedFn = (props: { data: gatsbyGraphQL.Query }) => Element
+const Artifact: React.FunctionComponent<{
+  artifact: gatsbyGraphQL.Artifact,
+}> = ({ artifact }) => {
+  return (
+    <>
+      <Rating r={artifact.rating} />
+      <Link key={artifact.id} to={artifact.path}>
+        {artifact.name}
+      </Link>{" "}
+      - {artifact.description}
+    </>
+  )
+}
 
-const ArtifactPage: GatsbyQLConnectedFn = ({ data }) => {
-  // const artifacts = data.allDirectory.edges[0]
-  const artifacts = data.allDirectory.edges
-    .map(({ node }) => node)
-    .sort(artifactRatingSort)
-    .map((node) => (
-      <li key={node.id}>
-        <Rating r={node.rating} />
-        <Link key={node.id} to={node.path}>
-          {node.name}
-        </Link>{" "}
-        - {node.description}
-      </li>
-    ))
+const Group: React.FunctionComponent<{
+  group: gatsbyGraphQL.ArtifactGroupConnectionConnection,
+}> = ({ group }) => {
+  return (
+    <>
+      <h2 key={group.fieldValue}>{group.fieldValue}</h2>
+      <ul key={group.fieldValue + "ul"}>
+        {group.edges.filter((edge) => edge.node).map((edge, index) => (
+          <li key={index}>
+            <Artifact artifact={edge.node} />
+          </li>
+        ))}
+      </ul>
+    </>
+  )
+}
 
+const ArtifactPage: gatsby.GatsbyQLConnectedFn = ({ data }) => {
+  const artifacts = data.allArtifact.group.map((edge) => <Group group={edge} />)
   return (
     <Layout title={"Artifacts"}>
       <Link to="/">back</Link>
@@ -35,14 +52,24 @@ export default ArtifactPage
 
 export const query = graphql`
   {
-    allArtifact {
-      edges {
-        node {
-          id
-          path
-          name
-          description
-          rating
+    allArtifact(sort: { fields: [artifactType, rating, name], order: ASC }) {
+      pageInfo {
+        hasNextPage
+      }
+      group(field: artifactType) {
+        fieldValue
+        totalCount
+        pageInfo {
+          hasNextPage
+        }
+        edges {
+          node {
+            id
+            path
+            name
+            description
+            rating
+          }
         }
       }
     }
