@@ -1,0 +1,1 @@
+Mitigate the backlash of a social faux pas, even for someone else. The more successful you are, the more "ok" the faux pas became. Made it: people don't care, a little above: refuse to hold it against them, a lot: it's now the cool shit for a while.

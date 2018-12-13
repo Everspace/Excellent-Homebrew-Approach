@@ -1,0 +1,3 @@
+When participating in a ceremony (naming, funeral, wedding, anything really), their involvement is an orthodoxy that pleases heaven.
+
+On a successful (\[Social\] + Performance) prayer roll vs difficulty something. If successful, the people that the ceremony are blessed with 2 non-charm dice and 2 non-charm automatic successes on any roll meant to represent their efforts. In addition, the ceremony grants a broader blessing of harmony and joy that goes beyond a mechanical. The bickering children of a funeral find that they are able to come to terms over the estate of the diseased, a newborn at their naming will live and be healthy, and newlyweds will find themselves assured of a family through fertility or otherwise if they wish.
