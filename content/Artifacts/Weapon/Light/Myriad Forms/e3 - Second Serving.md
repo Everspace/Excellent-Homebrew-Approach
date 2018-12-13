@@ -3,7 +3,7 @@ essence: 3
 cost: 2m 2i
 type: Reflexive
 charmsNeeded:
-  - 10 000 Forms of Spring
+  - Panoply of Form
   - Onion Cutting Technique
 keywords:
   - Withering-Only
