@@ -3,7 +3,7 @@ essence: 1
 type: Supplementary
 duration: Instant
 cost: 3m
-charms_needed:
+charmsNeeded:
 - Devil Strangling Attitude
 ---
 

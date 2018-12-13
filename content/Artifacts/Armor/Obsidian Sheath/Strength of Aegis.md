@@ -4,7 +4,7 @@ essence: 1
 type: Uniform
 keywords:
   - Uniform
-charms_needed:
+charmsNeeded:
   - Obsidian Arete
 ---
 

@@ -1,7 +1,7 @@
 ---
 essence: 2
 type: Supplemental
-charms_needed:
+charmsNeeded:
   - Scorn of the Dancer
 ---
 

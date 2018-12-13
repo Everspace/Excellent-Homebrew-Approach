@@ -2,7 +2,7 @@
 essence: 2
 cost: 2m
 type: Supplemental
-charms_needed:
+charmsNeeded:
   - Springing Pan Forms
 keywords:
   - Dual

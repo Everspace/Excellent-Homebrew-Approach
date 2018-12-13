@@ -3,7 +3,7 @@ essence: 2
 type: Permanent
 duration: Permanent
 cost: — (1wp)
-charms_needed:
+charmsNeeded:
 - Hungry Eyes Style
 ---
 

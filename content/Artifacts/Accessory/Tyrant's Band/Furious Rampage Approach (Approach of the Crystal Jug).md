@@ -3,7 +3,7 @@ essence: 2
 type: Supplementary
 duration: Instant
 cost: 2m
-charms_needed:
+charmsNeeded:
 - Hungry Eyes Style
 ---
 

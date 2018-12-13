@@ -2,7 +2,7 @@
 cost: 15m 1wp
 essence: 3
 duration: Indefinite
-charms_needed:
+charmsNeeded:
   - Scorn of the Dancer
 ---
 

@@ -4,7 +4,7 @@ cost: 3m
 type: Supplemental
 keywords:
   - Resonant
-charms_needed:
+charmsNeeded:
   - Distance Shifting Arete
 ---
 

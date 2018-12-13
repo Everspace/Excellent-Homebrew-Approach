@@ -2,7 +2,7 @@
 essence: 3
 cost: 2m 2i
 type: Reflexive
-charms_needed:
+charmsNeeded:
   - 10 000 Forms of Spring
   - Onion Cutting Technique
 keywords:

@@ -2,7 +2,7 @@
 essence: 2
 type: Permanent
 duration: Permanent
-charms_needed:
+charmsNeeded:
 - Furious Rampage Approach
 - Tiger's Dread Symmetry
 ---

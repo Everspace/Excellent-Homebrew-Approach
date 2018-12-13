@@ -6,7 +6,7 @@ cost: (2m or 1i)/dot
 keywords:
 - Apocryphal
 - Stackable
-charms_needed:
+charmsNeeded:
 - Increasing Strength Exercise
 ---
 

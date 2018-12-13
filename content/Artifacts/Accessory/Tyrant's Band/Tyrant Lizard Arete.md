@@ -5,7 +5,7 @@ duration: 1 scene
 keywords:
 - Resonant
 cost: 15m 2wp (5m, 1wp)
-charms_needed:
+charmsNeeded:
 - Apex Predator Attitude
 - Tyrant's Dread Symmetry
 ---

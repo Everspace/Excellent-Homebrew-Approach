@@ -3,7 +3,7 @@ essence: 1
 cost: 2m
 keywords:
   - Resonant
-charms_needed:
+charmsNeeded:
   - Craftsman Need no Tools
 ---
 
