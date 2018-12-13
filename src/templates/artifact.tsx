@@ -1,8 +1,8 @@
+import CharmCard from "components/CharmCard"
 import Layout from "components/Layout"
 import { graphql, Link } from "gatsby"
 import RenderAst from "lib/RenderAst"
 import React from "react"
-import CharmCard from "components/CharmCard"
 
 export default ({ data }) => {
   const { artifact, allEvocation } = data
@@ -11,7 +11,7 @@ export default ({ data }) => {
     evocationCards = allEvocation.edges
       .map(({ node }) => node)
       .sort((a, b) => a.essence - b.essence)
-      .map(node => <CharmCard key={node.id} node={node} />)
+      .map((node) => <CharmCard key={node.id} node={node} />)
   }
 
   return (
@@ -43,7 +43,7 @@ export const query = graphql`
           name
           essence
           keywords
-          charms_needed
+          charmsNeeded
           cost
           type
           essence

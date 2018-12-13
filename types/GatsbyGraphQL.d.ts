@@ -18,12 +18,16 @@ export namespace gatsbyGraphQL {
     allDirectory?: DirectoryConnection | null /** Connection to all Directory nodes */
     allFile?: FileConnection | null /** Connection to all File nodes */
     allMarkdownRemark?: MarkdownRemarkConnection | null /** Connection to all MarkdownRemark nodes */
+    allEvocation?: EvocationConnection | null /** Connection to all Evocation nodes */
+    allArtifact?: ArtifactConnection | null /** Connection to all Artifact nodes */
     sitePage?: SitePage | null
     sitePlugin?: SitePlugin | null
     site?: Site | null
     directory?: Directory | null
     file?: File | null
     markdownRemark?: MarkdownRemark | null
+    evocation?: Evocation | null
+    artifact?: Artifact | null
   }
   /** A connection to a list of items. */
   export interface SitePageConnection {
@@ -53,10 +57,15 @@ export namespace gatsbyGraphQL {
     path?: string | null
     component?: string | null
     componentChunkName?: string | null
+    context?: Context | null
     pluginCreator?: SitePlugin | null
     pluginCreatorId?: string | null
     componentPath?: string | null
-    internal?: Internal_7 | null
+    internal?: Internal_9 | null
+  }
+
+  export interface Context {
+    name?: string | null
   }
   /** Node of type SitePlugin */
   export interface SitePlugin extends Node {
@@ -72,13 +81,14 @@ export namespace gatsbyGraphQL {
     ssrAPIs?: (string | null)[] | null
     pluginFilepath?: string | null
     packageJson?: PackageJson_2 | null
-    internal?: Internal_8 | null
+    internal?: Internal_10 | null
   }
 
   export interface PluginOptions_2 {
     plugins?: (Plugins_2 | null)[] | null
     name?: string | null
     path?: string | null
+    artifact?: Artifact_2 | null
     pathCheck?: boolean | null
   }
 
@@ -89,6 +99,10 @@ export namespace gatsbyGraphQL {
     version?: string | null
     nodeAPIs?: (string | null)[] | null
     pluginFilepath?: string | null
+  }
+
+  export interface Artifact_2 {
+    template?: string | null
   }
 
   export interface PackageJson_2 {
@@ -119,13 +133,13 @@ export namespace gatsbyGraphQL {
     version?: string | null
   }
 
-  export interface Internal_8 {
+  export interface Internal_10 {
     contentDigest?: string | null
     type?: string | null
     owner?: string | null
   }
 
-  export interface Internal_7 {
+  export interface Internal_9 {
     type?: string | null
     contentDigest?: string | null
     description?: string | null
@@ -196,7 +210,7 @@ export namespace gatsbyGraphQL {
     id: string /** The id of this node. */
     parent?: Node | null /** The parent of this node. */
     children?: (Node | null)[] | null /** The children of this node. */
-    internal?: Internal_9 | null
+    internal?: Internal_11 | null
     sourceInstanceName?: string | null
     absolutePath?: string | null
     relativePath?: string | null
@@ -230,7 +244,7 @@ export namespace gatsbyGraphQL {
     birthtime?: Date | null
   }
 
-  export interface Internal_9 {
+  export interface Internal_11 {
     contentDigest?: string | null
     type?: string | null
     description?: string | null
@@ -272,7 +286,7 @@ export namespace gatsbyGraphQL {
     parent?: Node | null /** The parent of this node. */
     children?: (Node | null)[] | null /** The children of this node. */
     childMarkdownRemark?: MarkdownRemark | null /** The child of this node of type markdownRemark */
-    internal?: Internal_10 | null
+    internal?: Internal_12 | null
     sourceInstanceName?: string | null
     absolutePath?: string | null
     relativePath?: string | null
@@ -313,7 +327,9 @@ export namespace gatsbyGraphQL {
     id: string /** The id of this node. */
     parent?: Node | null /** The parent of this node. */
     children?: (Node | null)[] | null /** The children of this node. */
-    internal?: Internal_11 | null
+    childArtifact?: Artifact | null /** The child of this node of type artifact */
+    childEvocation?: Evocation | null /** The child of this node of type evocation */
+    internal?: Internal_13 | null
     frontmatter?: Frontmatter_2 | null
     rawMarkdownBody?: string | null
     fileAbsolutePath?: string | null
@@ -326,8 +342,60 @@ export namespace gatsbyGraphQL {
     tableOfContents?: string | null
     wordCount?: WordCount | null
   }
+  /** Node of type Artifact */
+  export interface Artifact extends Node {
+    id: string /** The id of this node. */
+    parent?: Node | null /** The parent of this node. */
+    children?: (Node | null)[] | null /** The children of this node. */
+    title?: string | null
+    description?: string | null
+    artifactType?: string | null
+    rating?: number | null
+    internal?: Internal_14 | null
+    tags?: (string | null)[] | null
+    name?: string | null
+    path?: string | null
+    attunement?: string | null
+    hearthstoneSlots?: number | null
+    weight?: string | null
+    mobility?: number | null
+    equipmentTags?: (string | null)[] | null
+    era?: string | null
+  }
 
-  export interface Internal_11 {
+  export interface Internal_14 {
+    description?: string | null
+    type?: string | null
+    contentDigest?: string | null
+    owner?: string | null
+  }
+  /** Node of type Evocation */
+  export interface Evocation extends Node {
+    id: string /** The id of this node. */
+    parent?: Node | null /** The parent of this node. */
+    children?: (Node | null)[] | null /** The children of this node. */
+    title?: string | null
+    essence?: number | null
+    type?: string | null
+    charmsNeeded?: (string | null)[] | null
+    internal?: Internal_15 | null
+    tags?: (string | null)[] | null
+    name?: string | null
+    artifact?: string | null
+    path?: string | null
+    cost?: string | null
+    keywords?: (string | null)[] | null
+    duration?: string | null
+  }
+
+  export interface Internal_15 {
+    description?: string | null
+    type?: string | null
+    contentDigest?: string | null
+    owner?: string | null
+  }
+
+  export interface Internal_13 {
     content?: string | null
     type?: string | null
     contentDigest?: string | null
@@ -344,10 +412,9 @@ export namespace gatsbyGraphQL {
     description?: string | null
     artifactType?: string | null
     rating?: number | null
-    _PARENT?: string | null
     essence?: number | null
     type?: string | null
-    charms_needed?: (string | null)[] | null
+    charmsNeeded?: (string | null)[] | null
     cost?: string | null
     keywords?: (string | null)[] | null
     duration?: string | null
@@ -357,9 +424,9 @@ export namespace gatsbyGraphQL {
     mobility?: number | null
     equipmentTags?: (string | null)[] | null
     era?: string | null
+    _PARENT?: string | null
     skill?: number | null
     mins?: (string | null)[] | null
-    charmsNeeded?: (string | null)[] | null
     required_charms?: (string | null)[] | null
   }
 
@@ -378,7 +445,7 @@ export namespace gatsbyGraphQL {
     words?: number | null
   }
 
-  export interface Internal_10 {
+  export interface Internal_12 {
     contentDigest?: string | null
     type?: string | null
     mediaType?: string | null
@@ -429,6 +496,66 @@ export namespace gatsbyGraphQL {
     next?: MarkdownRemark | null /** The next edge in the connection */
     previous?: MarkdownRemark | null /** The previous edge in the connection */
   }
+  /** A connection to a list of items. */
+  export interface EvocationConnection {
+    pageInfo: PageInfo /** Information to aid in pagination. */
+    edges?: (EvocationEdge | null)[] | null /** A list of edges. */
+    totalCount?: number | null
+    distinct?: (string | null)[] | null
+    group?: (EvocationGroupConnectionConnection | null)[] | null
+  }
+  /** An edge in a connection. */
+  export interface EvocationEdge {
+    node?: Evocation | null /** The item at the end of the edge */
+    next?: Evocation | null /** The next edge in the connection */
+    previous?: Evocation | null /** The previous edge in the connection */
+  }
+  /** A connection to a list of items. */
+  export interface EvocationGroupConnectionConnection {
+    pageInfo: PageInfo /** Information to aid in pagination. */
+    edges?:
+      | (EvocationGroupConnectionEdge | null)[]
+      | null /** A list of edges. */
+    field?: string | null
+    fieldValue?: string | null
+    totalCount?: number | null
+  }
+  /** An edge in a connection. */
+  export interface EvocationGroupConnectionEdge {
+    node?: Evocation | null /** The item at the end of the edge */
+    next?: Evocation | null /** The next edge in the connection */
+    previous?: Evocation | null /** The previous edge in the connection */
+  }
+  /** A connection to a list of items. */
+  export interface ArtifactConnection {
+    pageInfo: PageInfo /** Information to aid in pagination. */
+    edges?: (ArtifactEdge | null)[] | null /** A list of edges. */
+    totalCount?: number | null
+    distinct?: (string | null)[] | null
+    group?: (ArtifactGroupConnectionConnection | null)[] | null
+  }
+  /** An edge in a connection. */
+  export interface ArtifactEdge {
+    node?: Artifact | null /** The item at the end of the edge */
+    next?: Artifact | null /** The next edge in the connection */
+    previous?: Artifact | null /** The previous edge in the connection */
+  }
+  /** A connection to a list of items. */
+  export interface ArtifactGroupConnectionConnection {
+    pageInfo: PageInfo /** Information to aid in pagination. */
+    edges?:
+      | (ArtifactGroupConnectionEdge | null)[]
+      | null /** A list of edges. */
+    field?: string | null
+    fieldValue?: string | null
+    totalCount?: number | null
+  }
+  /** An edge in a connection. */
+  export interface ArtifactGroupConnectionEdge {
+    node?: Artifact | null /** The item at the end of the edge */
+    next?: Artifact | null /** The next edge in the connection */
+    previous?: Artifact | null /** The previous edge in the connection */
+  }
   /** Node of type Site */
   export interface Site extends Node {
     id: string /** The id of this node. */
@@ -440,7 +567,7 @@ export namespace gatsbyGraphQL {
     pathPrefix?: string | null
     polyfill?: boolean | null
     buildTime?: Date | null
-    internal?: Internal_12 | null
+    internal?: Internal_16 | null
   }
 
   export interface SiteMetadata_2 {
@@ -449,7 +576,7 @@ export namespace gatsbyGraphQL {
     description?: string | null
   }
 
-  export interface Internal_12 {
+  export interface Internal_16 {
     contentDigest?: string | null
     type?: string | null
     owner?: string | null
@@ -466,6 +593,7 @@ export namespace gatsbyGraphQL {
     path?: SitePageConnectionPathQueryString_2 | null
     component?: SitePageConnectionComponentQueryString | null
     componentChunkName?: SitePageConnectionComponentChunkNameQueryString | null
+    context?: SitePageConnectionContextInputObject | null
     pluginCreator?: SitePageConnectionPluginCreatorInputObject | null
     pluginCreatorId?: SitePageConnectionPluginCreatorIdQueryString_2 | null
     componentPath?: SitePageConnectionComponentPathQueryString | null
@@ -510,6 +638,19 @@ export namespace gatsbyGraphQL {
   }
 
   export interface SitePageConnectionComponentChunkNameQueryString {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface SitePageConnectionContextInputObject {
+    name?: SitePageConnectionContextNameQueryString | null
+  }
+
+  export interface SitePageConnectionContextNameQueryString {
     eq?: string | null
     ne?: string | null
     regex?: string | null
@@ -573,6 +714,7 @@ export namespace gatsbyGraphQL {
     plugins?: SitePageConnectionPluginCreatorPluginOptionsPluginsQueryList | null
     name?: SitePageConnectionPluginCreatorPluginOptionsNameQueryString | null
     path?: SitePageConnectionPluginCreatorPluginOptionsPathQueryString | null
+    artifact?: SitePageConnectionPluginCreatorPluginOptionsArtifactInputObject | null
     pathCheck?: SitePageConnectionPluginCreatorPluginOptionsPathCheckQueryBoolean | null
   }
 
@@ -653,6 +795,19 @@ export namespace gatsbyGraphQL {
   }
 
   export interface SitePageConnectionPluginCreatorPluginOptionsPathQueryString {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface SitePageConnectionPluginCreatorPluginOptionsArtifactInputObject {
+    template?: SitePageConnectionPluginCreatorPluginOptionsArtifactTemplateQueryString | null
+  }
+
+  export interface SitePageConnectionPluginCreatorPluginOptionsArtifactTemplateQueryString {
     eq?: string | null
     ne?: string | null
     regex?: string | null
@@ -1032,6 +1187,7 @@ export namespace gatsbyGraphQL {
     plugins?: SitePluginConnectionPluginOptionsPluginsQueryList_2 | null
     name?: SitePluginConnectionPluginOptionsNameQueryString_2 | null
     path?: SitePluginConnectionPluginOptionsPathQueryString_2 | null
+    artifact?: SitePluginConnectionPluginOptionsArtifactInputObject_2 | null
     pathCheck?: SitePluginConnectionPluginOptionsPathCheckQueryBoolean_2 | null
   }
 
@@ -1112,6 +1268,19 @@ export namespace gatsbyGraphQL {
   }
 
   export interface SitePluginConnectionPluginOptionsPathQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface SitePluginConnectionPluginOptionsArtifactInputObject_2 {
+    template?: SitePluginConnectionPluginOptionsArtifactTemplateQueryString_2 | null
+  }
+
+  export interface SitePluginConnectionPluginOptionsArtifactTemplateQueryString_2 {
     eq?: string | null
     ne?: string | null
     regex?: string | null
@@ -2256,10 +2425,9 @@ export namespace gatsbyGraphQL {
     description?: MarkdownRemarkConnectionFrontmatterDescriptionQueryString_2 | null
     artifactType?: MarkdownRemarkConnectionFrontmatterArtifactTypeQueryString_2 | null
     rating?: MarkdownRemarkConnectionFrontmatterRatingQueryInteger_2 | null
-    _PARENT?: MarkdownRemarkConnectionFrontmatterParentQueryString_2 | null
     essence?: MarkdownRemarkConnectionFrontmatterEssenceQueryInteger_2 | null
     type?: MarkdownRemarkConnectionFrontmatterTypeQueryString_2 | null
-    charms_needed?: MarkdownRemarkConnectionFrontmatterCharmsNeededQueryList_3 | null
+    charmsNeeded?: MarkdownRemarkConnectionFrontmatterCharmsNeededQueryList_2 | null
     cost?: MarkdownRemarkConnectionFrontmatterCostQueryString_2 | null
     keywords?: MarkdownRemarkConnectionFrontmatterKeywordsQueryList_2 | null
     duration?: MarkdownRemarkConnectionFrontmatterDurationQueryString_2 | null
@@ -2269,9 +2437,9 @@ export namespace gatsbyGraphQL {
     mobility?: MarkdownRemarkConnectionFrontmatterMobilityQueryInteger_2 | null
     equipmentTags?: MarkdownRemarkConnectionFrontmatterEquipmentTagsQueryList_2 | null
     era?: MarkdownRemarkConnectionFrontmatterEraQueryString_2 | null
+    _PARENT?: MarkdownRemarkConnectionFrontmatterParentQueryString_2 | null
     skill?: MarkdownRemarkConnectionFrontmatterSkillQueryInteger_2 | null
     mins?: MarkdownRemarkConnectionFrontmatterMinsQueryList_2 | null
-    charmsNeeded?: MarkdownRemarkConnectionFrontmatterCharmsNeededQueryList_4 | null
     required_charms?: MarkdownRemarkConnectionFrontmatterRequiredCharmsQueryList_2 | null
   }
 
@@ -2313,15 +2481,6 @@ export namespace gatsbyGraphQL {
     nin?: (number | null)[] | null
   }
 
-  export interface MarkdownRemarkConnectionFrontmatterParentQueryString_2 {
-    eq?: string | null
-    ne?: string | null
-    regex?: string | null
-    glob?: string | null
-    in?: (string | null)[] | null
-    nin?: (string | null)[] | null
-  }
-
   export interface MarkdownRemarkConnectionFrontmatterEssenceQueryInteger_2 {
     eq?: number | null
     ne?: number | null
@@ -2342,7 +2501,7 @@ export namespace gatsbyGraphQL {
     nin?: (string | null)[] | null
   }
 
-  export interface MarkdownRemarkConnectionFrontmatterCharmsNeededQueryList_3 {
+  export interface MarkdownRemarkConnectionFrontmatterCharmsNeededQueryList_2 {
     eq?: string | null
     ne?: string | null
     regex?: string | null
@@ -2436,6 +2595,15 @@ export namespace gatsbyGraphQL {
     nin?: (string | null)[] | null
   }
 
+  export interface MarkdownRemarkConnectionFrontmatterParentQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
   export interface MarkdownRemarkConnectionFrontmatterSkillQueryInteger_2 {
     eq?: number | null
     ne?: number | null
@@ -2448,15 +2616,6 @@ export namespace gatsbyGraphQL {
   }
 
   export interface MarkdownRemarkConnectionFrontmatterMinsQueryList_2 {
-    eq?: string | null
-    ne?: string | null
-    regex?: string | null
-    glob?: string | null
-    in?: (string | null)[] | null
-    nin?: (string | null)[] | null
-  }
-
-  export interface MarkdownRemarkConnectionFrontmatterCharmsNeededQueryList_4 {
     eq?: string | null
     ne?: string | null
     regex?: string | null
@@ -2611,6 +2770,378 @@ export namespace gatsbyGraphQL {
     nin?: (number | null)[] | null
   }
 
+  export interface EvocationConnectionSort {
+    fields: (EvocationConnectionSortByFieldsEnum | null)[]
+    order?: EvocationConnectionSortOrderValues | null
+  }
+  /** Filter connection on its fields */
+  export interface FilterEvocation {
+    id?: EvocationConnectionIdQueryString_2 | null
+    title?: EvocationConnectionTitleQueryString_2 | null
+    essence?: EvocationConnectionEssenceQueryInteger_2 | null
+    type?: EvocationConnectionTypeQueryString_2 | null
+    charmsNeeded?: EvocationConnectionCharmsNeededQueryList_2 | null
+    internal?: EvocationConnectionInternalInputObject_2 | null
+    tags?: EvocationConnectionTagsQueryList_2 | null
+    name?: EvocationConnectionNameQueryString_2 | null
+    artifact?: EvocationConnectionArtifactQueryString_2 | null
+    path?: EvocationConnectionPathQueryString_2 | null
+    cost?: EvocationConnectionCostQueryString_2 | null
+    keywords?: EvocationConnectionKeywordsQueryList_2 | null
+    duration?: EvocationConnectionDurationQueryString_2 | null
+  }
+
+  export interface EvocationConnectionIdQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface EvocationConnectionTitleQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface EvocationConnectionEssenceQueryInteger_2 {
+    eq?: number | null
+    ne?: number | null
+    gt?: number | null
+    gte?: number | null
+    lt?: number | null
+    lte?: number | null
+    in?: (number | null)[] | null
+    nin?: (number | null)[] | null
+  }
+
+  export interface EvocationConnectionTypeQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface EvocationConnectionCharmsNeededQueryList_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface EvocationConnectionInternalInputObject_2 {
+    description?: EvocationConnectionInternalDescriptionQueryString_2 | null
+    type?: EvocationConnectionInternalTypeQueryString_2 | null
+    contentDigest?: EvocationConnectionInternalContentDigestQueryString_2 | null
+    owner?: EvocationConnectionInternalOwnerQueryString_2 | null
+  }
+
+  export interface EvocationConnectionInternalDescriptionQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface EvocationConnectionInternalTypeQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface EvocationConnectionInternalContentDigestQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface EvocationConnectionInternalOwnerQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface EvocationConnectionTagsQueryList_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface EvocationConnectionNameQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface EvocationConnectionArtifactQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface EvocationConnectionPathQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface EvocationConnectionCostQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface EvocationConnectionKeywordsQueryList_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface EvocationConnectionDurationQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface ArtifactConnectionSort {
+    fields: (ArtifactConnectionSortByFieldsEnum | null)[]
+    order?: ArtifactConnectionSortOrderValues | null
+  }
+  /** Filter connection on its fields */
+  export interface FilterArtifact {
+    id?: ArtifactConnectionIdQueryString_2 | null
+    title?: ArtifactConnectionTitleQueryString_2 | null
+    description?: ArtifactConnectionDescriptionQueryString_2 | null
+    artifactType?: ArtifactConnectionArtifactTypeQueryString_2 | null
+    rating?: ArtifactConnectionRatingQueryInteger_2 | null
+    internal?: ArtifactConnectionInternalInputObject_2 | null
+    tags?: ArtifactConnectionTagsQueryList_2 | null
+    name?: ArtifactConnectionNameQueryString_2 | null
+    path?: ArtifactConnectionPathQueryString_2 | null
+    attunement?: ArtifactConnectionAttunementQueryString_2 | null
+    hearthstoneSlots?: ArtifactConnectionHearthstoneSlotsQueryInteger_2 | null
+    weight?: ArtifactConnectionWeightQueryString_2 | null
+    mobility?: ArtifactConnectionMobilityQueryInteger_2 | null
+    equipmentTags?: ArtifactConnectionEquipmentTagsQueryList_2 | null
+    era?: ArtifactConnectionEraQueryString_2 | null
+  }
+
+  export interface ArtifactConnectionIdQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface ArtifactConnectionTitleQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface ArtifactConnectionDescriptionQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface ArtifactConnectionArtifactTypeQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface ArtifactConnectionRatingQueryInteger_2 {
+    eq?: number | null
+    ne?: number | null
+    gt?: number | null
+    gte?: number | null
+    lt?: number | null
+    lte?: number | null
+    in?: (number | null)[] | null
+    nin?: (number | null)[] | null
+  }
+
+  export interface ArtifactConnectionInternalInputObject_2 {
+    description?: ArtifactConnectionInternalDescriptionQueryString_2 | null
+    type?: ArtifactConnectionInternalTypeQueryString_2 | null
+    contentDigest?: ArtifactConnectionInternalContentDigestQueryString_2 | null
+    owner?: ArtifactConnectionInternalOwnerQueryString_2 | null
+  }
+
+  export interface ArtifactConnectionInternalDescriptionQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface ArtifactConnectionInternalTypeQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface ArtifactConnectionInternalContentDigestQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface ArtifactConnectionInternalOwnerQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface ArtifactConnectionTagsQueryList_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface ArtifactConnectionNameQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface ArtifactConnectionPathQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface ArtifactConnectionAttunementQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface ArtifactConnectionHearthstoneSlotsQueryInteger_2 {
+    eq?: number | null
+    ne?: number | null
+    gt?: number | null
+    gte?: number | null
+    lt?: number | null
+    lte?: number | null
+    in?: (number | null)[] | null
+    nin?: (number | null)[] | null
+  }
+
+  export interface ArtifactConnectionWeightQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface ArtifactConnectionMobilityQueryInteger_2 {
+    eq?: number | null
+    ne?: number | null
+    gt?: number | null
+    gte?: number | null
+    lt?: number | null
+    lte?: number | null
+    in?: (number | null)[] | null
+    nin?: (number | null)[] | null
+  }
+
+  export interface ArtifactConnectionEquipmentTagsQueryList_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface ArtifactConnectionEraQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
   export interface SitePageJsonNameQueryString {
     eq?: string | null
     ne?: string | null
@@ -2648,6 +3179,19 @@ export namespace gatsbyGraphQL {
   }
 
   export interface SitePageComponentChunkNameQueryString {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface SitePageContextInputObject {
+    name?: SitePageContextNameQueryString | null
+  }
+
+  export interface SitePageContextNameQueryString {
     eq?: string | null
     ne?: string | null
     regex?: string | null
@@ -2711,6 +3255,7 @@ export namespace gatsbyGraphQL {
     plugins?: SitePagePluginCreatorPluginOptionsPluginsQueryList | null
     name?: SitePagePluginCreatorPluginOptionsNameQueryString | null
     path?: SitePagePluginCreatorPluginOptionsPathQueryString | null
+    artifact?: SitePagePluginCreatorPluginOptionsArtifactInputObject | null
     pathCheck?: SitePagePluginCreatorPluginOptionsPathCheckQueryBoolean | null
   }
 
@@ -2791,6 +3336,19 @@ export namespace gatsbyGraphQL {
   }
 
   export interface SitePagePluginCreatorPluginOptionsPathQueryString {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface SitePagePluginCreatorPluginOptionsArtifactInputObject {
+    template?: SitePagePluginCreatorPluginOptionsArtifactTemplateQueryString | null
+  }
+
+  export interface SitePagePluginCreatorPluginOptionsArtifactTemplateQueryString {
     eq?: string | null
     ne?: string | null
     regex?: string | null
@@ -3151,6 +3709,7 @@ export namespace gatsbyGraphQL {
     plugins?: SitePluginPluginOptionsPluginsQueryList_2 | null
     name?: SitePluginPluginOptionsNameQueryString_2 | null
     path?: SitePluginPluginOptionsPathQueryString_2 | null
+    artifact?: SitePluginPluginOptionsArtifactInputObject_2 | null
     pathCheck?: SitePluginPluginOptionsPathCheckQueryBoolean_2 | null
   }
 
@@ -3231,6 +3790,19 @@ export namespace gatsbyGraphQL {
   }
 
   export interface SitePluginPluginOptionsPathQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface SitePluginPluginOptionsArtifactInputObject_2 {
+    template?: SitePluginPluginOptionsArtifactTemplateQueryString_2 | null
+  }
+
+  export interface SitePluginPluginOptionsArtifactTemplateQueryString_2 {
     eq?: string | null
     ne?: string | null
     regex?: string | null
@@ -4390,10 +4962,9 @@ export namespace gatsbyGraphQL {
     description?: MarkdownRemarkFrontmatterDescriptionQueryString_2 | null
     artifactType?: MarkdownRemarkFrontmatterArtifactTypeQueryString_2 | null
     rating?: MarkdownRemarkFrontmatterRatingQueryInteger_2 | null
-    _PARENT?: MarkdownRemarkFrontmatterParentQueryString_2 | null
     essence?: MarkdownRemarkFrontmatterEssenceQueryInteger_2 | null
     type?: MarkdownRemarkFrontmatterTypeQueryString_2 | null
-    charms_needed?: MarkdownRemarkFrontmatterCharmsNeededQueryList_3 | null
+    charmsNeeded?: MarkdownRemarkFrontmatterCharmsNeededQueryList_2 | null
     cost?: MarkdownRemarkFrontmatterCostQueryString_2 | null
     keywords?: MarkdownRemarkFrontmatterKeywordsQueryList_2 | null
     duration?: MarkdownRemarkFrontmatterDurationQueryString_2 | null
@@ -4403,9 +4974,9 @@ export namespace gatsbyGraphQL {
     mobility?: MarkdownRemarkFrontmatterMobilityQueryInteger_2 | null
     equipmentTags?: MarkdownRemarkFrontmatterEquipmentTagsQueryList_2 | null
     era?: MarkdownRemarkFrontmatterEraQueryString_2 | null
+    _PARENT?: MarkdownRemarkFrontmatterParentQueryString_2 | null
     skill?: MarkdownRemarkFrontmatterSkillQueryInteger_2 | null
     mins?: MarkdownRemarkFrontmatterMinsQueryList_2 | null
-    charmsNeeded?: MarkdownRemarkFrontmatterCharmsNeededQueryList_4 | null
     required_charms?: MarkdownRemarkFrontmatterRequiredCharmsQueryList_2 | null
   }
 
@@ -4447,15 +5018,6 @@ export namespace gatsbyGraphQL {
     nin?: (number | null)[] | null
   }
 
-  export interface MarkdownRemarkFrontmatterParentQueryString_2 {
-    eq?: string | null
-    ne?: string | null
-    regex?: string | null
-    glob?: string | null
-    in?: (string | null)[] | null
-    nin?: (string | null)[] | null
-  }
-
   export interface MarkdownRemarkFrontmatterEssenceQueryInteger_2 {
     eq?: number | null
     ne?: number | null
@@ -4476,7 +5038,7 @@ export namespace gatsbyGraphQL {
     nin?: (string | null)[] | null
   }
 
-  export interface MarkdownRemarkFrontmatterCharmsNeededQueryList_3 {
+  export interface MarkdownRemarkFrontmatterCharmsNeededQueryList_2 {
     eq?: string | null
     ne?: string | null
     regex?: string | null
@@ -4570,6 +5132,15 @@ export namespace gatsbyGraphQL {
     nin?: (string | null)[] | null
   }
 
+  export interface MarkdownRemarkFrontmatterParentQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
   export interface MarkdownRemarkFrontmatterSkillQueryInteger_2 {
     eq?: number | null
     ne?: number | null
@@ -4582,15 +5153,6 @@ export namespace gatsbyGraphQL {
   }
 
   export interface MarkdownRemarkFrontmatterMinsQueryList_2 {
-    eq?: string | null
-    ne?: string | null
-    regex?: string | null
-    glob?: string | null
-    in?: (string | null)[] | null
-    nin?: (string | null)[] | null
-  }
-
-  export interface MarkdownRemarkFrontmatterCharmsNeededQueryList_4 {
     eq?: string | null
     ne?: string | null
     regex?: string | null
@@ -4744,6 +5306,334 @@ export namespace gatsbyGraphQL {
     in?: (number | null)[] | null
     nin?: (number | null)[] | null
   }
+
+  export interface EvocationIdQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface EvocationTitleQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface EvocationEssenceQueryInteger_2 {
+    eq?: number | null
+    ne?: number | null
+    gt?: number | null
+    gte?: number | null
+    lt?: number | null
+    lte?: number | null
+    in?: (number | null)[] | null
+    nin?: (number | null)[] | null
+  }
+
+  export interface EvocationTypeQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface EvocationCharmsNeededQueryList_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface EvocationInternalInputObject_2 {
+    description?: EvocationInternalDescriptionQueryString_2 | null
+    type?: EvocationInternalTypeQueryString_2 | null
+    contentDigest?: EvocationInternalContentDigestQueryString_2 | null
+    owner?: EvocationInternalOwnerQueryString_2 | null
+  }
+
+  export interface EvocationInternalDescriptionQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface EvocationInternalTypeQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface EvocationInternalContentDigestQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface EvocationInternalOwnerQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface EvocationTagsQueryList_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface EvocationNameQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface EvocationArtifactQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface EvocationPathQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface EvocationCostQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface EvocationKeywordsQueryList_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface EvocationDurationQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface ArtifactIdQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface ArtifactTitleQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface ArtifactDescriptionQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface ArtifactArtifactTypeQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface ArtifactRatingQueryInteger_2 {
+    eq?: number | null
+    ne?: number | null
+    gt?: number | null
+    gte?: number | null
+    lt?: number | null
+    lte?: number | null
+    in?: (number | null)[] | null
+    nin?: (number | null)[] | null
+  }
+
+  export interface ArtifactInternalInputObject_2 {
+    description?: ArtifactInternalDescriptionQueryString_2 | null
+    type?: ArtifactInternalTypeQueryString_2 | null
+    contentDigest?: ArtifactInternalContentDigestQueryString_2 | null
+    owner?: ArtifactInternalOwnerQueryString_2 | null
+  }
+
+  export interface ArtifactInternalDescriptionQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface ArtifactInternalTypeQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface ArtifactInternalContentDigestQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface ArtifactInternalOwnerQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface ArtifactTagsQueryList_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface ArtifactNameQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface ArtifactPathQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface ArtifactAttunementQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface ArtifactHearthstoneSlotsQueryInteger_2 {
+    eq?: number | null
+    ne?: number | null
+    gt?: number | null
+    gte?: number | null
+    lt?: number | null
+    lte?: number | null
+    in?: (number | null)[] | null
+    nin?: (number | null)[] | null
+  }
+
+  export interface ArtifactWeightQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface ArtifactMobilityQueryInteger_2 {
+    eq?: number | null
+    ne?: number | null
+    gt?: number | null
+    gte?: number | null
+    lt?: number | null
+    lte?: number | null
+    in?: (number | null)[] | null
+    nin?: (number | null)[] | null
+  }
+
+  export interface ArtifactEquipmentTagsQueryList_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
+
+  export interface ArtifactEraQueryString_2 {
+    eq?: string | null
+    ne?: string | null
+    regex?: string | null
+    glob?: string | null
+    in?: (string | null)[] | null
+    nin?: (string | null)[] | null
+  }
   export interface AllSitePageQueryArgs {
     skip?: number | null
     limit?: number | null
@@ -4774,12 +5664,25 @@ export namespace gatsbyGraphQL {
     sort?: MarkdownRemarkConnectionSort | null
     filter?: FilterMarkdownRemark | null
   }
+  export interface AllEvocationQueryArgs {
+    skip?: number | null
+    limit?: number | null
+    sort?: EvocationConnectionSort | null
+    filter?: FilterEvocation | null
+  }
+  export interface AllArtifactQueryArgs {
+    skip?: number | null
+    limit?: number | null
+    sort?: ArtifactConnectionSort | null
+    filter?: FilterArtifact | null
+  }
   export interface SitePageQueryArgs {
     jsonName?: SitePageJsonNameQueryString | null
     internalComponentName?: SitePageInternalComponentNameQueryString | null
     path?: SitePagePathQueryString_2 | null
     component?: SitePageComponentQueryString | null
     componentChunkName?: SitePageComponentChunkNameQueryString | null
+    context?: SitePageContextInputObject | null
     pluginCreator?: SitePagePluginCreatorInputObject | null
     pluginCreatorId?: SitePagePluginCreatorIdQueryString_2 | null
     componentPath?: SitePageComponentPathQueryString | null
@@ -4893,6 +5796,38 @@ export namespace gatsbyGraphQL {
     timeToRead?: TimeToReadQueryInt_3 | null
     tableOfContents?: TableOfContentsQueryString_3 | null
     wordCount?: WordCountTypeName_3 | null
+  }
+  export interface EvocationQueryArgs {
+    id?: EvocationIdQueryString_2 | null
+    title?: EvocationTitleQueryString_2 | null
+    essence?: EvocationEssenceQueryInteger_2 | null
+    type?: EvocationTypeQueryString_2 | null
+    charmsNeeded?: EvocationCharmsNeededQueryList_2 | null
+    internal?: EvocationInternalInputObject_2 | null
+    tags?: EvocationTagsQueryList_2 | null
+    name?: EvocationNameQueryString_2 | null
+    artifact?: EvocationArtifactQueryString_2 | null
+    path?: EvocationPathQueryString_2 | null
+    cost?: EvocationCostQueryString_2 | null
+    keywords?: EvocationKeywordsQueryList_2 | null
+    duration?: EvocationDurationQueryString_2 | null
+  }
+  export interface ArtifactQueryArgs {
+    id?: ArtifactIdQueryString_2 | null
+    title?: ArtifactTitleQueryString_2 | null
+    description?: ArtifactDescriptionQueryString_2 | null
+    artifactType?: ArtifactArtifactTypeQueryString_2 | null
+    rating?: ArtifactRatingQueryInteger_2 | null
+    internal?: ArtifactInternalInputObject_2 | null
+    tags?: ArtifactTagsQueryList_2 | null
+    name?: ArtifactNameQueryString_2 | null
+    path?: ArtifactPathQueryString_2 | null
+    attunement?: ArtifactAttunementQueryString_2 | null
+    hearthstoneSlots?: ArtifactHearthstoneSlotsQueryInteger_2 | null
+    weight?: ArtifactWeightQueryString_2 | null
+    mobility?: ArtifactMobilityQueryInteger_2 | null
+    equipmentTags?: ArtifactEquipmentTagsQueryList_2 | null
+    era?: ArtifactEraQueryString_2 | null
   }
   export interface DistinctSitePageConnectionArgs {
     field?: SitePageDistinctEnum | null
@@ -5157,6 +6092,9 @@ export namespace gatsbyGraphQL {
   export interface HeadingsMarkdownRemarkArgs {
     depth?: HeadingLevels | null
   }
+  export interface TableOfContentsMarkdownRemarkArgs {
+    pathToSlugField?: string | null
+  }
   export interface DistinctMarkdownRemarkConnectionArgs {
     field?: MarkdownRemarkDistinctEnum | null
   }
@@ -5164,6 +6102,22 @@ export namespace gatsbyGraphQL {
     skip?: number | null
     limit?: number | null
     field?: MarkdownRemarkGroupEnum | null
+  }
+  export interface DistinctEvocationConnectionArgs {
+    field?: EvocationDistinctEnum | null
+  }
+  export interface GroupEvocationConnectionArgs {
+    skip?: number | null
+    limit?: number | null
+    field?: EvocationGroupEnum | null
+  }
+  export interface DistinctArtifactConnectionArgs {
+    field?: ArtifactDistinctEnum | null
+  }
+  export interface GroupArtifactConnectionArgs {
+    skip?: number | null
+    limit?: number | null
+    field?: ArtifactGroupEnum | null
   }
   export interface PortSiteArgs {
     formatString?:
@@ -5200,6 +6154,7 @@ export namespace gatsbyGraphQL {
     | "path"
     | "component"
     | "componentChunkName"
+    | "context___name"
     | "pluginCreator___NODE"
     | "pluginCreatorId"
     | "componentPath"
@@ -5218,6 +6173,7 @@ export namespace gatsbyGraphQL {
     | "path"
     | "component"
     | "componentChunkName"
+    | "context___name"
     | "pluginCreator___NODE"
     | "pluginCreatorId"
     | "componentPath"
@@ -5234,6 +6190,7 @@ export namespace gatsbyGraphQL {
     | "path"
     | "component"
     | "componentChunkName"
+    | "context___name"
     | "pluginCreator___NODE"
     | "pluginCreatorId"
     | "componentPath"
@@ -5252,6 +6209,7 @@ export namespace gatsbyGraphQL {
     | "pluginOptions___plugins"
     | "pluginOptions___name"
     | "pluginOptions___path"
+    | "pluginOptions___artifact___template"
     | "pluginOptions___pathCheck"
     | "nodeAPIs"
     | "browserAPIs"
@@ -5282,6 +6240,7 @@ export namespace gatsbyGraphQL {
     | "pluginOptions___plugins"
     | "pluginOptions___name"
     | "pluginOptions___path"
+    | "pluginOptions___artifact___template"
     | "pluginOptions___pathCheck"
     | "nodeAPIs"
     | "browserAPIs"
@@ -5310,6 +6269,7 @@ export namespace gatsbyGraphQL {
     | "pluginOptions___plugins"
     | "pluginOptions___name"
     | "pluginOptions___path"
+    | "pluginOptions___artifact___template"
     | "pluginOptions___pathCheck"
     | "nodeAPIs"
     | "browserAPIs"
@@ -5579,6 +6539,7 @@ export namespace gatsbyGraphQL {
 
   export type MarkdownRemarkConnectionSortByFieldsEnum =
     | "id"
+    | "children"
     | "parent"
     | "internal___content"
     | "internal___type"
@@ -5589,10 +6550,9 @@ export namespace gatsbyGraphQL {
     | "frontmatter___description"
     | "frontmatter___artifactType"
     | "frontmatter___rating"
-    | "frontmatter____PARENT"
     | "frontmatter___essence"
     | "frontmatter___type"
-    | "frontmatter___charms_needed"
+    | "frontmatter___charmsNeeded"
     | "frontmatter___cost"
     | "frontmatter___keywords"
     | "frontmatter___duration"
@@ -5602,9 +6562,9 @@ export namespace gatsbyGraphQL {
     | "frontmatter___mobility"
     | "frontmatter___equipmentTags"
     | "frontmatter___era"
+    | "frontmatter____PARENT"
     | "frontmatter___skill"
     | "frontmatter___mins"
-    | "frontmatter___charmsNeeded"
     | "frontmatter___required_charms"
     | "excerpt"
     | "rawMarkdownBody"
@@ -5622,6 +6582,7 @@ export namespace gatsbyGraphQL {
 
   export type MarkdownRemarkDistinctEnum =
     | "id"
+    | "children"
     | "parent"
     | "internal___content"
     | "internal___type"
@@ -5632,10 +6593,9 @@ export namespace gatsbyGraphQL {
     | "frontmatter___description"
     | "frontmatter___artifactType"
     | "frontmatter___rating"
-    | "frontmatter____PARENT"
     | "frontmatter___essence"
     | "frontmatter___type"
-    | "frontmatter___charms_needed"
+    | "frontmatter___charmsNeeded"
     | "frontmatter___cost"
     | "frontmatter___keywords"
     | "frontmatter___duration"
@@ -5645,9 +6605,9 @@ export namespace gatsbyGraphQL {
     | "frontmatter___mobility"
     | "frontmatter___equipmentTags"
     | "frontmatter___era"
+    | "frontmatter____PARENT"
     | "frontmatter___skill"
     | "frontmatter___mins"
-    | "frontmatter___charmsNeeded"
     | "frontmatter___required_charms"
     | "excerpt"
     | "rawMarkdownBody"
@@ -5656,6 +6616,7 @@ export namespace gatsbyGraphQL {
 
   export type MarkdownRemarkGroupEnum =
     | "id"
+    | "children"
     | "parent"
     | "internal___content"
     | "internal___type"
@@ -5666,10 +6627,9 @@ export namespace gatsbyGraphQL {
     | "frontmatter___description"
     | "frontmatter___artifactType"
     | "frontmatter___rating"
-    | "frontmatter____PARENT"
     | "frontmatter___essence"
     | "frontmatter___type"
-    | "frontmatter___charms_needed"
+    | "frontmatter___charmsNeeded"
     | "frontmatter___cost"
     | "frontmatter___keywords"
     | "frontmatter___duration"
@@ -5679,12 +6639,136 @@ export namespace gatsbyGraphQL {
     | "frontmatter___mobility"
     | "frontmatter___equipmentTags"
     | "frontmatter___era"
+    | "frontmatter____PARENT"
     | "frontmatter___skill"
     | "frontmatter___mins"
-    | "frontmatter___charmsNeeded"
     | "frontmatter___required_charms"
     | "excerpt"
     | "rawMarkdownBody"
     | "fileAbsolutePath"
     | "fields___sourceName"
+
+  export type EvocationConnectionSortByFieldsEnum =
+    | "id"
+    | "parent"
+    | "title"
+    | "essence"
+    | "type"
+    | "charmsNeeded"
+    | "internal___description"
+    | "internal___type"
+    | "internal___contentDigest"
+    | "internal___owner"
+    | "tags"
+    | "name"
+    | "artifact"
+    | "path"
+    | "cost"
+    | "keywords"
+    | "duration"
+
+  export type EvocationConnectionSortOrderValues = "ASC" | "DESC"
+
+  export type EvocationDistinctEnum =
+    | "id"
+    | "parent"
+    | "title"
+    | "essence"
+    | "type"
+    | "charmsNeeded"
+    | "internal___description"
+    | "internal___type"
+    | "internal___contentDigest"
+    | "internal___owner"
+    | "tags"
+    | "name"
+    | "artifact"
+    | "path"
+    | "cost"
+    | "keywords"
+    | "duration"
+
+  export type EvocationGroupEnum =
+    | "id"
+    | "parent"
+    | "title"
+    | "essence"
+    | "type"
+    | "charmsNeeded"
+    | "internal___description"
+    | "internal___type"
+    | "internal___contentDigest"
+    | "internal___owner"
+    | "tags"
+    | "name"
+    | "artifact"
+    | "path"
+    | "cost"
+    | "keywords"
+    | "duration"
+
+  export type ArtifactConnectionSortByFieldsEnum =
+    | "id"
+    | "parent"
+    | "title"
+    | "description"
+    | "artifactType"
+    | "rating"
+    | "internal___description"
+    | "internal___type"
+    | "internal___contentDigest"
+    | "internal___owner"
+    | "tags"
+    | "name"
+    | "path"
+    | "attunement"
+    | "hearthstoneSlots"
+    | "weight"
+    | "mobility"
+    | "equipmentTags"
+    | "era"
+
+  export type ArtifactConnectionSortOrderValues = "ASC" | "DESC"
+
+  export type ArtifactDistinctEnum =
+    | "id"
+    | "parent"
+    | "title"
+    | "description"
+    | "artifactType"
+    | "rating"
+    | "internal___description"
+    | "internal___type"
+    | "internal___contentDigest"
+    | "internal___owner"
+    | "tags"
+    | "name"
+    | "path"
+    | "attunement"
+    | "hearthstoneSlots"
+    | "weight"
+    | "mobility"
+    | "equipmentTags"
+    | "era"
+
+  export type ArtifactGroupEnum =
+    | "id"
+    | "parent"
+    | "title"
+    | "description"
+    | "artifactType"
+    | "rating"
+    | "internal___description"
+    | "internal___type"
+    | "internal___contentDigest"
+    | "internal___owner"
+    | "tags"
+    | "name"
+    | "path"
+    | "attunement"
+    | "hearthstoneSlots"
+    | "weight"
+    | "mobility"
+    | "equipmentTags"
+    | "era"
 }

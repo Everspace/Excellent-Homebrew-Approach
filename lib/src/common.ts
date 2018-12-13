@@ -17,7 +17,9 @@ export const getApi: NodeApiFunctionGenerator = (moduleName, api) => {
       return m[api]
     }
   } catch (e) {
-    console.log(`Could not import ${name}.${api}: see the following error:`)
+    console.log(
+      `Could not import ${moduleName}.${api}: see the following error:`,
+    )
     console.log(e)
     throw e
   }

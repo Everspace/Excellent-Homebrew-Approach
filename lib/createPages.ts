@@ -1,4 +1,4 @@
-import path from "path"
+import * as path from "path"
 import { gatsby } from "../types/GatsbyNodeApi"
 
 type CreatePageFunction = (

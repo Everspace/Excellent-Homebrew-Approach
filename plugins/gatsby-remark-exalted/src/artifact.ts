@@ -1,36 +1,23 @@
 import {
   baseNode,
-  pathify,
-  digest,
   createPageFactory,
-  getPathParts,
+  digest,
   getFileNode,
-} from "./common"
-import { createEvocationNode } from "./evocation"
-import { missingDataError } from "./errors"
+  getManditoryFrontmatter,
+  getPathParts,
+  pathify,
+} from "common"
+import { createEvocationNode } from "evocation"
+import { resolve } from "path"
 
-/**
- *
- * @param {string} item
- * @param {*} props
- * @returns {string} the attribute
- */
-const getManditoryFrontmatter = async (item, props) => {
-  const { node } = props
-  let parts = await getPathParts(props)
-  if (node.frontmatter[item]) {
-    return node.frontmatter[item]
-  }
+const defaultTemplate = resolve(__dirname, "templates/artiftact.tsx")
 
-  missingDataError(item, parts.join("/"))
-}
-
-const makeName = async props => {
-  let fileNode = await getFileNode(props)
+const makeName = async (props) => {
+  const fileNode = await getFileNode(props)
 
   /** @type {string[]} */
   const parts = await getPathParts(props)
-  let isIndexFile = fileNode.name.match(/[iI]ndex/)
+  const isIndexFile = fileNode.name.match(/[iI]ndex/)
 
   // Construct name
   if (isIndexFile) {
@@ -38,13 +25,13 @@ const makeName = async props => {
     return parts.pop()
   } else {
     // It was just sitting there and still has the . in the name
-    let name = parts.pop()
+    const name = parts.pop()
     return name.substring(0, name.lastIndexOf("."))
   }
 }
 
-export const createArtifactNode = async props => {
-  let { node } = props
+export const createArtifactNode = async (props) => {
+  const { node } = props
 
   if (node.fields.sourceName !== "Artifacts") {
     return null
@@ -53,10 +40,10 @@ export const createArtifactNode = async props => {
   // All artifacts have a rating, if they don't they're probably
   // an evocation.
   if (typeof node.frontmatter.rating !== "number") {
-    return await createEvocationNode(props)
+    return createEvocationNode(props)
   }
 
-  let result = baseNode(props, "Artifact")
+  const result = baseNode(props, "Artifact")
   result.tags = ["Artifact", ...(result.tags || [])]
 
   result.name = await makeName(props)
@@ -69,7 +56,7 @@ export const createArtifactNode = async props => {
   /** @type {string} */
   result.artifactType = await getManditoryFrontmatter("artifactType", props)
 
-  let mantditoryAttributes = []
+  const mantditoryAttributes = []
   const isAWeightyThing = result.artifactType.match(
     /(([Aa]rmou?rs?)|([Ww]eapons?))/,
   )
@@ -78,7 +65,7 @@ export const createArtifactNode = async props => {
     mantditoryAttributes.push("weight")
   }
 
-  await mantditoryAttributes.forEach(async attribute => {
+  await mantditoryAttributes.forEach(async (attribute) => {
     result[attribute] = await getManditoryFrontmatter(attribute, props)
   })
 
@@ -88,12 +75,9 @@ export const createArtifactNode = async props => {
   return result
 }
 
-/**
- * The Gatsby API
- * @param {*} props
- * @param {*} pluginOptions
- */
-export const onCreateNode = async function(props, pluginOptions) {
+export const onCreateNode: Gatsby.onCreateNode<{}> = async function(
+  props
+) {
   const { node, getNode, loadNodeContent, actions, createNodeId } = props
   const { createNode, createParentChildLink } = actions
 
@@ -102,7 +86,7 @@ export const onCreateNode = async function(props, pluginOptions) {
     return
   }
 
-  const makeNode = async newNode => {
+  const makeNode = async (newNode) => {
     if (!newNode) {
       return
     }
@@ -126,6 +110,6 @@ const createPageFunction = ({ createPage }, { node }, component) => {
 
 export const createPages = createPageFactory(
   "Artifact",
-  "./src/templates/artifact.js",
+  "./src/templates/artifact.tsx",
   createPageFunction,
 )

@@ -37,7 +37,7 @@ export default ({ data }) => {
 //           name
 //           essence
 //           keywords
-//           charms_needed
+//           charmsNeeded
 //           cost
 //           type
 //           essence

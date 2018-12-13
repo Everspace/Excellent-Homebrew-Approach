@@ -1,10 +1,26 @@
 require("source-map-support").install()
-require("ts-node").register(require("./tsconfig.json"))
 
 /**
  * Implement Gatsby's Node APIs in this file.
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
+path = require("path")
 
-exports.onCreateWebpackConfig = require("./lib/onCreateWebpackConfig").default
+const func = ({ actions, stage }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      modules: [path.resolve(__dirname, "src")],
+    },
+  })
+
+  switch (stage) {
+    case `develop`:
+      actions.setWebpackConfig({
+        devtool: `inline-module-source-map`,
+      })
+      break
+  }
+}
+
+exports.onCreateWebpackConfig = func

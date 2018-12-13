@@ -1,11 +1,15 @@
-import React from "react"
-import PropTypes from "prop-types"
 import { css } from "emotion"
+import PropTypes from "prop-types"
+import React from "react"
 import { classNames } from "style/common"
+import { gatsbyGraphQL } from "../../types/GatsbyGraphQL"
 
 export const dot = "•"
 
-export const artifactRatingSort = (a, b) => {
+export const artifactRatingSort = (
+  a: gatsbyGraphQL.Artifact,
+  b: gatsbyGraphQL.Artifact,
+) => {
   // Both art N/A
   if (a.rating < 0 && b.rating < 0) {
     return 0
@@ -27,11 +31,11 @@ export const artifactRatingSort = (a, b) => {
   return a.rating - b.rating
 }
 
-let ratingStyle = css`
+const ratingStyle = css`
   padding-left: 0.25em;
   padding-right: 0.25em;
 `
-const RatingSpan = props => (
+const RatingSpan = (props) => (
   <span {...props} className={classNames(props, ratingStyle)} />
 )
 

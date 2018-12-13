@@ -48,11 +48,11 @@ const KeywordLine = ({ node: { keywords } }) => (
   </div>
 )
 
-const PrerequisitesLine = ({ node: { charms_needed } }) =>
-  charms_needed ? (
+const PrerequisitesLine = ({ node: { charmsNeeded } }) =>
+  charmsNeeded ? (
     <div key="prereqs">
       <strong>Prerequisites: </strong>
-      {charms_needed.sort().join(", ")}
+      {charmsNeeded.sort().join(", ")}
     </div>
   ) : null
 

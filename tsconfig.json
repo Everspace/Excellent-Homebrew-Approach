@@ -2,11 +2,13 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es2017",
-    "baseUrl": "src",
+    "baseUrl": "./src",
     "jsx": "react",
     "lib": ["es2017"],
-    "typeRoots": ["./types"],
-    "moduleResolution": "node"
+    "typeRoots": ["types"],
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true
   },
   "exclude": ["**/node_modules/**", "__mocks__"],
   "typeAcquisition": {

@@ -1,13 +1,11 @@
-import { gatsbyGraphQL } from "./GatsbyGraphQL"
-
-declare var Node: gatsbyGraphQL.Node
-export namespace GatsbyNodeApi {
+declare namespace Gatsby {
   /** An object with an id, parent, and children */
   export interface Node {
     id: string /** The id of the node. */
     parent?: Node | null /** The parent of this node. */
     children?: Array<Node | null> | null /** The children of this node. */
   }
+
   export interface PageInput {
     path: string
     component: string
@@ -35,14 +33,18 @@ export namespace GatsbyNodeApi {
   export type actionOptions = any
 
   export interface onCreateNodeProps {
-    node: {}
+    node: createNodeOptions
     getNode: () => any
     loadNodeContent: () => any
+    createNodeId: () => string
     actions: {
       createNode: createNode
-      createParentChildeLink: () => any,
+      createParentChildLink: (options: {
+        parent: Node, child: Node
+      }) => any,
     }
   }
+
   export type onCreateNode<pluginOptionsType> = (
     props: onCreateNodeProps,
     pluginOptions: pluginOptionsType,
@@ -89,12 +91,12 @@ export namespace GatsbyNodeApi {
     description: string
   }
 
-  export interface createNodeOptions extends gatsbyGraphQL.Node {
+  export interface createNodeOptions extends Node {
     internal: NodeInternalData
   }
 
   export type createNode = (
     NodeData: createNodeOptions,
-    actionOptions: any,
+    actionOptions?: any,
   ) => void
 }

@@ -1,14 +1,20 @@
 import crypto from "crypto"
 import dashify from "dashify"
+import { missingDataError } from "errors"
+import path from "path"
+
+interface GetFileNodeProps {
+  node: { parent: string }
+  getNode: (string) => Promise<any>
+}
 
 /**
  * Pulls the filesystem info from the props
- * @param {*} props base props from onCreateNode
+ * @param props base props from onCreateNode
  */
-export const getFileNode = async props => {
+export const getFileNode = async (props: GetFileNodeProps) => {
   const { node, getNode } = props
-
-  return await getNode(node.parent)
+  return getNode(node.parent)
 }
 
 /**
@@ -16,33 +22,33 @@ export const getFileNode = async props => {
  * @example
  *  let parts = await getPathParts(props)
  *  // parts = ["Accessory", "Handwerksring", "index.md"]
- * @param {} props
- * @returns {string[]} path array
+ * @param props
+ * @returns path array
  */
-export const getPathParts = async props => {
+export const getPathParts = async (props) => {
   const fileNode = await getFileNode(props)
   return fileNode.relativePath.split("/")
 }
 
 /**
  * Turn a series of things into a path
- * @param  {...string} args ["a", "Bee Sea"]
- * @returns {string} "/a/bee-sea"
+ * @param args ["a", "Bee Sea"]
+ * @returns "/a/bee-sea"
  */
-export const pathify = (...args) => {
-  return "/" + args.map(dashify).join("/")
+export const pathify = (...args: string[]) => {
+  return "/" + args.map((s) => dashify(s)).join("/")
 }
 
 /**
  * Turn a thing into an anchor to slap on a path  =>
- * @param {string} anchor "Thing Ding Ding"
- * @returns {string} "#thing-ding-ding"
+ * @param anchor "Thing Ding Ding"
+ * @returns "#thing-ding-ding"
  */
-export const anchorate = anchor => {
+export const anchorate = (anchor: string) => {
   return "#" + dashify(anchor)
 }
 
-export const digest = node => {
+export const digest = (node: any) => {
   node.internal.contentDigest = crypto
     .createHash(`md5`)
     .update(JSON.stringify(node))
@@ -61,9 +67,24 @@ export const baseNode = ({ node, createNodeId }, type) => {
     ...node.frontmatter,
     internal: {
       description: `Exalted ${type}`,
-      type: type,
+      type,
     },
   }
+}
+
+/**
+ * @param item key of frontmatter to get
+ * @param props from the call
+ * @returns the attribute
+ */
+export const getManditoryFrontmatter = async (item: string, props: any) => {
+  const { node } = props
+  const parts = await getPathParts(props)
+  if (node.frontmatter[item]) {
+    return node.frontmatter[item]
+  }
+
+  missingDataError(item, parts.join("/"))
 }
 
 // query is of fn(graphql)
@@ -74,17 +95,17 @@ export const createPageFactory = (
   createPageFunction,
   query = defaultQuery,
 ) => {
-  return createPageProps => {
-    let { graphql, actions } = createPageProps
-    let component = path.resolve(template)
+  return (createPageProps) => {
+    const { graphql, actions } = createPageProps
+    const component = path.resolve(template)
 
     return new Promise((resolve, reject) => {
-      query(graphql, nodeName).then(result => {
+      query(graphql, nodeName).then((result) => {
         if (result.errors) {
           reject(result.errors)
         }
 
-        result.data[`all${nodeName}`].edges.forEach(edge =>
+        result.data[`all${nodeName}`].edges.forEach((edge) =>
           createPageFunction(actions, edge, component),
         )
         resolve()

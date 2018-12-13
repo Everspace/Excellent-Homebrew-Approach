@@ -1,0 +1,128 @@
+{
+  "data": {
+    "allArtifact": {
+      "pageInfo": {
+        "hasNextPage": false
+      },
+      "group": [
+        {
+          "fieldValue": "Accessory",
+          "totalCount": 5,
+          "pageInfo": {
+            "hasNextPage": false
+          },
+          "edges": [
+            {
+              "node": {
+                "id": "df365e95-b169-5911-b7ce-6973afe2590b",
+                "path": "/artifacts/grand-oak-weights",
+                "name": "Grand Oak Weights",
+                "description": "Wood and Crystal Bracelet, Anklets, and Necklace",
+                "rating": 2
+              }
+            },
+            {
+              "node": {
+                "id": "727bbd22-1d73-55bb-81ea-25fbb0fe44af",
+                "path": "/artifacts/memory-beads",
+                "name": "Memory Beads",
+                "description": "Dreamstone and White Jade beads",
+                "rating": 2
+              }
+            },
+            {
+              "node": {
+                "id": "b687d5ee-eff6-5d79-9ce1-d0b7fcb426b1",
+                "path": "/artifacts/handwerksring",
+                "name": "Handwerksring",
+                "description": "White Jade and Iron Ring",
+                "rating": 4
+              }
+            },
+            {
+              "node": {
+                "id": "aed6dbaf-5a8d-57e2-8764-5dc972f00e89",
+                "path": "/artifacts/tyrant-s-band",
+                "name": "Tyrant's Band",
+                "description": "Tyrant Lizard Leather and Oricalcum Belt",
+                "rating": 5
+              }
+            },
+            {
+              "node": {
+                "id": "6cdc1f1e-a8ea-57c4-83f1-579028e8537f",
+                "path": "/artifacts/sonnenring",
+                "name": "Sonnenring",
+                "description": "Oricalcum and Primordial Fire Ring",
+                "rating": 6
+              }
+            }
+          ]
+        },
+        {
+          "fieldValue": "Armour",
+          "totalCount": 1,
+          "pageInfo": {
+            "hasNextPage": false
+          },
+          "edges": [
+            {
+              "node": {
+                "id": "b13917c5-bb8a-5bee-8b86-e49f593f779c",
+                "path": "/artifacts/obsidian-sheath",
+                "name": "Obsidian Sheath",
+                "description": "Obsidian and Orichalcum Dragon King Armour",
+                "rating": 4
+              }
+            }
+          ]
+        },
+        {
+          "fieldValue": "Misc",
+          "totalCount": 1,
+          "pageInfo": {
+            "hasNextPage": false
+          },
+          "edges": [
+            {
+              "node": {
+                "id": "746e2d70-b7a2-515e-b5c3-acfc21533430",
+                "path": "/artifacts/incomparable-lady-s-arsenal",
+                "name": "Incomparable Lady's Arsenal",
+                "description": "Jade and Wood Storage Box",
+                "rating": 3
+              }
+            }
+          ]
+        },
+        {
+          "fieldValue": "Weapon",
+          "totalCount": 2,
+          "pageInfo": {
+            "hasNextPage": false
+          },
+          "edges": [
+            {
+              "node": {
+                "id": "64015318-e5fc-5847-9fba-f10b45e7fc84",
+                "path": "/artifacts/hands-of-fate",
+                "name": "Hands of Fate",
+                "description": "Starmetal Fingerless Gloves",
+                "rating": 4
+              }
+            },
+            {
+              "node": {
+                "id": "567e2b82-d34e-5c90-9bed-05d5e9c7e5a7",
+                "path": "/artifacts/myriad-forms",
+                "name": "Myriad Forms",
+                "description": "Starmetal Filagree Frying Pan",
+                "rating": 4
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

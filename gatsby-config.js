@@ -1,4 +1,5 @@
 const slash = require("slash")
+const path = require("path")
 
 const makeFolder = name => ({
   resolve: "gatsby-source-filesystem",
@@ -18,7 +19,7 @@ module.exports = {
     makeFolder("Artifacts"),
     makeFolder("Splats"),
     "gatsby-plugin-emotion",
-    "gatsby-plugin-resolve-src",
+    // "gatsby-plugin-resolve-src",
     "gatsby-plugin-react-helmet",
     {
       resolve: "gatsby-transformer-remark",
@@ -28,6 +29,13 @@ module.exports = {
     },
     "gatsby-plugin-typescript",
     //Custom plugins
-    // "gatsby-remark-exalted",
+    {
+      resolve: "gatsby-remark-exalted",
+      options: {
+        artifact: {
+          template: path.resolve(__dirname, "./src/templates/artifact.tsx"),
+        },
+      },
+    },
   ],
 }
