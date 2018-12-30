@@ -1,6 +1,11 @@
 import { graphql } from "gatsby"
+import { gatsbyGraphQL } from "./GatsbyGraphQL"
 
 declare namespace gatsby {
+  type FunctionComponent = React.FunctionComponent<{
+    data: gatsbyGraphQL.Query,
+  }>
+
   export interface PageInput {
     path: string
     component: string

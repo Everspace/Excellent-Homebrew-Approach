@@ -37,7 +37,7 @@ const Group: React.FunctionComponent<{
   )
 }
 
-const ArtifactPage: gatsby.GatsbyQLConnectedFn = ({ data }) => {
+const ArtifactPage: gatsby.FunctionComponent = ({ data }) => {
   const artifacts = data.allArtifact.group.map((edge) => <Group group={edge} />)
   return (
     <Layout title={"Artifacts"}>
