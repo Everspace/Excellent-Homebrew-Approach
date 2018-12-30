@@ -1,5 +1,8 @@
 ---
 name: Hungry Eyes Style
+artifact: Tyrant's Band
+contentType: Evocation
+
 essence: 1
 cost: 5m
 type: Simple

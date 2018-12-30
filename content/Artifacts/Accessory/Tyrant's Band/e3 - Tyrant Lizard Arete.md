@@ -1,13 +1,17 @@
 ---
+name: Tyrant Lizard Arete
+artifact: Tyrant's Band
+contentType: Evocation
+
 essence: 3
 type: Simple
 duration: 1 scene
 keywords:
-- Resonant
+  - Resonant
 cost: 15m 2wp (5m, 1wp)
 charmsNeeded:
-- Apex Predator Attitude
-- Tyrant's Dread Symmetry
+  - Apex Predator Attitude
+  - Tyrant's Dread Symmetry
 ---
 
 The exalt stands taller and taller, until they become the Tyrant Lizard.
@@ -17,9 +21,9 @@ She also gains the Legendary Size merit for the rest of the scene.
 
 Against smaller enemies:
 
-* You do not take onslaught penalties from any attack unless magical.
-* **Withering** attacks cannot drop the wearer below 1i unless they have a post-soak damage of 10 dice (still gaining the full initiative worth of damage).
-* **Decisive** attacks cannot deal more than (3 + attacker's strength) levels of damage with a single attack unless otherwise added by Charms or other magic.
+- You do not take onslaught penalties from any attack unless magical.
+- **Withering** attacks cannot drop the wearer below 1i unless they have a post-soak damage of 10 dice (still gaining the full initiative worth of damage).
+- **Decisive** attacks cannot deal more than (3 + attacker's strength) levels of damage with a single attack unless otherwise added by Charms or other magic.
 
 If the wielder already has the Legendary Size merit for some other mysterious reason, they may instead pay 5m 1wp
 
@@ -29,4 +33,4 @@ This Evocation can only be used once per story. The Exalt may reset it when she 
 
 **Special Activation:** attunement blah blah blah
 
-**Note:** I don't have enough charms between the start and this one. Also it needs something spicer perhaps
+**Note:** I don't have enough charms between the start and this one. Also it needs something spicier perhaps

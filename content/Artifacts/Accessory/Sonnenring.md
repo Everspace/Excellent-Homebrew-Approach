@@ -1,5 +1,5 @@
 ---
 description: Oricalcum and Primordial Fire Ring
 artifactType: Accessory
-rating: 6
+rating: N/A
 ---

@@ -1,10 +1,14 @@
 ---
+name: Prey Strangling Attitude
+artifact: Tyrant's Band
+contentType: Evocation
+
 essence: 1
 type: Supplementary
 duration: Instant
 cost: 3m
 charmsNeeded:
-- Devil Strangling Attitude
+  - Devil Strangling Attitude
 ---
 
 The Solar's grip digs into a hapless soul that mimics the way the lizard grips with their teeth.

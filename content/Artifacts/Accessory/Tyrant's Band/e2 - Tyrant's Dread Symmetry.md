@@ -1,10 +1,14 @@
 ---
+name: Tyrant's Dread Symmetry
+artifact: Tyrant's Band
+contentType: Evocation
+
 essence: 2
 type: Permanent
 duration: Permanent
 charmsNeeded:
-- Furious Rampage Approach
-- Tiger's Dread Symmetry
+  - Furious Rampage Approach
+  - Tiger's Dread Symmetry
 ---
 
 None can look upon a Tyrant Lizard and not feel terror.

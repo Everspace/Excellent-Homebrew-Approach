@@ -1,4 +1,8 @@
 ---
+name: Poised Tyrant's Attitude
+artifact: Tyrant's Band
+contentType: Evocation
+
 essence: 1
 type: Reflexive
 duration: Instant

@@ -1,13 +1,17 @@
 ---
+name: Tyrant Body Exercise
+artifact: Tyrant's Band
+contentType: Evocation
+
 essence: 2
 type: Supplementary
 duration: Indefinite
 cost: (2m or 1i)/dot
 keywords:
-- Apocryphal
-- Stackable
+  - Apocryphal
+  - Stackable
 charmsNeeded:
-- Increasing Strength Exercise
+  - Increasing Strength Exercise
 ---
 
 Meditating on the nature of the tyrant lizard, the Solar becomes able to exert themselves at all times with the body of a titan.

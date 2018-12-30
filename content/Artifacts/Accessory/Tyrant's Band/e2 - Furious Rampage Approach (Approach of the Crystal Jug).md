@@ -1,10 +1,14 @@
 ---
+name: Furious Ramage Approach (Approach of the Crystal Jug)
+artifact: Tyrant's Band
+contentType: Evocation
+
 essence: 2
 type: Supplementary
 duration: Instant
 cost: 2m
 charmsNeeded:
-- Hungry Eyes Style
+  - Hungry Eyes Style
 ---
 
 Nothing comes between the Tyrant Lizard and its prey.

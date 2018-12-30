@@ -1,4 +1,8 @@
 ---
+name: Boulder and Sky Marriage
+artifact: Tyrant's Band
+contentType: Evocation
+
 essence: 1
 type: Supplementary
 duration: Instant

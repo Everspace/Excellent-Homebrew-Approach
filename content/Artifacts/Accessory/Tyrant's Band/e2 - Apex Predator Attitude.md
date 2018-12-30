@@ -1,10 +1,14 @@
 ---
+name: Apex Predator Attitude
+artifact: Tyrant's Band
+contentType: Evocation
+
 essence: 2
 type: Permanent
 duration: Permanent
 cost: — (1wp)
 charmsNeeded:
-- Hungry Eyes Style
+  - Hungry Eyes Style
 ---
 
 The tyrant lizard fears none while it is on the hunt.
