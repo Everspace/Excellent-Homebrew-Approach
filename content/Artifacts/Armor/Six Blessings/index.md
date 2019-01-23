@@ -12,7 +12,7 @@ era: The Very Recently
 rating: 4
 ---
 
-It is said when lessens are not learned fate repeats itself. The sidereal exalted haven't learned anything. Upon donning a familiar disguise, and carrying a familiar walking stick, a solar named Joseph travelled to Yu Shan. The Neophyte Sidereal (now a proper elder) accepted a second request of starmetal on peach-tree wood at the behest of a peer.
+It is said when lessons are not learned fate repeats itself. The sidereal exalted haven't learned anything. Upon donning a familiar disguise, and carrying a familiar walking stick, a solar named Joseph travelled to Yu Shan. The Neophyte Sidereal (now a proper elder) accepted a second request of starmetal on peach-tree wood at the behest of a peer.
 
 "A blessing of the maidens on each bead, how lovely!" said she as she did her work. "But you brought six beads for five maidens. What should be put on the last?"
 
