@@ -4,6 +4,9 @@ contentType: Charm
 splat: Under a Guiding Star
 name:
 
+book:
+page:
+
 essence:
 ability:
 abilityDots:
@@ -16,6 +19,8 @@ type: Supplemental
 duration:
 keywords:
 
-#
+# Optional tags, perhaps the heading where they're under. Mostly intended for my own uses
 tags:
 ---
+
+Here is markdown text!
