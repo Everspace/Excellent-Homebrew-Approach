@@ -1,4 +1,5 @@
 ---
+description: Peach of Immortality wood and starmetal auspicious prayer beads
 artifactType: Armour
 weight: Light
 attunement: 4m
