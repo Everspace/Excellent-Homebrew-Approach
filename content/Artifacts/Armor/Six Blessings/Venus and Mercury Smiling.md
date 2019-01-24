@@ -8,8 +8,8 @@ keywords:
 
 Each bead is a prayer, and every prayer a blessing confirred. Venus and Mercury share a kindred spirit toward movement for a continued creation.
 
-When you first light the bead of **Adventure** or **Joy** and whenever you would light them again, gain a protective pool of 2i that must be drained before any excess damage spills over to the barer of Six Blessings.
+While the bead of **Adventure** or **Joy** is lit, gain 1 non-charm autosuccess to rush or disengage.
 
-When you have 3 beads lit, the protective pool increases to 4i.
+If 3 beads are lit this increases to 2 non-charm autosuccesses
 
-When you have 6 beads lit, this applies to any action that would light any bead.
+If all 6 beads are lit this you may activate this charm once per scene to automatically succeed on a rush or disengage action.
