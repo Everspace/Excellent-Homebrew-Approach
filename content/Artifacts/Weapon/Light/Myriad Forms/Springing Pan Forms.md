@@ -1,9 +1,9 @@
 ---
 essence: 1
 cost: ~
-type: Permenent
+type: Permanent
 keywords:
-  - Permenent
+  - Permanent
 ---
 
 As the pancake leaps effortlessly from the pan, so too does a well trained Martial Artist into any form.
