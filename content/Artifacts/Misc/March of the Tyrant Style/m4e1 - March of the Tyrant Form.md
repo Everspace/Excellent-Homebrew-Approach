@@ -4,7 +4,9 @@ type: Simple
 duration: Scene
 cost: 8m
 charms_needed:
-  - Martial Arts 3
+  - Martial Arts 4
+  - Majestic Roar Entrance
+  - World-Shaking Persuit Technique
 keywords:
   - Form
 ---

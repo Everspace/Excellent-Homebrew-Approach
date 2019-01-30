@@ -5,6 +5,7 @@ duration: Instant
 cost: 6m
 charms_needed:
   - Martial Arts 3
+  - Bristling Scales Defence
 ---
 
 The silence is broken by an explosion of scarlet essence that rocks the world around the stylist, as they unleash a roar that deafens those around them.
