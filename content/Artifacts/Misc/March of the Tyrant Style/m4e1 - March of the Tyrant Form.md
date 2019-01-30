@@ -11,7 +11,7 @@ keywords:
 
 The stylist stands perfectly still, unnerving their fleeing quarry for a moment. The blood in their veins visibly burning red through their skin as a wide grin appears on their lips, their eyes projecting a hungry glare.
 
-- The stylist gains non-charm dice based on the difference between their strength and the opponent's.
+- The stylist gains non-charm dice to attacks based on the difference between their strength and the opponent's.
 - The stylist gains 1 parry.
 - Mobility Penalties are inverted, turning penalties into bonuses.
 
