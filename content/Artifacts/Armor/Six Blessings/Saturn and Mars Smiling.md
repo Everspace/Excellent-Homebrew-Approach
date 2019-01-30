@@ -1,9 +1,8 @@
 ---
 essence: 1
-cost: ~
-type: Permanent
-keywords:
-  - Permanent
+cost: 2m
+type: Supplemental
+duration: Scene
 ---
 
 Each bead is a prayer, and every prayer a blessing confirred. Saturn and Mars share a kindred spirit towards fighting (albeit for different ends).
