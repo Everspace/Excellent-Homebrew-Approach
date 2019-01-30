@@ -36,7 +36,10 @@ export const query = graphql`
       ...Ast
     }
 
-    allEvocation(filter: { artifact: { eq: $name } }) {
+    allEvocation(
+      filter: { artifact: { eq: $name } }
+      sort: { fields: [essence, name], order: ASC }
+    ) {
       edges {
         node {
           id
