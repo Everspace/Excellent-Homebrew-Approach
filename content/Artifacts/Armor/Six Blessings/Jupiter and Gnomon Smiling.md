@@ -1,4 +1,6 @@
 ---
+name: Jupiter and Gnomon Smiling
+artifact: Six Blessings
 essence: 1
 cost: ~
 type: Permanent

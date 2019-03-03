@@ -1,4 +1,6 @@
 ---
+artifact: Obsidian Sheath
+name: Strength of Aegis
 cost: 3m
 essence: 1
 type: Uniform

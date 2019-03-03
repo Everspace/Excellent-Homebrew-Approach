@@ -1,4 +1,6 @@
 ---
+name: Prior Blessings Meditation
+artifact: Six Blessings
 cost: Light of 6 beads
 essence: 3
 type: Reflexive

@@ -1,4 +1,6 @@
 ---
+name: Saturn and Mars Smiling
+artifact: Six Blessings
 essence: 1
 cost: 2m
 type: Supplemental

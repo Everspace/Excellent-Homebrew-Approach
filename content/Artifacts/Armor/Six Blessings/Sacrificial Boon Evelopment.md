@@ -1,4 +1,6 @@
 ---
+name: Sacrificial boon Envelopment
+artifact: Six Blessings
 cost: 1 Bead's light
 essence: 2
 type: Reflexive

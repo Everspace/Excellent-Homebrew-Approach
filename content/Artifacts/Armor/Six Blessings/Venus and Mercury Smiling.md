@@ -1,4 +1,6 @@
 ---
+name: Venus and Mercury Smiling
+artifact: Six Blessings
 essence: 1
 cost: ~
 type: Permanent

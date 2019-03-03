@@ -1,4 +1,5 @@
 ---
+artifact: Obsidian Sheath
 description: Obsidian and Orichalcum Dragon King Armour
 artifactType: Armour
 weight: Medium

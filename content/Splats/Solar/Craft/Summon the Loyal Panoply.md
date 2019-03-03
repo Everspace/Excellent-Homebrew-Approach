@@ -1,11 +1,14 @@
 ---
+name: Summon the Loyal Panoply
+splat: Solar
+ability: Craft
 essence: 1
 skill: 3
 type: Simple
 duration: Indefinite
 cost: 1m/3 items
 required_charms:
-- Craftsman Need No Tools
+  - Craftsman Need No Tools
 ---
 
 With a moment of concentration, the Solar may banish a thing they have made or own that they can hold in their hands elsewhere.
