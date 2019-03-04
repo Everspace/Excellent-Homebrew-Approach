@@ -18,4 +18,4 @@ It was originally worn by the Elite troops of the Dragon Kings, but it is rare w
 
 <attunement></attunement>
 
-By attuning to the Obsidian Sheath, the wearer is blessed with considerable strength and agility as the plate assists in its user’s movement. A lawbringer becomes able to move at a speed of 15 miles per hour outside of combat, covering up to 210 miles in a day without fatigue. It's slim fitting makes it easy to conceal under cothing, and it's perfect fit makes the wearer suffer no mobility penalties for it.
+By attuning to the Obsidian Sheath, the wearer is blessed with considerable strength and agility as the plate assists in its user’s movement. A lawbringer becomes able to move at a speed of 15 miles per hour outside of combat, covering up to 210 miles in a day without fatigue. It's slim fitting makes it easy to conceal under clothing, and it's perfect fit makes the wearer suffer no mobility penalties for it.
