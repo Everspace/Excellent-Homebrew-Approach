@@ -75,22 +75,18 @@ export const createPageFactory = (
   createPageFunction,
   query = defaultQuery,
 ) => {
-  return createPageProps => {
+  return async createPageProps => {
     let { graphql, actions } = createPageProps
     let component = path.resolve(template)
 
-    return new Promise((resolve, reject) => {
-      query(graphql, nodeName).then(result => {
-        if (result.errors) {
-          reject(result.errors)
-        }
+    const result = await query(graphql, nodeName)
+    if (result.errors) {
+      reject(result.errors)
+    }
 
-        result.data[`all${nodeName}`].edges.forEach(edge =>
-          createPageFunction(actions, edge, component),
-        )
-        resolve()
-      })
-    })
+    result.data[`all${nodeName}`].edges.forEach(edge =>
+      createPageFunction(actions, edge, component),
+    )
   }
 }
 

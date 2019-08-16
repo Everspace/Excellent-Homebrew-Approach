@@ -1,4 +1,4 @@
-import { css } from "emotion"
+import { css } from "@emotion/core"
 
 /**
  * @param {*} props incoming react props

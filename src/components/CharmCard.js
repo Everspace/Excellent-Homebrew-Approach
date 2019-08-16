@@ -1,6 +1,6 @@
 import React from "react"
-import { cardClass } from "style/common"
-import RenderAst from "lib/RenderAst"
+import { cardClass } from "../style/common"
+import RenderAst from "../lib/RenderAst"
 import dashify from "dashify"
 
 const MinimumsLine = ({ node }) => {
@@ -58,7 +58,7 @@ const PrerequisitesLine = ({ node: { charms_needed } }) =>
 
 const CharmCard = ({ node }) => {
   return (
-    <div style={{ paddingTop: "1em" }} id={dashify(node.name)} className={cardClass}>
+    <div style={{ paddingTop: "1em" }} id={dashify(node.name)} css={cardClass}>
       <h2>{node.name}</h2>
       <hr />
       <div>

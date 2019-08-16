@@ -4,8 +4,7 @@ import { Link, graphql } from "gatsby"
 import Rating, { artifactRatingSort } from "components/Rating"
 
 const ArtifactPage = ({ data }) => {
-  let artifacts = data.allArtifact.edges
-    .map(({ node }) => node)
+  let artifacts = data.allArtifact.nodes
     .sort(artifactRatingSort)
     .map(node => (
       <li key={node.id}>
@@ -31,15 +30,13 @@ export default ArtifactPage
 export const query = graphql`
   {
     allArtifact {
-      edges {
-        node {
+        nodes {
           id
           path
           name
           description
           rating
         }
-      }
     }
   }
 `

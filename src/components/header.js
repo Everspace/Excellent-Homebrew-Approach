@@ -2,8 +2,7 @@
 // tslint:disable
 import React from "react"
 import { Link } from "gatsby"
-import { css } from "emotion"
-import { classNames } from "style/common"
+import { css } from "@emotion/core"
 
 const titleBarStyle = css`
   background: rebeccapurple;
@@ -26,11 +25,11 @@ const headerLinkStyle = css`
   cursor: pointer;
 `
 
-const Header = ({ siteTitle, ...props }) => (
-  <div className={classNames(props, titleBarStyle)}>
-    <div className={headerHolderStyle}>
-      <h1 className={headerStyle}>
-        <Link to="/" className={headerLinkStyle}>
+const Header = ({ siteTitle, css, ...props }) => (
+  <div css={[css, titleBarStyle]}>
+    <div css={headerHolderStyle}>
+      <h1 css={headerStyle}>
+        <Link to="/" css={headerLinkStyle}>
           {siteTitle}
         </Link>
       </h1>

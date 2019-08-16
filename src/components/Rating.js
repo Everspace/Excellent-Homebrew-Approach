@@ -1,8 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { css } from "emotion"
-import { classNames } from "style/common"
-
+import { css } from "@emotion/core"
 export const dot = "•"
 
 export const artifactRatingSort = (a, b) => {
@@ -32,7 +30,7 @@ let ratingStyle = css`
   padding-right: 0.25em;
 `
 const RatingSpan = props => (
-  <span {...props} className={classNames(props, ratingStyle)} />
+  <span {...props} css={ratingStyle} />
 )
 
 const Rating = ({ r, ...props }) => {

@@ -1,13 +1,13 @@
 ---
-layout: page
 title: Craft Redux
+path: /craft-redux
 ---
 
 Rejigger the tree to be more acceptable to dips and the Craft Supernal. If you can Nine-Aeons Whew for 6 charms, you should be able to Dual Magnus Prana.
 
 Charms that are missing have been removed, attempting to keep the most interesting bits together.
 
-### General Rulings
+# General Rulings
 
 - Charms that modify the creation rules of an artifact must be spent as the first roll is performed (Thousand Forge Hands).
 - Charms that modify a singular craft must be payed per finishing roll.
@@ -16,29 +16,27 @@ Charms that are missing have been removed, attempting to keep the most interesti
 - A great way to stunt is to describe the the hours laboured rubbing oils into the blade, or folding sunlight into the jade and oricalcum amalgam to surround a demon's tooth. Talk about the process of bringing a new wonder into the world, and the character's thoughts and feelings doing so.
 - Craft charms will create non-charm dice and successes generally unless specifically said so otherwise.
 
+# Charm Categories
+
 ## Power
 
 <hr/>
 
 Do the dice better.
 
-- <book r="Flawless Handiwork Method"></book> Explode 10s, repurchase for exploding 6s.
-- <book r="Supreme Masterwork Focus"></book> Double 6s, and repurchase and pay differently for 8s or 7s.
+- <book r="Flawless Handiwork Method" %} Explode 10s, repurchase for exploding 6s.
+- <book r="Supreme Masterwork Focus" %} Double 6s, and repurchase and pay differently for 8s or 7s.
 - **First Word of the Demiurge**: 6m - Remove 3-of-a-kind from the dice rolled to make a non-charm 10
 - **Second Word of the Demiurge**: 6m - Remove a run of 4 (like 2, 3, 4, 5) to make a non-charm 10
 - **Final Word of the Demiurge**: Upgrade _Second Word of the Demiurge_ to allow a run of 3 (2, 3, 4) to make a non-charm 10.
 - **Oricalcum Fervor**: 1wp - Use 3 un-used successes made so far to add a non-charm die.
 - **Sacrosanct Delirium**: Upgrade to _Oricalcum Fervor_ to make it add 3 non-charm dice instead of 1.
 
-### Cascade
-
-todo
-
-### Additional Notes
+**Additional Notes:**
 
 - **Flawless Handiwork Method** and **Supreme Masterwork Focus** retain their repurchases, and effect the entire duration of the craft.
 
-### How do I drive this thing
+**How do I drive this thing**
 
 You roll the dice, and before the craft finishes, may spend motes and willpower to perform charms like the the various _Words of the Demiurge_ and _Oricalcum Fervor_ to attempt to garner additional successes.
 
@@ -92,14 +90,10 @@ The effects are generally as follows:
 - <book r="Spirit-Stoking Elevation" pg=291 %}: Use wxp instead of regular xp for charms
 - <book r="Exegesis of the Distilled Form" pg=291 %}: wxp -> xp
 
-### Additional Notes
+**Additional Notes**
 
 - **Unwinding Gyre Meditation** may also apply to artifacts within 1 rating of each-other. A •• artifact's gxp may be used to add the effects to a ••• artifact and vice versa.
 - **Spirit-Stoking Elevation** if used in lore charms or other cases will cause those effects to only refund wxp.
-
-### Cascade
-
-![Craft-Conversion](/assets/img/Craft-Conversion.svg){:class="img-responsive"}
 
 ## Frugality
 
@@ -113,12 +107,12 @@ Reduction of costs and discounts for crafting
 - <book r="Spirit-Gathering Industry" pg=290 %}: Reduce cost of rolls for superior projects by (essence) min 3.
 - <book r="God-Forge Within" pg=921 %}: 2 permanent legendary slots
 
-### Additional Notes
+**Additional Notes**
 
 - **Tireless Workhorse Method** may be repurchased.
 - **Clay and Breath Practice** is an essence 2 charm.
 
-### Cascade
+**Cascade**
 
 A straight line in the order listed above.
 
@@ -133,8 +127,6 @@ The number of sxp you obtain from fulfilling an objective on a basic project is 
 
 ## Aspiration
 
-<hr/>
-
 Creation of resources.
 
 Aspiration is the advancement of Conversion (changing one thing to another) and Frugality (not spending).
@@ -143,11 +135,11 @@ Aspiration is the advancement of Conversion (changing one thing to another) and 
 - <book r="Supreme Perfection of Craft" %}
 - <book r="Divine Transcendence of Craft" %}
 
-### Additional Notes
+**Additional Notes**
 
 - **Peerless Paragon of Craft** requires **Clay and Breath Practice**, and **Sublime Transference**, and is now an Essence 2 charm.
 
-### Cascade
+**Cascade**
 
 A straight line in the order listed above.
 
@@ -157,19 +149,19 @@ A straight line in the order listed above.
 
 Charms that reflect the genius foresight of the Solars. These generally reflect the panning and prior thought to making things happen.
 
-- <book r="Thousand-Forge Hands"></book>
-- <book r="Ever-Ready Innovation Discipline"></book>
-- <book r="Vice-Miracle Technique"></book>
-- <book r="Wonder-Forging Genius"></book>
-- <book r="Dual Magnus Prana"></book>
-- <book r="Words as Workshop Method"></book>
+- <book r="Thousand-Forge Hands" %}
+- <book r="Ever-Ready Innovation Discipline" %}
+- <book r="Vice-Miracle Technique" %}
+- <book r="Wonder-Forging Genius" %}
+- <book r="Dual Magnus Prana" %}
+- <book r="Words as Workshop Method" %}
 
-### Additional Notes
+**Additional Notes**
 
 - **Dual Magnus Prana** and **Words as Workshop** method require the craftsperson to be introduced to at least **Terrestrial Circle Sorcery** or it's equivalent.
 - **Words as Workshop Method** additionally requires **Craftsman Needs No Tools**
 
-### Cascade
+**Cascade**
 
 todo
 
@@ -179,16 +171,16 @@ todo
 
 Craft things as the need arises.
 
-- <book r="Craftsman Needs No Tools"></book>
-- <book r="Shattering Grasp"></book>
-- <book r="Bright-Forging Prana"></book>
+- <book r="Craftsman Needs No Tools" %}
+- <book r="Shattering Grasp" %}
+- <book r="Bright-Forging Prana" %}
 
-### Additional Notes
+**Additional Notes**
 
 - **Craftsman Needs No Tools** requires Craft 2
 - **Shattering Grasp** requires Craft 3
 
-### Cascade
+**Cascade**
 
 A straight line in the order listed above.
 
@@ -198,12 +190,12 @@ A straight line in the order listed above.
 
 The strengthening of creations to resist the weathering of time, battering rams, or the wyld.
 
-- <book r="Durability-Enhancing Technique"></book>
-- <book r="Object-Strengthening Touch"></book>
-- <book r="The Art of Permanence"></book>
-- <book r="Chaos-Resistance Preparation"></book>
+- <book r="Durability-Enhancing Technique" %}
+- <book r="Object-Strengthening Touch" %}
+- <book r="The Art of Permanence" %}
+- <book r="Chaos-Resistance Preparation" %}
 
-### Additional Notes
+**Additional Notes**
 
 - **Durability-Enhancing Technique** requires Craft 2
 - **Object-Strengthening Touch** requires Craft 3
@@ -214,16 +206,16 @@ The strengthening of creations to resist the weathering of time, battering rams,
 
 <hr/>
 
-- <book r=""></book>
-- <book r="Breach-Healing Method"></book>
-- <book r="Realizing the Form Supernal"></book>
+- <book r="" %}
+- <book r="Breach-Healing Method" %}
+- <book r="Realizing the Form Supernal" %}
 
-### Additional Notes
+**Additional Notes**
 
 - **Breach-Healing Method** requires Craft 3, and one of Lore or Medicine 3.
 - **Realizing the Form Supernal** requires Craft 4.
 
-### Cascade
+**Cascade**
 
 A straight line in the order listed above.
 
@@ -233,13 +225,13 @@ A straight line in the order listed above.
 
 Improving or reiterating on a particular Artifact.
 
-- <book r="Design Beyond Limit"></book>
+- <book r="Design Beyond Limit" %}
 
-### Additional Notes
+**Additional Notes**
 
 - **Design Beyond Limit** requires Craft 5, **Durability-Enhancing Technique**, and **Crack Mending Technique**
 
-### Cascade
+**Cascade**
 
 It's one charm dude.
 
@@ -251,10 +243,10 @@ Effects that demonstrate the complete competence of the Solar exalted, making th
 
 - todo
 
-### Additional Notes
+**Additional Notes**
 
 todo
 
-### Cascade
+**Cascade**
 
 A straight line in the order listed above.

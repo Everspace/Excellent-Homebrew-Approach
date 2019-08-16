@@ -1,4 +1,6 @@
 import { baseNode, anchorate, pathify } from "./common"
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 
 export const createEvocationNode = async props => {
   let { node, getNode } = props

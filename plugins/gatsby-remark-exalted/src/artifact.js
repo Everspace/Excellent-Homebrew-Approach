@@ -9,6 +9,9 @@ import {
 import { createEvocationNode } from "./evocation"
 import { missingDataError } from "./errors"
 
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+
 /**
  *
  * @param {string} item
@@ -93,7 +96,7 @@ export const createArtifactNode = async props => {
  * @param {*} props
  * @param {*} pluginOptions
  */
-export const onCreateNode = async function(props, pluginOptions) {
+export const onCreateNode = async function (props, pluginOptions) {
   const { node, getNode, loadNodeContent, actions, createNodeId } = props
   const { createNode, createParentChildLink } = actions
 
@@ -115,7 +118,7 @@ export const onCreateNode = async function(props, pluginOptions) {
 }
 
 const createPageFunction = ({ createPage }, { node }, component) => {
-  createPage({
+  return createPage({
     path: node.path,
     component,
     context: {

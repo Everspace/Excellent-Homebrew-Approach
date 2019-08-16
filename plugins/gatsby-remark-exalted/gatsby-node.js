@@ -1,4 +1,6 @@
 const myModules = ["artifact"]
+require("core-js/stable")
+require("regenerator-runtime/runtime")
 
 /**
  * Get all api from available modules
@@ -28,6 +30,6 @@ exports.onCreateNode = (props, pluginOptions) => {
 }
 
 const createPagesApis = harvestApis("createPages")
-exports.createPages = props => {
-  return createPagesApis.map(fn => fn(props))
+exports.createPages = (props) => {
+  return Promise.all(createPagesApis.map(fn => fn(props)))
 }

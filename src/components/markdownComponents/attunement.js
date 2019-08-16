@@ -1,5 +1,5 @@
 import React from "react"
-import { css } from "emotion"
+import { css } from "@emotion/core"
 import { wrapContext } from "lib/GatsbyContext"
 import { cardClass } from "style/common"
 
