@@ -107,6 +107,7 @@ This is how I interpret the various socially aligned stats. This is not the be-a
 * Every artifact gains 1 "free" evocation at every essence level. This includes already released ones.
 * Evocations are "as good" as ~1-2 dice off of equal essence solar charms if you are resonant.
 * Attunements are like a (Dot rating -1) solar charm.
+* The stunt for crafting an artifact carries throughout an extended craft. If you write me a little paragraph or two about how you make the thing (as a short story) you get an automatic 3 point stunt to carry through.
 
 # Time
 
